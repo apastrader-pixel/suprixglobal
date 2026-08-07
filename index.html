@@ -1033,9 +1033,11 @@
         }
         .logo-img {
             height: 38px;
-            width: auto;
-            object-fit: contain;
+            width: 38px;
+            object-fit: cover;
+            border-radius: 50%;
             filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.2));
+            border: 2px solid rgba(212, 175, 55, 0.3);
         }
         input,
         select,
@@ -1782,7 +1784,7 @@
         <div id="receiptModal" class="receipt-modal hidden">
             <div class="receipt-card" id="receiptCard">
                 <div class="globe-watermark"><i class="fa-solid fa-globe"></i></div>
-                <div class="receipt-logo"><img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" style="height:32px;object-fit:contain;display:inline-block;border-radius:50%" /><small>Premium • Gold Edition</small></div>
+                <div class="receipt-logo"><img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" style="height:32px;width:32px;object-fit:cover;border-radius:50%;display:inline-block;border:2px solid #d4af37;" /><small>Premium • Gold Edition</small></div>
                 <div class="receipt-header"><h3><i class="fa-solid fa-receipt mr-2"></i> Official Payment Receipt</h3><button class="receipt-close" onclick="closeReceipt()"><i class="fa-solid fa-xmark"></i></button></div>
                 <div id="receiptContent"></div>
                 <div class="receipt-footer"><button class="btn-download" onclick="downloadReceipt()"><i class="fa-solid fa-download"></i> डाउनलोड करें</button><button class="btn-print" onclick="printReceipt()"><i class="fa-solid fa-print"></i> प्रिंट करें</button></div>
@@ -2699,7 +2701,7 @@
                             body { background:#f5f0eb; display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0; padding:20px; font-family:'Poppins',sans-serif; }
                             .receipt-card { background:#ffffff; border-radius:16px; padding:24px; max-width:480px; width:100%; border:3px solid #d4af37; }
                             .receipt-logo { text-align:center; padding-bottom:12px; border-bottom:1px solid rgba(212,175,55,0.1); }
-                            .receipt-logo img { height:32px; object-fit:contain; display:inline-block; }
+                            .receipt-logo img { height:32px; width:32px; object-fit:cover; border-radius:50%; display:inline-block; border:2px solid #d4af37; }
                             .receipt-logo small { display:block; font-size:9px; color:#6b4a7a; letter-spacing:2px; }
                             .receipt-row { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid rgba(0,0,0,0.04); font-size:12px; }
                             .receipt-row .label { color:#6b4a7a; }
@@ -2749,7 +2751,7 @@
                             body { background:#f5f0eb; display:flex; justify-content:center; padding:30px 20px; font-family:'Poppins',sans-serif; }
                             .receipt-card { background:#ffffff; border-radius:16px; padding:24px; max-width:480px; width:100%; border:3px solid #d4af37; }
                             .receipt-logo { text-align:center; padding-bottom:12px; border-bottom:1px solid rgba(212,175,55,0.1); }
-                            .receipt-logo img { height:32px; object-fit:contain; display:inline-block; }
+                            .receipt-logo img { height:32px; width:32px; object-fit:cover; border-radius:50%; display:inline-block; border:2px solid #d4af37; }
                             .receipt-logo small { display:block; font-size:9px; color:#6b4a7a; letter-spacing:2px; }
                             .receipt-row { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid rgba(0,0,0,0.04); font-size:12px; }
                             .receipt-row .label { color:#6b4a7a; }
@@ -2776,7 +2778,7 @@
                             .ex-rate-badge { display:inline-block; background:rgba(212,175,55,0.1); padding:1px 12px; border-radius:20px; font-size:9px; color:#d4af37; }
                             @media print { body { background:#fff; } .receipt-card { border-color:#d4af37; background:#f9f9f9; } }
                         </style></head><body>
-                        <div class="receipt-card"><div class="receipt-logo"><img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" style="height:32px;object-fit:contain;display:inline-block;" /><small>Premium • Gold Edition</small></div>${content.innerHTML}<div class="watermark">© SupriX Global • सुरक्षित लेनदेन • $1 = ₹${EXCHANGE_RATE}</div></div>
+                        <div class="receipt-card"><div class="receipt-logo"><img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" style="height:32px;width:32px;object-fit:cover;border-radius:50%;display:inline-block;border:2px solid #d4af37;" /><small>Premium • Gold Edition</small></div>${content.innerHTML}<div class="watermark">© SupriX Global • सुरक्षित लेनदेन • $1 = ₹${EXCHANGE_RATE}</div></div>
                         </body></html>
                     `);
             win.document.close();
@@ -2810,14 +2812,13 @@
                 if (pageId === 'stakingPage') renderStakingDetails();
                 if (pageId === 'profilePage') { renderProfileDetails();
                     generateReferralQR(); }
-                // Start cooldown timer if on dashboard
                 if (pageId === 'dashboardPage') startCooldownTimer();
                 else stopCooldownTimer();
             }
         }
 
         // ============================================================
-        // COOLDOWN TIMER (auto-refresh every second)
+        // COOLDOWN TIMER
         // ============================================================
         function startCooldownTimer() {
             stopCooldownTimer();
@@ -2988,8 +2989,7 @@
                         showToast('✅ नया यूजर बनाया गया!', 'success');
                     } catch (createErr) {
                         console.error('Create document failed:', createErr);
-                        showToast('❌ ID Blocked
-                            'error');
+                        showToast('❌ कृपया पुनः प्रयास करें।', 'error');
                         document.getElementById('loadingOverlay').classList.remove('show');
                         setButtonLoading(btn, false);
                         return;
@@ -3006,8 +3006,6 @@
                     setButtonLoading(btn, false);
                     return;
                 }
-
-                // No dailyRewards field – we store daily rewards in transactions
 
                 await loadStakingSettings();
                 await autoUnlockMaturedStakes();
@@ -3059,7 +3057,7 @@
                     newAccount = await account.create(ID.unique(), email, phone, name);
                 } catch (authErr) {
                     if (authErr.message && authErr.message.includes('already exists')) {
-                        showToast(' ं पहले से मौजूद!', 'error');
+                        showToast('Auth में पहले से मौजूद!', 'error');
                         document.getElementById('loadingOverlay').classList.remove('show');
                         setButtonLoading(btn, false);
                         return;
@@ -3163,7 +3161,6 @@
             document.getElementById('statDailyUsdt').innerHTML = `${dailyRelease.toFixed(2)} USDT`;
             document.getElementById('statAvailable').innerHTML =
                 `${parseFloat(currentUser.coins||0).toFixed(2)} <span class="currency-usdt">USDT</span>`;
-            // Update cooldown display
             updateCooldownDisplay();
         }
 
@@ -3198,7 +3195,6 @@
                 return;
             }
 
-            // Disable button temporarily to prevent double-click
             if (btn) {
                 btn.disabled = true;
                 btn.style.opacity = '0.6';
@@ -3210,7 +3206,6 @@
                 const newCoins = parseFloat(currentUser.coins || 0) + reward;
                 const receiptId = generateReceiptId();
 
-                // Store daily reward in transactions array (existing field)
                 const txs = [...(currentUser.transactions || [])];
                 txs.push({
                     type: 'daily_reward',
@@ -3231,14 +3226,12 @@
                     transactions: JSON.stringify(txs)
                 });
 
-                // Update local state
                 currentUser.coins = newCoins;
                 currentUser.transactions = txs;
 
                 localStorage.setItem('cx_last_claimed_' + currentUser.$id, String(now));
 
                 updateDashboardStats();
-                // New success message as requested
                 const msg =
                     `🎉 Congratulations! आपका Daily Reward सफलतापूर्वक आपके अकाउंट में क्रेडिट कर दिया गया है। 24 घंटे बाद फिर से आपका इंतज़ार रहेगा। SupriX Global से जुड़े रहने के लिए धन्यवाद! आपका दिन शुभ हो।`;
                 showVoiceToast(msg);
@@ -3248,11 +3241,7 @@
                 showToast(`✅ ${reward.toFixed(2)} USDT (₹${(reward * EXCHANGE_RATE).toFixed(2)}) रिवॉर्ड मिला!`, 'success');
             } catch (e) {
                 console.error('Mining reward error:', e);
-                // Show a more specific error if it's about dailyRewards
                 let errorMsg = 'क्षमा करें, आपका डेली रिवॉर्ड इस समय प्राप्त नहीं हो सका। कृपया कुछ देर बाद पुनः प्रयास करें।';
-                if (e.message && e.message.includes('dailyRewards')) {
-                    errorMsg = '❌ सर्वर त्रुटि: dailyRewards फ़ील्ड मौजूद नहीं है। हमने इसे ठीक कर दिया है, कृपया पुनः प्रयास करें।';
-                }
                 showVoiceToast(errorMsg);
                 speakHindi(
                     'क्षमा करें, आपका डेली रिवॉर्ड इस समय प्राप्त नहीं हो सका। कृपया कुछ देर बाद पुनः प्रयास करें। यदि समस्या बनी रहती है, तो सहायता केंद्र से संपर्क करें। धन्यवाद।'
@@ -3264,13 +3253,12 @@
                     btn.style.opacity = '1';
                     btn.style.cursor = 'pointer';
                 }
-                // Refresh cooldown display
                 updateCooldownDisplay();
             }
         }
 
         // ============================================================
-        // SAVE USER FIELDS - FIXED: no dailyRewards
+        // SAVE USER FIELDS
         // ============================================================
         async function saveUserFields(fields) {
             if (!currentUser) return;
@@ -3618,7 +3606,7 @@
         }
 
         // ============================================================
-        // SUPRIX WALLET WITHDRAWAL (SPX ID based)
+        // SUPRIX WALLET WITHDRAWAL
         // ============================================================
         async function submitCoinXWalletWithdrawal() {
             if (!currentUser) { showToast('लॉगिन करें।', 'error'); return; }
@@ -3737,7 +3725,6 @@
                 if (currentUser?.pendingWithdrawal) entries.unshift({ ...currentUser.pendingWithdrawal,
                     status: 'Pending', type: 'withdrawal' });
             } else if (currentTxHistoryTab === 'daily') {
-                // Daily rewards are stored as transactions with type 'daily_reward'
                 entries = [...(currentUser?.transactions || []).filter(t => t.type === 'daily_reward')];
             }
             if (entries.length === 0) { list.innerHTML =
@@ -3816,10 +3803,17 @@
         }
 
         // ============================================================
-        // SLIDER
+        // SLIDER - Updated with Gift Offers
         // ============================================================
         function generateSliderData() {
-            const baseSlides = [
+            // Use 30 slides - first 3 are gift offers, rest motivational
+            const giftSlides = [
+                { icon: '🎁', line1: '500 USDT + 3 Active Referral', line2: 'पर मिलेगा स्लिम कीपैड फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
+                { icon: '📱', line1: '1050 USDT + 10 Active Referral', line2: 'पर मिलेगा ₹10000 का Android फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
+                { icon: '📟', line1: '2100 USDT + 5 Active Referral', line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁', badge: '🎁 गिफ्ट 🎁' },
+            ];
+
+            const motivationalSlides = [
                 { icon: '🚀', line1: 'अपने सपनों को पंख लगाओ', line2: 'SupriX Global के साथ आज ही शुरू करें',
                     badge: '✦ शुरुआत ✦' },
                 { icon: '💎', line1: 'हर कॉइन कीमती है', line2: 'SPX ID से सुरक्षित लेनदेन', badge: '✦ सुरक्षा ✦' },
@@ -3835,14 +3829,6 @@
                     badge: '✦ लक्ष्य ✦' },
                 { icon: '🔥', line1: 'आज पसीना बहाओ, कल दुनिया सलाम करेगी', line2: 'मेहनत की आग में तपकर ही सोना चमकता है',
                     badge: '✦ तपस्या ✦' },
-                { icon: '🎁', line1: '500 USDT + 3 Active Referral', line2: 'पर मिलेगा स्लिम कीपैड फोन 🎁',
-                    badge: '🎁 गिफ्ट 🎁' },
-                { icon: '📱', line1: '1050 USDT + 10 Active Referral', line2: 'पर मिलेगा ₹10000 का Android फोन 🎁',
-                    badge: '🎁 गिफ्ट 🎁' },
-                { icon: '📟', line1: '2100 USDT + 5 Active Referral', line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁',
-                    badge: '🎁 गिफ्ट 🎁' },
-                { icon: '🏍️', line1: '100 Active Referral × 10000 USDT Stake', line2: 'पर मिलेगी ₹100000 की बाइक 🏍️',
-                    badge: '🎁 गिफ्ट 🎁' },
                 { icon: '🏆', line1: 'सम्मानित किया जाएगा कंपनी की ओर से', line2: 'आपकी मेहनत को मिलेगा पहचान',
                     badge: '✦ सम्मान ✦' },
                 { icon: '🌅', line1: 'हर सुबह एक नई शुरुआत है', line2: 'अपने सपनों को पंख लगाओ और उड़ान भरो',
@@ -3879,14 +3865,32 @@
                 { icon: '🌊', line1: 'समुद्र की गहराई में छुपा है जादू', line2: 'अपने अंदर की गहराई को पहचानो',
                     badge: '✦ गहराई ✦' },
                 { icon: '🔥', line1: 'जलो, तपो, और चमको', line2: 'हर मुश्किल को मौका बनाओ', badge: '✦ तपस्या ✦' },
+                { icon: '🦋', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है',
+                    badge: '✦ धैर्य ✦' },
+                { icon: '🌟', line1: 'जो आज तुम्हारा मज़ाक उड़ा रहे हैं', line2: 'कल वही तुम्हारी सफलता पर ताली बजाएँगे',
+                    badge: '✦ विश्वास ✦' },
+                { icon: '⚔️', line1: 'जब तक जीत नहीं मिलती', line2: 'तब तक लड़ना ही असली पहचान है',
+                    badge: '✦ संघर्ष ✦' },
             ];
-            let slides = [];
-            for (let i = 0; i < 30; i++) {
-                const s = baseSlides[i % baseSlides.length];
-                slides.push({ img: `https://picsum.photos/seed/gold${i+100}/600/400`, icon: s.icon, line1: s.line1,
-                    line2: s.line2, badge: s.badge });
+
+            // Combine: first 3 gift slides, then motivational
+            let slides = [...giftSlides];
+            // Add enough motivational slides to reach 30
+            let idx = 0;
+            while (slides.length < 30) {
+                const m = motivationalSlides[idx % motivationalSlides.length];
+                slides.push(m);
+                idx++;
             }
-            return slides;
+
+            // Add random images
+            return slides.map((s, i) => ({
+                img: `https://picsum.photos/seed/gold${i+100}/600/400`,
+                icon: s.icon,
+                line1: s.line1,
+                line2: s.line2,
+                badge: s.badge
+            }));
         }
 
         function renderSlider() {
@@ -4019,7 +4023,6 @@
                 ]);
                 if (result.documents.length > 0) {
                     currentUser = mapUserDoc(result.documents[0]);
-                    // No dailyRewards field – we use transactions
                     await loadStakingSettings();
                     return true;
                 }
