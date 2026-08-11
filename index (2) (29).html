@@ -150,37 +150,21 @@
         }
         @keyframes confetti-fall {
             0% {
-                transform: translateY(-100px) rotate(0deg) scale(1);
+                transform: translateY(-100px) rotate(0deg);
                 opacity: 1;
             }
             100% {
-                transform: translateY(110vh) rotate(720deg) scale(0.5);
+                transform: translateY(100vh) rotate(720deg);
                 opacity: 0;
             }
         }
-        .confetti-piece {
+        .confetti {
             position: fixed;
+            width: 10px;
+            height: 10px;
             top: -10px;
             z-index: 999;
             animation: confetti-fall linear forwards;
-            pointer-events: none;
-        }
-        @keyframes firework-burst {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-        .firework-particle {
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 998;
-            animation: firework-burst 1.2s ease-out forwards;
         }
         .admin-badge {
             background: linear-gradient(135deg, #d4af37, #c9a030);
@@ -1300,6 +1284,7 @@
             transform: scale(1.02);
             box-shadow: 0 6px 25px rgba(38, 161, 123, 0.4);
         }
+
         .ex-rate-badge {
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -1315,6 +1300,7 @@
         .ex-rate-badge i {
             font-size: 10px;
         }
+
         .stake-range-label {
             font-size: 10px;
             color: #6b4a7a;
@@ -1323,6 +1309,7 @@
             padding: 0 4px;
             margin-top: 2px;
         }
+
         .timer-ring {
             display: inline-block;
             width: 12px;
@@ -1335,9 +1322,11 @@
         .timer-ring.pulse {
             animation: spin 1s linear infinite;
         }
+
         .reward-btn-loading .fa-star {
             animation: spin 0.8s linear infinite;
         }
+
         .cooldown-badge {
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -1353,120 +1342,6 @@
         .cooldown-badge i {
             font-size: 10px;
         }
-
-        /* Voice Toggle Button */
-        #voiceToggleBtn {
-            position: fixed;
-            top: 72px;
-            right: 14px;
-            z-index: 60;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: #d4af37;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        #voiceToggleBtn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.2);
-        }
-        #voiceToggleBtn.off {
-            color: #a090a0;
-            border-color: rgba(160, 144, 160, 0.3);
-        }
-        #voiceToggleBtn .tooltip {
-            position: absolute;
-            right: 52px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 10px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-        #voiceToggleBtn:hover .tooltip {
-            opacity: 1;
-        }
-
-        /* Forgot password - clean */
-        .forgot-success {
-            color: #22C55E;
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
-        }
-        .forgot-error {
-            color: #b91c1c;
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        /* Text clarity improvements */
-        .text-clear {
-            letter-spacing: 0.3px;
-            line-height: 1.6;
-        }
-        .text-clear-sm {
-            letter-spacing: 0.2px;
-            line-height: 1.5;
-        }
-        .text-gold-strong {
-            color: #d4af37;
-            font-weight: 700;
-        }
-        .text-gold-soft {
-            color: #c9a030;
-            font-weight: 500;
-        }
-        .bg-soft-gold {
-            background: rgba(212, 175, 55, 0.06);
-        }
-
-        /* Success page confetti container */
-        #successConfettiContainer {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 5;
-        }
-        .success-page-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Celebration clap animation */
-        @keyframes clapPulse {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-        }
-        .clap-icon {
-            animation: clapPulse 0.6s ease-in-out infinite;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -1476,12 +1351,6 @@
 
     <!-- Butterflies Background -->
     <div class="butterfly-bg" id="butterflyContainer"></div>
-
-    <!-- VOICE TOGGLE BUTTON -->
-    <button id="voiceToggleBtn" onclick="toggleVoice()" title="Voice Guide">
-        <i class="fa-solid fa-volume-high" id="voiceIcon"></i>
-        <span class="tooltip" id="voiceTooltip">वॉइस चालू</span>
-    </button>
 
     <!-- MAIN CONTAINER -->
     <div id="appContainer" class="w-full max-w-md mx-auto relative z-10">
@@ -1523,93 +1392,73 @@
                 <section id="registrationPage" class="app-page w-full space-y-6">
                     <div class="text-center space-y-2 py-6">
                         <img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" class="w-20 h-20 rounded-full gold-bg-gradient flex items-center justify-center p-2 mx-auto gold-glow border-2 border-amber-400/50 shadow-2xl object-cover" />
-                        <h2 class="text-2xl font-extrabold gold-text-gradient tracking-wide mt-2 text-clear">रजिस्ट्रेशन करें</h2>
-                        <p class="text-xs text-amber-600/50 text-clear-sm">SupriX Global परिवार में आपका स्वागत है</p>
+                        <h2 class="text-2xl font-extrabold gold-text-gradient tracking-wide mt-2">रजिस्ट्रेशन करें</h2>
+                        <p class="text-xs text-amber-600/50">SupriX Global परिवार में आपका स्वागत है</p>
                     </div>
                     <div class="glass-gold p-6 rounded-3xl border-amber-500/30 space-y-4 shadow-xl">
                         <div>
-                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm"><i class="fa-solid fa-user mr-1 text-amber-500"></i> पूरा नाम</label>
-                            <input type="text" id="regName" placeholder="अपना नाम दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm text-clear-sm">
+                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5"><i class="fa-solid fa-user mr-1 text-amber-500"></i> पूरा नाम</label>
+                            <input type="text" id="regName" placeholder="अपना नाम दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल आईडी</label>
-                            <input type="email" id="regEmail" placeholder="अपनी ईमेल आईडी दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm text-clear-sm">
+                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल आईडी</label>
+                            <input type="email" id="regEmail" placeholder="अपनी ईमेल आईडी दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm"><i class="fa-solid fa-phone mr-1 text-amber-500"></i> मोबाइल नंबर</label>
-                            <input type="tel" id="regPhone" placeholder="अपना 10 अंकों का मोबाइल नंबर डालें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm text-clear-sm">
+                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5"><i class="fa-solid fa-phone mr-1 text-amber-500"></i> मोबाइल नंबर</label>
+                            <input type="tel" id="regPhone" placeholder="अपना 10 अंकों का मोबाइल नंबर डालें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm"><i class="fa-solid fa-users mr-1 text-amber-500"></i> रेफरल कोड (वैकल्पिक)</label>
-                            <input type="text" id="regReferral" placeholder="रेफरल कोड दर्ज करें (यदि कोई हो)" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm text-clear-sm">
+                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5"><i class="fa-solid fa-users mr-1 text-amber-500"></i> रेफरल कोड (वैकल्पिक)</label>
+                            <input type="text" id="regReferral" placeholder="रेफरल कोड दर्ज करें (यदि कोई हो)" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
-                        <button id="btn-register" onclick="handleRegistration(this)" class="w-full btn-gold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-xl text-clear-sm">
+                        <button id="btn-register" onclick="handleRegistration(this)" class="w-full btn-gold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-xl">
                             <span>सबमिट करें</span> <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         </button>
-                        <p class="text-center text-xs text-amber-600/40 mt-2 text-clear-sm">
+                        <p class="text-center text-xs text-amber-600/40 mt-2">
                             पहले से ही अकाउंट है? <button onclick="showPage('loginPage')" class="text-amber-600 font-semibold underline hover:text-amber-700">लॉगिन करें</button>
                         </p>
                     </div>
                 </section>
 
                 <!-- REG SUCCESS -->
-                <section id="regSuccessPage" class="app-page w-full hidden success-page-wrapper">
+                <section id="regSuccessPage" class="app-page w-full hidden space-y-6 text-center py-4">
                     <div class="glass-gold p-6 rounded-3xl border-amber-500/40 space-y-6 shadow-xl relative overflow-hidden">
-                        <div id="successConfettiContainer"></div>
+                        <div id="confettiContainer" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
                         <div class="relative z-10">
-                            <!-- Celebration emojis -->
-                            <div class="text-center space-y-1">
-                                <div class="text-5xl flex justify-center gap-3 animate-bounce">
-                                    <span>🎉</span><span>🎊</span><span>🥳</span>
-                                </div>
-                                <h2 class="text-3xl font-extrabold text-green-600 text-clear">🎉 कांग्रेचूलेशंस! 🎉</h2>
-                                <p class="text-sm text-amber-600 font-semibold text-clear-sm">आपका रजिस्ट्रेशन सफलतापूर्वक पूर्ण हुआ!</p>
-                                <p class="text-xs text-amber-600/40 text-clear-sm">अब आप SupriX Global के सदस्य हैं।</p>
-                                <div class="text-2xl mt-1 flex justify-center gap-2">
-                                    <span class="clap-icon">👏</span>
-                                    <span class="clap-icon" style="animation-delay:0.15s;">👏</span>
-                                    <span class="clap-icon" style="animation-delay:0.3s;">👏</span>
-                                    <span class="clap-icon" style="animation-delay:0.45s;">👏</span>
-                                    <span class="clap-icon" style="animation-delay:0.6s;">👏</span>
-                                </div>
+                            <div class="w-20 h-20 bg-green-500/20 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto border border-green-500/40 animate-bounce">
+                                <i class="fa-solid fa-circle-check"></i>
                             </div>
-
+                            <div class="space-y-2 mt-4">
+                                <h2 class="text-3xl font-extrabold text-green-600">🎉 बधाई हो! 🎉</h2>
+                                <p class="text-sm text-amber-600 font-semibold">आपका रजिस्ट्रेशन सफलतापूर्वक पूर्ण हुआ!</p>
+                                <p class="text-xs text-amber-600/40">अब आप SupriX Global के सदस्य हैं।</p>
+                            </div>
                             <div class="success-card text-left space-y-4 mt-4">
                                 <div>
-                                    <div class="label text-clear-sm">📧 आपकी ईमेल आईडी (Login ID)</div>
+                                    <div class="label">📧 आपकी ईमेल आईडी (Login ID)</div>
                                     <div class="credential-box mt-1">
                                         <span id="successUserId" class="value">user@example.com</span>
-                                        <button onclick="copyToClipboard('successUserId', '✅ यूजर आईडी कॉपी हो गई!')" class="text-amber-600/60 hover:text-amber-700 transition-all text-xs">
+                                        <button onclick="copyToClipboard('successUserId', 'यूजर आईडी कॉपी हो गई!')" class="text-amber-600/60 hover:text-amber-700 transition-all text-xs">
                                             <i class="fa-solid fa-copy"></i>
                                         </button>
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="label text-clear-sm">🆔 आपकी SPX ID (Login ID)</div>
-                                    <div class="credential-box mt-1">
-                                        <span id="successSpxId" class="value" style="color:#d4af37;font-weight:800;">SPX000000</span>
-                                        <button onclick="copyToClipboard('successSpxId', '✅ SPX ID कॉपी हो गई!')" class="text-amber-600/60 hover:text-amber-700 transition-all text-xs">
-                                            <i class="fa-solid fa-copy"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="label text-clear-sm">🔑 आपका पासवर्ड (Password)</div>
+                                    <div class="label">🔑 आपका पासवर्ड (Password)</div>
                                     <div class="credential-box mt-1">
                                         <span id="successPassword" class="value" style="color:#6b4a7a;">XXXXXXXXXX</span>
-                                        <span class="text-[9px] text-amber-600/70 bg-amber-500/10 px-2.5 py-0.5 rounded-full text-clear-sm">(आपका मोबाइल नंबर)</span>
+                                        <span class="text-[9px] text-amber-600/70 bg-amber-500/10 px-2.5 py-0.5 rounded-full">(आपका मोबाइल नंबर)</span>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="bg-amber-500/10 border border-amber-500/25 rounded-xl p-3 text-left mt-4">
-                                <p class="text-[10px] text-amber-700/80 flex items-start gap-2 text-clear-sm">
+                                <p class="text-[10px] text-amber-700/80 flex items-start gap-2">
                                     <i class="fa-solid fa-circle-info mt-0.5 text-amber-500"></i>
-                                    <span>कृपया अपनी <strong>ईमेल आईडी</strong>, <strong>SPX ID</strong> और <strong>पासवर्ड</strong> सुरक्षित रखें। इनसे आप लॉगिन कर सकते हैं।</span>
+                                    <span>कृपया अपनी <strong>ईमेल आईडी</strong> और <strong>पासवर्ड</strong> सुरक्षित रखें। यही आपका लॉगिन क्रेडेंशियल है।</span>
                                 </p>
                             </div>
-
-                            <button onclick="showPage('loginPage')" class="w-full btn-gold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2 mt-4 shadow-xl text-clear-sm">
+                            <button onclick="showPage('loginPage')" class="w-full btn-gold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2 mt-4 shadow-xl">
                                 <i class="fa-solid fa-right-to-bracket"></i>
                                 <span>लॉगिन स्क्रीन पर जाएं</span>
                                 <i class="fa-solid fa-arrow-right"></i>
@@ -1622,28 +1471,28 @@
                 <section id="loginPage" class="app-page w-full hidden space-y-6">
                     <div class="text-center space-y-2 py-6">
                         <img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" class="w-20 h-20 rounded-full gold-bg-gradient flex items-center justify-center p-2 mx-auto gold-glow border-2 border-amber-400/50 shadow-2xl object-cover" />
-                        <h2 class="text-2xl font-extrabold gold-text-gradient tracking-wide mt-2 text-clear">लॉगिन अकाउंट</h2>
-                        <p class="text-xs text-amber-600/50 text-clear-sm">ईमेल या SPX ID से लॉगिन करें</p>
+                        <h2 class="text-2xl font-extrabold gold-text-gradient tracking-wide mt-2">लॉगिन अकाउंट</h2>
+                        <p class="text-xs text-amber-600/50">सुरक्षित माइनिंग डैशबोर्ड में प्रवेश करें</p>
                     </div>
                     <div class="glass-gold p-6 rounded-3xl border-amber-500/30 space-y-4 shadow-xl">
                         <div>
-                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल / SPX ID</label>
-                            <input type="text" id="loginUserId" placeholder="ईमेल या SPX ID दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all font-mono backdrop-blur-sm text-clear-sm">
+                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल आईडी</label>
+                            <input type="email" id="loginUserId" placeholder="अपनी ईमेल आईडी दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all font-mono backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm"><i class="fa-solid fa-lock mr-1 text-amber-500"></i> पासवर्ड</label>
-                            <input type="password" id="loginPassword" placeholder="अपना पासवर्ड डालें (मोबाइल नंबर)" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all font-mono backdrop-blur-sm text-clear-sm">
+                            <label class="block text-xs font-semibold text-amber-700/70 mb-1.5"><i class="fa-solid fa-lock mr-1 text-amber-500"></i> पासवर्ड</label>
+                            <input type="password" id="loginPassword" placeholder="अपना पासवर्ड डालें (मोबाइल नंबर)" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-3 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all font-mono backdrop-blur-sm">
                         </div>
                         <div class="flex items-center justify-between text-xs py-1">
-                            <label class="flex items-center gap-1.5 text-amber-600/50 cursor-pointer text-clear-sm">
+                            <label class="flex items-center gap-1.5 text-amber-600/50 cursor-pointer">
                                 <input type="checkbox" id="rememberMe" class="accent-amber-500 rounded"> हमेशा लॉगिन रहें
                             </label>
-                            <button onclick="toggleForgotPasswordModal(true)" class="text-amber-600 hover:underline text-clear-sm">पासवर्ड भूल गए?</button>
+                            <button onclick="toggleForgotPasswordModal(true)" class="text-amber-600 hover:underline">पासवर्ड भूल गए?</button>
                         </div>
-                        <button id="btn-login" onclick="handleLogin(this)" class="w-full btn-gold py-3.5 rounded-2xl text-sm mt-2 flex items-center justify-center gap-2 shadow-xl text-clear-sm">
+                        <button id="btn-login" onclick="handleLogin(this)" class="w-full btn-gold py-3.5 rounded-2xl text-sm mt-2 flex items-center justify-center gap-2 shadow-xl">
                             <span>लॉगिन करें</span> <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
-                        <p class="text-center text-xs text-amber-600/40 mt-2 text-clear-sm">
+                        <p class="text-center text-xs text-amber-600/40 mt-2">
                             नया अकाउंट बनाना है? <button onclick="showPage('registrationPage')" class="text-amber-600 font-semibold underline hover:text-amber-700">रजिस्टर करें</button>
                         </p>
                     </div>
@@ -1658,30 +1507,30 @@
                                 <i class="fa-solid fa-user-astronaut text-lg"></i>
                             </div>
                             <div>
-                                <h4 id="userWelcomeName" class="font-bold text-sm text-[#1a1a2e] text-clear">User</h4>
-                                <p id="userWelcomeEmail" class="text-[10px] text-amber-600/40 text-clear-sm">user@example.com</p>
+                                <h4 id="userWelcomeName" class="font-bold text-sm text-[#1a1a2e]">User</h4>
+                                <p id="userWelcomeEmail" class="text-[10px] text-amber-600/40">user@example.com</p>
                             </div>
                         </div>
                         <div class="text-right flex flex-col items-end gap-1">
-                            <span class="text-[9px] bg-amber-500/15 text-amber-700 border border-amber-500/25 px-2 py-0.5 rounded-full font-medium text-clear-sm">सक्रिय</span>
-                            <span class="text-[8px] text-amber-600/30 text-clear-sm"><i class="fa-solid fa-indian-rupee-sign mr-0.5"></i> $1 = ₹100</span>
+                            <span class="text-[9px] bg-amber-500/15 text-amber-700 border border-amber-500/25 px-2 py-0.5 rounded-full font-medium">सक्रिय</span>
+                            <span class="text-[8px] text-amber-600/30"><i class="fa-solid fa-indian-rupee-sign mr-0.5"></i> $1 = ₹100</span>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
-                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1 text-clear-sm"><i class="fa-solid fa-dollar-sign mr-1 text-green-600"></i> Total Investment</span><span id="statInvestment" class="text-md font-bold text-[#1a1a2e] text-clear">$0.00</span></div>
-                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1 text-clear-sm"><i class="fa-solid fa-lock mr-1 currency-usdt"></i> Locked Staking</span><span id="statLocked" class="text-md font-bold currency-usdt text-clear">0.00 USDT</span></div>
-                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1 text-clear-sm"><i class="fa-solid fa-gift mr-1 currency-inr"></i> Daily Release (0.5%)</span><span id="statDailyRelease" class="text-md font-bold currency-inr text-clear">₹0.00</span><span id="statDailyUsdt" class="text-[9px] text-amber-600/30 block text-clear-sm">0.00 USDT</span></div>
-                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1 text-clear-sm"><i class="fa-solid fa-wallet mr-1 currency-usdt"></i> Available Balance</span><span id="statAvailable" class="text-md font-bold currency-usdt text-clear">0.00 USDT</span></div>
+                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1"><i class="fa-solid fa-dollar-sign mr-1 text-green-600"></i> Total Investment</span><span id="statInvestment" class="text-md font-bold text-[#1a1a2e]">$0.00</span></div>
+                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1"><i class="fa-solid fa-lock mr-1 currency-usdt"></i> Locked Staking</span><span id="statLocked" class="text-md font-bold currency-usdt">0.00 USDT</span></div>
+                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1"><i class="fa-solid fa-gift mr-1 currency-inr"></i> Daily Release (0.5%)</span><span id="statDailyRelease" class="text-md font-bold currency-inr">₹0.00</span><span id="statDailyUsdt" class="text-[9px] text-amber-600/30 block">0.00 USDT</span></div>
+                        <div class="glass-gold-dark p-3.5 rounded-2xl border-amber-500/15 card-3d"><span class="text-[10px] text-amber-600/50 block mb-1"><i class="fa-solid fa-wallet mr-1 currency-usdt"></i> Available Balance</span><span id="statAvailable" class="text-md font-bold currency-usdt">0.00 USDT</span></div>
                     </div>
                     <div class="glass-gold p-6 rounded-2xl border-amber-500/30 flex flex-col items-center justify-center text-center py-8 space-y-5">
-                        <div class="space-y-1"><h3 class="text-sm font-bold tracking-wider text-amber-700/80 uppercase text-clear">🌟 माइनिंग रिवॉर्ड स्टार</h3><p class="text-[11px] text-amber-600/40 text-clear-sm">डेली 0.5% कॉइन रिलीज — कम से कम 10 USDT स्टेक करें</p></div>
+                        <div class="space-y-1"><h3 class="text-sm font-bold tracking-wider text-amber-700/80 uppercase">🌟 माइनिंग रिवॉर्ड स्टार</h3><p class="text-[11px] text-amber-600/40">डेली 0.5% कॉइन रिलीज — कम से कम 10 USDT स्टेक करें</p></div>
                         <button id="miningStarBtn" onclick="triggerMiningReward(this)" class="w-32 h-32 rounded-full gold-bg-gradient flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 transition-all duration-300 animate-star relative group btn-animate">
                             <div class="absolute inset-2 bg-white/60 rounded-full flex items-center justify-center transition-all group-hover:bg-white/40 backdrop-blur-sm">
                                 <i class="fa-solid fa-star text-5xl text-amber-500 drop-shadow-[0_0_30px_rgba(212,175,55,0.6)]"></i>
                             </div>
                         </button>
                         <div class="w-full bg-white/60 rounded-xl p-3 border border-amber-500/20 space-y-1">
-                            <div id="miningTimerText" class="text-xs text-amber-600 font-semibold tracking-wide flex items-center justify-center gap-2 text-clear-sm">
+                            <div id="miningTimerText" class="text-xs text-amber-600 font-semibold tracking-wide flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-circle-play mr-1 text-green-600 animate-pulse"></i>
                                 <span>रिलीज के लिए अभी दबाएं!</span>
                             </div>
@@ -1691,42 +1540,42 @@
                             </div>
                         </div>
                         <div id="stakingWarning" class="hidden w-full bg-red-500/20 border border-red-500/30 rounded-lg p-2 text-center">
-                            <span class="text-xs text-red-600 text-clear-sm"><i class="fa-solid fa-triangle-exclamation mr-1"></i> ⚠️ कम से कम 10 USDT स्टेक करें! स्टार बटन तभी काम करेगा।</span>
+                            <span class="text-xs text-red-600"><i class="fa-solid fa-triangle-exclamation mr-1"></i> ⚠️ कम से कम 10 USDT स्टेक करें! स्टार बटन तभी काम करेगा।</span>
                         </div>
                     </div>
                 </section>
 
                 <!-- PURCHASE -->
                 <section id="purchasePage" class="app-page w-full hidden space-y-4">
-                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600 text-clear"><i class="fa-solid fa-cart-shopping mr-1.5"></i> कॉइन परचेज करें</h3><p class="text-[11px] text-amber-600/40 text-clear-sm">USDT (BEP20) के माध्यम से कॉइन सुरक्षित परचेज करें। <span class="text-amber-600 font-semibold">$1 = 1 USDT</span></p><p class="text-[10px] text-green-600 font-semibold mt-1 text-clear-sm">💰 Minimum Deposit: $10 USDT</p></div>
+                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-cart-shopping mr-1.5"></i> कॉइन परचेज करें</h3><p class="text-[11px] text-amber-600/40">USDT (BEP20) के माध्यम से कॉइन सुरक्षित परचेज करें। <span class="text-amber-600 font-semibold">$1 = 1 USDT</span></p><p class="text-[10px] text-green-600 font-semibold mt-1">💰 Minimum Deposit: $10 USDT</p></div>
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3">
-                        <h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">कस्टम अमाउंट दर्ज करें</h4>
+                        <h4 class="text-xs font-bold text-amber-700/70">कस्टम अमाउंट दर्ज करें</h4>
                         <div class="space-y-2">
                             <div class="flex gap-2">
                                 <div class="relative flex-1"><span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-600/60 text-xs">$</span>
-                                    <input type="number" id="customUSDAmount" oninput="calculateCustomCoins(this.value)" placeholder="USD मूल्य दर्ज करें (Min $10)" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2.5 pl-7 pr-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm text-clear-sm" min="10">
+                                    <input type="number" id="customUSDAmount" oninput="calculateCustomCoins(this.value)" placeholder="USD मूल्य दर्ज करें (Min $10)" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2.5 pl-7 pr-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm" min="10">
                                 </div>
-                                <div class="bg-white/80 border border-amber-500/20 rounded-xl px-3 flex items-center justify-center text-xs font-mono font-bold currency-usdt text-clear" id="calculatedCoinsPreview">0 USDT</div>
+                                <div class="bg-white/80 border border-amber-500/20 rounded-xl px-3 flex items-center justify-center text-xs font-mono font-bold currency-usdt" id="calculatedCoinsPreview">0 USDT</div>
                             </div>
-                            <button id="btn-custom-purchase" onclick="generateCustomPurchase()" class="w-full btn-gold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl text-clear-sm"><span>USDT QR जनरेट करें</span> <i class="fa-solid fa-qrcode"></i></button>
+                            <button id="btn-custom-purchase" onclick="generateCustomPurchase()" class="w-full btn-gold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl"><span>USDT QR जनरेट करें</span> <i class="fa-solid fa-qrcode"></i></button>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-3 max-h-[160px] overflow-y-auto pr-1" id="purchaseGrid"></div>
                     <div id="paymentGatewayCard" class="glass-gold p-5 rounded-2xl border-amber-500/40 space-y-4 hidden">
-                        <div class="flex items-center justify-between border-b border-amber-500/15 pb-2"><h4 class="text-xs font-bold text-amber-600 text-clear"><i class="fa-solid fa-qrcode mr-1"></i> भुगतान विवरण</h4><button onclick="hidePaymentCard()" class="text-[10px] text-amber-600/40 bg-amber-500/10 px-2 py-0.5 rounded-full hover:bg-amber-500/20 text-clear-sm">बंद करें</button></div>
-                        <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-2.5 text-center"><span class="text-xs font-bold text-red-600 block text-clear-sm"><i class="fa-solid fa-circle-exclamation mr-1"></i> USDT (BEP20) में ही Payment करें।</span></div>
+                        <div class="flex items-center justify-between border-b border-amber-500/15 pb-2"><h4 class="text-xs font-bold text-amber-600"><i class="fa-solid fa-qrcode mr-1"></i> भुगतान विवरण</h4><button onclick="hidePaymentCard()" class="text-[10px] text-amber-600/40 bg-amber-500/10 px-2 py-0.5 rounded-full hover:bg-amber-500/20">बंद करें</button></div>
+                        <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-2.5 text-center"><span class="text-xs font-bold text-red-600 block"><i class="fa-solid fa-circle-exclamation mr-1"></i> USDT (BEP20) में ही Payment करें।</span></div>
                         <div class="flex flex-col items-center justify-center text-center space-y-2">
-                            <span class="text-[11px] text-amber-600/50 text-clear-sm">स्कैन करके पेमेंट करें: <strong id="paymentUSDVal" class="text-[#1a1a2e]">$5.00 USDT</strong></span>
+                            <span class="text-[11px] text-amber-600/50">स्कैन करके पेमेंट करें: <strong id="paymentUSDVal" class="text-[#1a1a2e]">$5.00 USDT</strong></span>
                             <div class="bg-white p-2 rounded-lg inline-block shadow-xl"><img src="https://i.postimg.cc/SRrcGvzT/Screenshot-2026-0716-065409.jpg" alt="Payment QR" class="w-32 h-32 object-contain"></div>
                             <div class="crypto-address-box w-full bg-white/80 border border-amber-500/20 rounded-xl p-3 flex items-center justify-between">
-                                <span class="address text-[11px] text-amber-600/60 font-mono break-all text-clear-sm" id="cryptoAddressText">0x7be243182b7442D17a13e2C019f0d0174F196817</span>
-                                <button onclick="copyToClipboard('cryptoAddressText', '✅ USDT एड्रेस कॉपी हुआ!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-xs text-clear-sm"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
+                                <span class="address text-[11px] text-amber-600/60 font-mono break-all" id="cryptoAddressText">0x7be243182b7442D17a13e2C019f0d0174F196817</span>
+                                <button onclick="copyToClipboard('cryptoAddressText', '✅ USDT एड्रेस कॉपी हुआ!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-xs"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
                             </div>
                         </div>
                         <div class="space-y-2 pt-2 border-t border-amber-500/15">
-                            <div><label class="block text-[10px] text-amber-600/50 mb-1 text-clear-sm">पेमेंट स्क्रीनशॉट अपलोड करें</label>
+                            <div><label class="block text-[10px] text-amber-600/50 mb-1">पेमेंट स्क्रीनशॉट अपलोड करें</label>
                                 <div class="flex items-center gap-2">
-                                    <label class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl p-2 flex items-center justify-center gap-2 cursor-pointer text-xs text-amber-600/40 hover:border-amber-400 transition-all text-clear-sm">
+                                    <label class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl p-2 flex items-center justify-center gap-2 cursor-pointer text-xs text-amber-600/40 hover:border-amber-400 transition-all">
                                         <i class="fa-solid fa-camera text-amber-500"></i>
                                         <span id="purchaseScreenshotName">अपलोड इमेज</span>
                                         <input type="file" id="purchaseScreenshotFile" class="hidden" accept="image/*" onchange="handlePurchaseScreenshot(event)">
@@ -1734,26 +1583,26 @@
                                     <div id="purchaseScreenshotPreview" class="w-10 h-10 bg-white/80 rounded border border-amber-500/20 hidden items-center justify-center overflow-hidden"></div>
                                 </div>
                             </div>
-                            <button id="btn-submit-deposit" onclick="submitDepositRequest(this)" class="w-full btn-gold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl text-clear-sm"><span>पेमेंट रिक्वेस्ट भेजें</span> <i class="fa-solid fa-paper-plane"></i></button>
+                            <button id="btn-submit-deposit" onclick="submitDepositRequest(this)" class="w-full btn-gold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl"><span>पेमेंट रिक्वेस्ट भेजें</span> <i class="fa-solid fa-paper-plane"></i></button>
                         </div>
                     </div>
                 </section>
 
                 <!-- STAKING -->
                 <section id="stakingPage" class="app-page w-full hidden space-y-4">
-                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600 text-clear"><i class="fa-solid fa-vault mr-1.5"></i> USDT स्टेकिंग</h3><p class="text-[11px] text-amber-600/40 text-clear-sm">अपने उपलब्ध USDT को लॉक करके शानदार दैनिक रिवॉर्ड प्राप्त करें।</p></div>
+                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-vault mr-1.5"></i> USDT स्टेकिंग</h3><p class="text-[11px] text-amber-600/40">अपने उपलब्ध USDT को लॉक करके शानदार दैनिक रिवॉर्ड प्राप्त करें।</p></div>
                     <div class="glass-gold p-5 rounded-2xl border-amber-500/30 space-y-4">
-                        <div class="flex justify-between items-center text-xs"><span class="text-amber-600/50 text-clear-sm">अवेलेबल बैलेंस:</span><span id="stakingAvailableCoins" class="font-bold currency-usdt text-clear">0.00 USDT</span></div>
+                        <div class="flex justify-between items-center text-xs"><span class="text-amber-600/50">अवेलेबल बैलेंस:</span><span id="stakingAvailableCoins" class="font-bold currency-usdt">0.00 USDT</span></div>
                         <div>
-                            <label class="block text-[10px] text-amber-600/50 mb-1 text-clear-sm">कितने USDT स्टेकिंग में लगाने हैं?</label>
-                            <input type="number" id="stakeInputCoins" placeholder="न्यूनतम 10 USDT" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2.5 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] backdrop-blur-sm text-clear-sm" min="10" max="100000">
-                            <div class="stake-range-label text-clear-sm"><span>न्यूनतम 10 USDT</span><span>अधिकतम 100,000 USDT</span></div>
+                            <label class="block text-[10px] text-amber-600/50 mb-1">कितने USDT स्टेकिंग में लगाने हैं?</label>
+                            <input type="number" id="stakeInputCoins" placeholder="न्यूनतम 10 USDT" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2.5 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] backdrop-blur-sm" min="10" max="100000">
+                            <div class="stake-range-label"><span>न्यूनतम 10 USDT</span><span>अधिकतम 100,000 USDT</span></div>
                         </div>
-                        <div><label class="block text-[10px] text-amber-600/50 mb-1.5 text-clear-sm">लॉकिंग अवधि चुनें</label><div id="stakingPlansContainer" class="grid grid-cols-3 gap-2"></div></div>
-                        <button id="btn-submit-stake" onclick="submitStake(this)" class="w-full btn-gold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl text-clear-sm"><span>अभी स्टेकिंग पर लगाएं</span> <i class="fa-solid fa-lock"></i></button>
+                        <div><label class="block text-[10px] text-amber-600/50 mb-1.5">लॉकिंग अवधि चुनें</label><div id="stakingPlansContainer" class="grid grid-cols-3 gap-2"></div></div>
+                        <button id="btn-submit-stake" onclick="submitStake(this)" class="w-full btn-gold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl"><span>अभी स्टेकिंग पर लगाएं</span> <i class="fa-solid fa-lock"></i></button>
                     </div>
-                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">सक्रिय स्टेकिंग सूची</h4><div id="activeStakesList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[10px] text-amber-600/30 text-center py-2 text-clear-sm">कोई एक्टिव स्टेकिंग नहीं है।</p></div></div>
-                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">स्टेकिंग हिस्ट्री</h4><div id="stakingHistoryList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[10px] text-amber-600/30 text-center py-2 text-clear-sm">कोई हिस्ट्री नहीं है।</p></div></div>
+                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">सक्रिय स्टेकिंग सूची</h4><div id="activeStakesList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[10px] text-amber-600/30 text-center py-2">कोई एक्टिव स्टेकिंग नहीं है।</p></div></div>
+                    <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">स्टेकिंग हिस्ट्री</h4><div id="stakingHistoryList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[10px] text-amber-600/30 text-center py-2">कोई हिस्ट्री नहीं है।</p></div></div>
                 </section>
 
                 <!-- ======================== PROFILE ======================== -->
@@ -1761,90 +1610,98 @@
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/30 flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 rounded-full gold-bg-gradient flex items-center justify-center text-[#1a1a2e] font-bold text-lg shadow-lg"><i class="fa-solid fa-user-tie"></i></div>
-                            <div><h3 id="profileName" class="font-bold text-[#1a1a2e] text-clear">User Profile</h3>
-                                <p id="profileEmail" class="text-[10px] text-amber-600/40 partial-hide-email text-clear-sm">user@example.com</p>
-                                <button onclick="copyToClipboard('profileEmail', '✅ Email कॉपी हो गई!')" class="copy-email-btn text-[8px] mt-0.5 text-clear-sm"><i class="fa-solid fa-copy mr-1"></i> Email कॉपी</button>
+                            <div><h3 id="profileName" class="font-bold text-[#1a1a2e]">User Profile</h3>
+                                <p id="profileEmail" class="text-[10px] text-amber-600/40 partial-hide-email">user@example.com</p>
+                                <button onclick="copyToClipboard('profileEmail', '✅ Email कॉपी हो गई!')" class="copy-email-btn text-[8px] mt-0.5"><i class="fa-solid fa-copy mr-1"></i> Email कॉपी</button>
                             </div>
                         </div>
                         <div class="text-right flex flex-col items-end">
-                            <span class="text-[9px] text-amber-600/40 text-clear-sm">रेफरल कोड:</span>
-                            <span id="profileReferralCode" class="text-xs font-bold text-amber-600 uppercase select-all font-mono text-clear">SPX-XXXX</span>
-                            <button onclick="copyToClipboard('profileReferralCode', '✅ रेफरल कोड कॉपी हो गया!')" class="text-amber-600 hover:text-[#1a1a2e] btn-animate text-xs mt-0.5 text-clear-sm"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
+                            <span class="text-[9px] text-amber-600/40">रेफरल कोड:</span>
+                            <span id="profileReferralCode" class="text-xs font-bold text-amber-600 uppercase select-all font-mono">SPX-XXXX</span>
+                            <button onclick="copyToClipboard('profileReferralCode', '✅ रेफरल कोड कॉपी हो गया!')" class="text-amber-600 hover:text-[#1a1a2e] btn-animate text-xs mt-0.5"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
                         </div>
                     </div>
+                    <!-- SPX ID only – removed Smart Contract -->
                     <div class="id-box id-box-gold">
-                        <div><span class="id-label text-clear-sm">🆔 आपकी Unique SPX ID</span><span class="id-value spx-id-display text-clear" id="profileCoinXIdDisplay">SPX123456789</span><span class="id-usage text-clear-sm">इस ID से USDT (BEP20) भेजें/ले सकते हैं</span></div>
-                        <button onclick="copyToClipboard('profileCoinXIdDisplay', '✅ SPX ID कॉपी हो गई!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-xs bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 text-clear-sm"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
+                        <div><span class="id-label">🆔 आपकी Unique SPX ID</span><span class="id-value spx-id-display" id="profileCoinXIdDisplay">SPX123456789</span><span class="id-usage">इस ID से USDT (BEP20) भेजें/ले सकते हैं</span></div>
+                        <button onclick="copyToClipboard('profileCoinXIdDisplay', '✅ SPX ID कॉपी हो गई!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-xs bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
                     </div>
+                    <!-- Invite Friends -->
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3">
-                        <h4 class="text-xs font-bold text-amber-600 text-clear"><i class="fa-solid fa-share-nodes mr-1.5"></i> Invite Friends & Earn 2%</h4>
-                        <p class="text-[10px] text-amber-600/40 text-clear-sm">जब आपके द्वारा आमंत्रित सदस्य स्टेक करेंगे, आपको 2% बोनस तुरंत मिलेगा!</p>
+                        <h4 class="text-xs font-bold text-amber-600"><i class="fa-solid fa-share-nodes mr-1.5"></i> Invite Friends & Earn 2%</h4>
+                        <p class="text-[10px] text-amber-600/40">जब आपके द्वारा आमंत्रित सदस्य स्टेक करेंगे, आपको 2% बोनस तुरंत मिलेगा!</p>
                         <div class="w-full bg-white/80 p-2.5 rounded-xl border border-amber-500/20 flex items-center justify-between text-[11px]">
-                            <span id="referralShareLink" class="text-amber-600/40 truncate mr-2 select-all font-mono text-clear-sm">https://suprixglobal.online/?ref=</span>
+                            <span id="referralShareLink" class="text-amber-600/40 truncate mr-2 select-all font-mono">https://suprixglobal.online/?ref=</span>
                             <button onclick="copyToClipboard('referralShareLink', '✅ रेफरल लिंक कॉपी हो गया!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0"><i class="fa-solid fa-copy"></i></button>
                         </div>
                         <div class="referral-qr-container" id="referralQrContainer"></div>
-                        <button onclick="shareReferralLink()" class="w-full btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl text-clear-sm"><i class="fa-solid fa-share-nodes"></i> Share Referral Link</button>
+                        <button onclick="shareReferralLink()" class="w-full btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-xl"><i class="fa-solid fa-share-nodes"></i> Share Referral Link</button>
                     </div>
+                    <!-- Withdrawal Setup -->
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3">
-                        <h4 class="text-xs font-bold text-amber-600 border-b border-amber-500/15 pb-1.5 text-clear"><i class="fa-solid fa-money-bill-transfer mr-1"></i> विथड्रॉवल सेटअप</h4>
-                        <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-2 text-center"><span class="text-[11px] font-bold text-red-600 text-clear-sm"><i class="fa-solid fa-circle-exclamation mr-1"></i> USDT (BEP20) में ही Withdrawal लें।</span><span class="text-[10px] text-green-600 font-semibold block mt-0.5 text-clear-sm">💰 Minimum Withdrawal: $2 USDT</span></div>
-                        <div><label class="block text-[10px] text-amber-600/50 mb-1 text-clear-sm">USDT (BEP20) QR कोड अपलोड करें</label>
+                        <h4 class="text-xs font-bold text-amber-600 border-b border-amber-500/15 pb-1.5"><i class="fa-solid fa-money-bill-transfer mr-1"></i> विथड्रॉवल सेटअप</h4>
+                        <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-2 text-center"><span class="text-[11px] font-bold text-red-600"><i class="fa-solid fa-circle-exclamation mr-1"></i> USDT (BEP20) में ही Withdrawal लें।</span><span class="text-[10px] text-green-600 font-semibold block mt-0.5">💰 Minimum Withdrawal: $2 USDT</span></div>
+                        <div><label class="block text-[10px] text-amber-600/50 mb-1">USDT (BEP20) QR कोड अपलोड करें</label>
                             <div class="flex items-center gap-3">
-                                <label class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl p-2 flex items-center justify-center gap-2 cursor-pointer text-xs text-amber-600/40 hover:border-amber-400 transition-all text-clear-sm">
+                                <label class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl p-2 flex items-center justify-center gap-2 cursor-pointer text-xs text-amber-600/40 hover:border-amber-400 transition-all">
                                     <i class="fa-solid fa-cloud-arrow-up text-amber-500"></i><span id="qrUploadStatus">क्यूआर अपलोड करें</span>
                                     <input type="file" id="userQrFile" class="hidden" accept="image/*" onchange="handleQrUpload(event)">
                                 </label>
                                 <div id="userQrPreview" class="w-10 h-10 bg-white/80 rounded border border-amber-500/20 hidden items-center justify-center overflow-hidden"></div>
                             </div>
                         </div>
-                        <div><label class="block text-[10px] text-amber-600/50 mb-1 text-clear-sm">USDT (BEP20) Wallet Address</label><input type="text" id="userWithdrawAddress" placeholder="BEP20 एड्रेस पेस्ट करें..." class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm text-clear-sm"></div>
+                        <div><label class="block text-[10px] text-amber-600/50 mb-1">USDT (BEP20) Wallet Address</label><input type="text" id="userWithdrawAddress" placeholder="BEP20 एड्रेस पेस्ट करें..." class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm"></div>
                         <div class="pt-2 border-t border-amber-500/15">
-                            <div class="flex justify-between items-center text-[10px] text-amber-600/50 mb-1 text-clear-sm"><span>अवेलेबल बैलेंस: <strong id="withdrawAvailable" class="currency-usdt text-clear">0.00 USDT</strong></span><span class="text-amber-600 text-clear-sm">(मिनिमम: 2 USDT)</span></div>
+                            <div class="flex justify-between items-center text-[10px] text-amber-600/50 mb-1"><span>अवेलेबल बैलेंस: <strong id="withdrawAvailable" class="currency-usdt">0.00 USDT</strong></span><span class="text-amber-600">(मिनिमम: 2 USDT)</span></div>
                             <div class="flex gap-2">
-                                <input type="number" id="withdrawAmountInput" placeholder="USDT संख्या दर्ज करें" class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm text-clear-sm" min="2">
-                                <button id="btn-submit-withdraw" onclick="submitWithdrawal(this)" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold shadow-xl flex items-center justify-center gap-1.5 text-clear-sm"><span>विथड्रॉ</span> <i class="fa-solid fa-circle-down"></i></button>
+                                <input type="number" id="withdrawAmountInput" placeholder="USDT संख्या दर्ज करें" class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm" min="2">
+                                <button id="btn-submit-withdraw" onclick="submitWithdrawal(this)" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold shadow-xl flex items-center justify-center gap-1.5"><span>विथड्रॉ</span> <i class="fa-solid fa-circle-down"></i></button>
                             </div>
-                            <div class="mt-2.5 text-center bg-white/80 border border-amber-500/20 rounded-xl p-2 space-y-0.5"><span class="text-[10px] font-bold text-amber-600 block text-clear-sm"><i class="fa-regular fa-clock mr-1"></i> Processing - अधिकतम 24 घंटे</span><span class="text-[8px] text-amber-600/30 block text-clear-sm">💡 USDT BEP20 में विथड्रॉवल लें</span></div>
+                            <div class="mt-2.5 text-center bg-white/80 border border-amber-500/20 rounded-xl p-2 space-y-0.5"><span class="text-[10px] font-bold text-amber-600 block"><i class="fa-regular fa-clock mr-1"></i> Processing - अधिकतम 24 घंटे</span><span class="text-[8px] text-amber-600/30 block">💡 USDT BEP20 में विथड्रॉवल लें</span></div>
                         </div>
+                        <!-- SupriX Wallet Withdrawal (SPX ID) -->
                         <div class="pt-3 border-t border-amber-500/15">
-                            <h5 class="text-[10px] font-bold text-amber-600 mb-2 text-clear-sm"><i class="fa-solid fa-wallet mr-1"></i> SupriX Wallet में विथड्रॉवल</h5>
-                            <p class="text-[9px] text-amber-600/40 mb-2 text-clear-sm">SPX ID के माध्यम से SupriX Wallet में विथड्रॉवल करें (10% शुल्क)</p>
-                            <div><label class="block text-[10px] text-amber-600/50 mb-1 text-clear-sm">रिसीवर की SPX ID</label><input type="text" id="coinxWalletSCAddress" placeholder="SPX ID दर्ज करें (जैसे SPX100001)" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm text-clear-sm"></div>
+                            <h5 class="text-[10px] font-bold text-amber-600 mb-2"><i class="fa-solid fa-wallet mr-1"></i> SupriX Wallet में विथड्रॉवल</h5>
+                            <p class="text-[9px] text-amber-600/40 mb-2">SPX ID के माध्यम से SupriX Wallet में विथड्रॉवल करें (10% शुल्क)</p>
+                            <div><label class="block text-[10px] text-amber-600/50 mb-1">रिसीवर की SPX ID</label><input type="text" id="coinxWalletSCAddress" placeholder="SPX ID दर्ज करें (जैसे SPX100001)" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm"></div>
                             <div class="flex gap-2 mt-2">
-                                <input type="number" id="coinxWalletWithdrawAmount" placeholder="USDT संख्या" class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm text-clear-sm" min="2">
-                                <button onclick="submitCoinXWalletWithdrawal()" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold shadow-xl flex items-center justify-center gap-1.5 text-clear-sm"><span>सबमिट</span> <i class="fa-solid fa-arrow-right"></i></button>
+                                <input type="number" id="coinxWalletWithdrawAmount" placeholder="USDT संख्या" class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm" min="2">
+                                <button onclick="submitCoinXWalletWithdrawal()" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold shadow-xl flex items-center justify-center gap-1.5"><span>सबमिट</span> <i class="fa-solid fa-arrow-right"></i></button>
                             </div>
-                            <div class="text-[9px] text-amber-600/30 text-center mt-1 text-clear-sm">⚠️ 10% ट्रांजैक्शन चार्ज कटेगा</div>
+                            <div class="text-[9px] text-amber-600/30 text-center mt-1">⚠️ 10% ट्रांजैक्शन चार्ज कटेगा</div>
                         </div>
                     </div>
+                    <!-- Referrals, Transactions, Team -->
                     <div class="grid grid-cols-3 gap-2">
-                        <button onclick="toggleMyReferralsModal(true)" class="glass-gold border-amber-500/30 text-[#1a1a2e] py-2.5 rounded-xl text-xs font-semibold hover:border-amber-400/50 transition-all btn-animate text-clear-sm"><i class="fa-solid fa-users mr-1 text-amber-500"></i> Referrals</button>
-                        <button onclick="toggleTxHistoryModal(true)" class="glass-gold border-amber-500/30 text-[#1a1a2e] py-2.5 rounded-xl text-xs font-semibold hover:border-amber-400/50 transition-all btn-animate text-clear-sm"><i class="fa-solid fa-list-check mr-1 text-amber-500"></i> Transactions</button>
-                        <button onclick="toggleTeamModal(true)" class="glass-gold border-amber-500/30 text-[#1a1a2e] py-2.5 rounded-xl text-xs font-semibold hover:border-amber-400/50 transition-all btn-animate text-clear-sm"><i class="fa-solid fa-people-group mr-1 text-amber-500"></i> Team</button>
+                        <button onclick="toggleMyReferralsModal(true)" class="glass-gold border-amber-500/30 text-[#1a1a2e] py-2.5 rounded-xl text-xs font-semibold hover:border-amber-400/50 transition-all btn-animate"><i class="fa-solid fa-users mr-1 text-amber-500"></i> Referrals</button>
+                        <button onclick="toggleTxHistoryModal(true)" class="glass-gold border-amber-500/30 text-[#1a1a2e] py-2.5 rounded-xl text-xs font-semibold hover:border-amber-400/50 transition-all btn-animate"><i class="fa-solid fa-list-check mr-1 text-amber-500"></i> Transactions</button>
+                        <button onclick="toggleTeamModal(true)" class="glass-gold border-amber-500/30 text-[#1a1a2e] py-2.5 rounded-xl text-xs font-semibold hover:border-amber-400/50 transition-all btn-animate"><i class="fa-solid fa-people-group mr-1 text-amber-500"></i> Team</button>
                     </div>
+                    <!-- Session Support -->
                     <div class="glass-gold p-4 rounded-2xl border-blue-500/30 space-y-3">
-                        <div class="flex items-center gap-2 text-blue-600 text-xs font-bold text-clear-sm"><i class="fa-solid fa-headset"></i><span>हेल्प & सपोर्ट (Session Private Messenger)</span></div>
-                        <a href="https://getsession.org/download" target="_blank" class="block w-full bg-white/80 border border-blue-500/30 hover:bg-blue-500/10 text-[#1a1a2e] text-xs py-2 px-3 rounded-xl flex items-center justify-between transition-all text-clear-sm"><span class="flex items-center gap-1.5"><i class="fa-solid fa-download text-blue-500"></i> सेशन ऐप डाउनलोड करें</span><i class="fa-solid fa-external-link text-[10px] text-amber-600/30"></i></a>
+                        <div class="flex items-center gap-2 text-blue-600 text-xs font-bold"><i class="fa-solid fa-headset"></i><span>हेल्प & सपोर्ट (Session Private Messenger)</span></div>
+                        <a href="https://getsession.org/download" target="_blank" class="block w-full bg-white/80 border border-blue-500/30 hover:bg-blue-500/10 text-[#1a1a2e] text-xs py-2 px-3 rounded-xl flex items-center justify-between transition-all"><span class="flex items-center gap-1.5"><i class="fa-solid fa-download text-blue-500"></i> सेशन ऐप डाउनलोड करें</span><i class="fa-solid fa-external-link text-[10px] text-amber-600/30"></i></a>
                         <div class="bg-white/80 border border-blue-500/30 rounded-xl p-3 flex items-center justify-between">
-                            <span class="text-[11px] text-blue-600 font-mono break-all text-clear-sm" id="sessionChatId">05f912bceb6aa605c84a64826fb856282788e8cf06484f48d3890481ebbc211938</span>
-                            <button onclick="copyToClipboard('sessionChatId', '✅ Session Chat ID कॉपी हो गई!')" class="text-blue-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-xs text-clear-sm"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
+                            <span class="text-[11px] text-blue-600 font-mono break-all" id="sessionChatId">05f912bceb6aa605c84a64826fb856282788e8cf06484f48d3890481ebbc211938</span>
+                            <button onclick="copyToClipboard('sessionChatId', '✅ Session Chat ID कॉपी हो गई!')" class="text-blue-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-xs"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
                         </div>
-                        <p class="text-[8px] text-amber-600/30 text-center text-clear-sm">Session ID को कॉपी करें, Session ऐप में Paste करें और हमसे सीधे चैट करें।</p>
+                        <p class="text-[8px] text-amber-600/30 text-center">Session ID को कॉपी करें, Session ऐप में Paste करें और हमसे सीधे चैट करें।</p>
                     </div>
-                    <button id="installAppBtn" onclick="installApp()" class="w-full app-download-btn justify-center text-clear-sm">
+                    <!-- App Download (PWA) -->
+                    <button id="installAppBtn" onclick="installApp()" class="w-full app-download-btn justify-center">
                         <i class="fa-solid fa-download"></i> 📲 App Download (PWA)
                     </button>
-                    <a href="#" onclick="downloadAPK(); return false;" class="w-full text-center text-xs text-amber-600/60 hover:text-amber-700 mt-1 block text-clear-sm">📥 APK Download (Coming Soon)</a>
-                    <button onclick="handleLogout()" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-600 border border-red-500/30 font-semibold py-2.5 rounded-xl text-xs transition-all text-center btn-animate text-clear-sm"><i class="fa-solid fa-power-off mr-1.5"></i> लॉगआउट करें</button>
+                    <!-- APK Download (Demo - link to your APK if you have) -->
+                    <a href="#" onclick="downloadAPK(); return false;" class="w-full text-center text-xs text-amber-600/60 hover:text-amber-700 mt-1 block">📥 APK Download (Coming Soon)</a>
+                    <button onclick="handleLogout()" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-600 border border-red-500/30 font-semibold py-2.5 rounded-xl text-xs transition-all text-center btn-animate"><i class="fa-solid fa-power-off mr-1.5"></i> लॉगआउट करें</button>
                 </section>
 
                 <!-- BOTTOM NAV -->
                 <nav id="bottomNavBar" class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bottom-nav hidden">
-                    <button onclick="showPage('dashboardPage')" id="nav-dashboardPage" class="flex flex-col items-center justify-center text-amber-500 text-center transition-all btn-animate active"><i class="fa-solid fa-house-chimney text-lg mb-0.5"></i><span class="text-[9px] font-medium text-clear-sm">डैशबोर्ड</span></button>
-                    <button onclick="showPage('purchasePage')" id="nav-purchasePage" class="flex flex-col items-center justify-center text-slate-400 text-center transition-all btn-animate"><i class="fa-solid fa-cart-shopping text-lg mb-0.5"></i><span class="text-[9px] font-medium text-clear-sm">परचेज</span></button>
-                    <button onclick="showPage('stakingPage')" id="nav-stakingPage" class="flex flex-col items-center justify-center text-slate-400 text-center transition-all btn-animate"><i class="fa-solid fa-lock text-lg mb-0.5"></i><span class="text-[9px] font-medium text-clear-sm">स्टेकिंग</span></button>
-                    <button onclick="showPage('profilePage')" id="nav-profilePage" class="flex flex-col items-center justify-center text-slate-400 text-center transition-all btn-animate"><i class="fa-solid fa-circle-user text-lg mb-0.5"></i><span class="text-[9px] font-medium text-clear-sm">प्रोफाइल</span></button>
+                    <button onclick="showPage('dashboardPage')" id="nav-dashboardPage" class="flex flex-col items-center justify-center text-amber-500 text-center transition-all btn-animate active"><i class="fa-solid fa-house-chimney text-lg mb-0.5"></i><span class="text-[9px] font-medium">डैशबोर्ड</span></button>
+                    <button onclick="showPage('purchasePage')" id="nav-purchasePage" class="flex flex-col items-center justify-center text-slate-400 text-center transition-all btn-animate"><i class="fa-solid fa-cart-shopping text-lg mb-0.5"></i><span class="text-[9px] font-medium">परचेज</span></button>
+                    <button onclick="showPage('stakingPage')" id="nav-stakingPage" class="flex flex-col items-center justify-center text-slate-400 text-center transition-all btn-animate"><i class="fa-solid fa-lock text-lg mb-0.5"></i><span class="text-[9px] font-medium">स्टेकिंग</span></button>
+                    <button onclick="showPage('profilePage')" id="nav-profilePage" class="flex flex-col items-center justify-center text-slate-400 text-center transition-all btn-animate"><i class="fa-solid fa-circle-user text-lg mb-0.5"></i><span class="text-[9px] font-medium">प्रोफाइल</span></button>
                 </nav>
 
             </div>
@@ -1854,66 +1711,66 @@
                 <section id="adminLoginPage" class="admin-page w-full space-y-6">
                     <div class="text-center space-y-2 py-6">
                         <div class="w-20 h-20 rounded-full bg-white/90 text-amber-500 flex items-center justify-center text-3xl mx-auto neon-gold border border-amber-500 shadow-xl"><i class="fa-solid fa-lock"></i></div>
-                        <h2 class="text-2xl font-bold text-amber-600 mt-2 text-clear">एडमिन लॉगिन</h2>
-                        <p class="text-xs text-amber-600/40 text-clear-sm">सुरक्षित प्रशासनिक पैनल एक्सेस करें</p>
+                        <h2 class="text-2xl font-bold text-amber-600 mt-2">एडमिन लॉगिन</h2>
+                        <p class="text-xs text-amber-600/40">सुरक्षित प्रशासनिक पैनल एक्सेस करें</p>
                     </div>
                     <div class="glass-gold p-6 rounded-2xl border-amber-500/30 space-y-4 shadow-xl">
-                        <div><label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm">एडमिन ईमेल</label><input type="email" id="adminUsernameInput" placeholder="एडमिन ईमेल दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-amber-500 text-[#1a1a2e] transition-all font-mono text-clear-sm"></div>
-                        <div><label class="block text-xs font-semibold text-amber-700/70 mb-1.5 text-clear-sm">एडमिन पासवर्ड</label><input type="password" id="adminPasswordInput" placeholder="पासवर्ड दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-amber-500 text-[#1a1a2e] transition-all font-mono text-clear-sm"></div>
-                        <button id="btn-admin-login" onclick="submitAdminLogin(this)" class="w-full btn-gold py-3.5 rounded-xl shadow-lg transition-all text-sm mt-2 flex items-center justify-center gap-1.5 text-clear-sm"><span>एडमिन एक्सेस खोलें</span> <i class="fa-solid fa-unlock-keyhole"></i></button>
+                        <div><label class="block text-xs font-semibold text-amber-700/70 mb-1.5">एडमिन ईमेल</label><input type="email" id="adminUsernameInput" placeholder="एडमिन ईमेल दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-amber-500 text-[#1a1a2e] transition-all font-mono"></div>
+                        <div><label class="block text-xs font-semibold text-amber-700/70 mb-1.5">एडमिन पासवर्ड</label><input type="password" id="adminPasswordInput" placeholder="पासवर्ड दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-amber-500 text-[#1a1a2e] transition-all font-mono"></div>
+                        <button id="btn-admin-login" onclick="submitAdminLogin(this)" class="w-full btn-gold py-3.5 rounded-xl shadow-lg transition-all text-sm mt-2 flex items-center justify-center gap-1.5"><span>एडमिन एक्सेस खोलें</span> <i class="fa-solid fa-unlock-keyhole"></i></button>
                     </div>
                 </section>
                 <section id="adminDashboardPage" class="admin-page w-full hidden space-y-4">
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/40 flex items-center justify-between">
-                        <div><h3 class="text-sm font-bold text-amber-600 text-clear"><i class="fa-solid fa-house-laptop mr-1"></i> एडमिन डैशबोर्ड</h3><p class="text-[9px] text-amber-600/30 text-clear-sm">सिंक्रोनाइज्ड: Cloud Active</p></div>
-                        <div class="flex gap-1.5"><button onclick="exportAllUserData()" class="bg-amber-500 hover:bg-amber-600 text-[#1a1a2e] text-[9px] font-bold px-2 py-1 rounded shadow btn-animate text-clear-sm"><i class="fa-solid fa-file-export"></i> Export</button><button onclick="logoutAdmin()" class="bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-[#1a1a2e] text-[9px] font-bold px-2 py-1 rounded border border-amber-500/30 btn-animate text-clear-sm"><i class="fa-solid fa-right-from-bracket"></i> लॉगआउट</button></div>
+                        <div><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-house-laptop mr-1"></i> एडमिन डैशबोर्ड</h3><p class="text-[9px] text-amber-600/30">सिंक्रोनाइज्ड: Appwrite Cloud Active</p></div>
+                        <div class="flex gap-1.5"><button onclick="exportAllUserData()" class="bg-amber-500 hover:bg-amber-600 text-[#1a1a2e] text-[9px] font-bold px-2 py-1 rounded shadow btn-animate"><i class="fa-solid fa-file-export"></i> Export</button><button onclick="logoutAdmin()" class="bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-[#1a1a2e] text-[9px] font-bold px-2 py-1 rounded border border-amber-500/30 btn-animate"><i class="fa-solid fa-right-from-bracket"></i> लॉगआउट</button></div>
                     </div>
                     <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5 text-clear-sm">Total Users</span><strong id="statTotalUsers" class="text-[#1a1a2e] text-md text-clear">0</strong></div>
-                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5 text-clear-sm">Approved Deposits</span><strong id="statTotalDeposits" class="text-green-600 text-md text-clear">$0.00</strong></div>
-                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5 text-clear-sm">Locked Staking</span><strong id="statTotalStaked" class="currency-usdt text-md text-clear">0 USDT</strong></div>
-                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5 text-clear-sm">Pending Dep.</span><strong id="statPendingDep" class="text-yellow-600 text-md text-clear">0</strong></div>
-                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5 text-clear-sm">Pending With.</span><strong id="statPendingWith" class="text-yellow-600 text-md text-clear">0</strong></div>
-                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5 text-clear-sm">Total Referral</span><strong id="statReferrals" class="text-blue-600 text-md text-clear">0 USDT</strong></div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5">Total Users</span><strong id="statTotalUsers" class="text-[#1a1a2e] text-md">0</strong></div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5">Approved Deposits</span><strong id="statTotalDeposits" class="text-green-600 text-md">$0.00</strong></div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5">Locked Staking</span><strong id="statTotalStaked" class="currency-usdt text-md">0 USDT</strong></div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5">Pending Dep.</span><strong id="statPendingDep" class="text-yellow-600 text-md">0</strong></div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5">Pending With.</span><strong id="statPendingWith" class="text-yellow-600 text-md">0</strong></div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block mb-0.5">Total Referral</span><strong id="statReferrals" class="text-blue-600 text-md">0 USDT</strong></div>
                     </div>
                     <div class="flex bg-white/80 p-1 rounded-xl border border-amber-500/15 text-[10px] flex-wrap">
-                        <button onclick="switchAdminTab('users')" id="adminTab-users" class="flex-1 py-1.5 text-center font-semibold rounded bg-amber-500 text-[#1a1a2e] transition-all btn-animate text-clear-sm">Users</button>
-                        <button onclick="switchAdminTab('deposits')" id="adminTab-deposits" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Deposits</button>
-                        <button onclick="switchAdminTab('withdrawals')" id="adminTab-withdrawals" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Withdrawals</button>
-                        <button onclick="switchAdminTab('staking')" id="adminTab-staking" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Staking</button>
-                        <button onclick="switchAdminTab('referrals')" id="adminTab-referrals" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Referrals</button>
-                        <button onclick="switchAdminTab('transfer')" id="adminTab-transfer" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Transfer</button>
+                        <button onclick="switchAdminTab('users')" id="adminTab-users" class="flex-1 py-1.5 text-center font-semibold rounded bg-amber-500 text-[#1a1a2e] transition-all btn-animate">Users</button>
+                        <button onclick="switchAdminTab('deposits')" id="adminTab-deposits" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate">Deposits</button>
+                        <button onclick="switchAdminTab('withdrawals')" id="adminTab-withdrawals" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate">Withdrawals</button>
+                        <button onclick="switchAdminTab('staking')" id="adminTab-staking" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate">Staking</button>
+                        <button onclick="switchAdminTab('referrals')" id="adminTab-referrals" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate">Referrals</button>
+                        <button onclick="switchAdminTab('transfer')" id="adminTab-transfer" class="flex-1 py-1.5 text-center font-semibold text-amber-600/40 rounded transition-all btn-animate">Transfer</button>
                     </div>
                     <div id="adminSection-users" class="admin-sec space-y-3">
-                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">यूजर USDT कस्टमाइज़ेशन (SPX ID से)</h4>
+                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3"><h4 class="text-xs font-bold text-amber-700/70">यूजर USDT कस्टमाइज़ेशन (SPX ID से)</h4>
                             <div class="grid grid-cols-2 gap-2 text-xs">
-                                <input type="text" id="adminCoinUserId" placeholder="SPX ID / ईमेल" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm text-clear-sm">
-                                <input type="number" id="adminCoinAmount" placeholder="USDT की संख्या" class="bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm text-clear-sm">
-                                <select id="adminCoinAction" class="bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-amber-600/60 focus:outline-none backdrop-blur-sm text-clear-sm"><option value="add">जोड़ें (Credit)</option><option value="subtract">घटाएं (Debit)</option></select>
-                                <button id="btn-admin-coin" onclick="updateUserCoinsManually(this)" class="col-span-2 btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1 shadow-xl text-clear-sm"><span>अपडेट करें</span> <i class="fa-solid fa-floppy-disk"></i></button>
+                                <input type="text" id="adminCoinUserId" placeholder="SPX ID / ईमेल" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm">
+                                <input type="number" id="adminCoinAmount" placeholder="USDT की संख्या" class="bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm">
+                                <select id="adminCoinAction" class="bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-amber-600/60 focus:outline-none backdrop-blur-sm"><option value="add">जोड़ें (Credit)</option><option value="subtract">घटाएं (Debit)</option></select>
+                                <button id="btn-admin-coin" onclick="updateUserCoinsManually(this)" class="col-span-2 btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1 shadow-xl"><span>अपडेट करें</span> <i class="fa-solid fa-floppy-disk"></i></button>
                             </div>
                         </div>
-                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">सभी पंजीकृत यूज़र्स</h4><div id="adminUserList" class="space-y-2 text-xs max-h-[180px] overflow-y-auto font-mono"></div></div>
+                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">सभी पंजीकृत यूज़र्स</h4><div id="adminUserList" class="space-y-2 text-xs max-h-[180px] overflow-y-auto font-mono"></div></div>
                     </div>
-                    <div id="adminSection-deposits" class="admin-sec space-y-3 hidden"><div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">पेंडिंग डिपॉजिट्स</h4><div id="adminDepositsList" class="space-y-2 text-xs max-h-[300px] overflow-y-auto"></div></div></div>
-                    <div id="adminSection-withdrawals" class="admin-sec space-y-3 hidden"><div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">पेंडिंग विथड्रॉवल रिक्वेस्ट्स</h4><div id="adminWithdrawalsList" class="space-y-2 text-xs max-h-[300px] overflow-y-auto"></div></div></div>
+                    <div id="adminSection-deposits" class="admin-sec space-y-3 hidden"><div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">पेंडिंग डिपॉजिट्स</h4><div id="adminDepositsList" class="space-y-2 text-xs max-h-[300px] overflow-y-auto"></div></div></div>
+                    <div id="adminSection-withdrawals" class="admin-sec space-y-3 hidden"><div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">पेंडिंग विथड्रॉवल रिक्वेस्ट्स</h4><div id="adminWithdrawalsList" class="space-y-2 text-xs max-h-[300px] overflow-y-auto"></div></div></div>
                     <div id="adminSection-staking" class="admin-sec space-y-3 hidden">
                         <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3">
-                            <div class="flex justify-between items-center border-b border-amber-500/15 pb-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">स्टेकिंग ग्लोबल कॉन्फ़िगरेशन</h4><div class="flex items-center gap-2"><span class="text-[10px] text-amber-600/40 text-clear-sm">स्टेकिंग सक्षम:</span><input type="checkbox" id="adminStakingGloballyEnabled" checked onchange="toggleGlobalStakingState(this.checked)" class="w-4 h-4 accent-amber-500 rounded cursor-pointer"></div></div>
-                            <div class="space-y-2"><span class="text-[10px] text-amber-600/40 block text-clear-sm">सक्रिय प्लान्स सिलेक्ट करें:</span><div id="adminStakingPlansConfig" class="grid grid-cols-3 gap-2 text-xs"></div></div>
+                            <div class="flex justify-between items-center border-b border-amber-500/15 pb-2"><h4 class="text-xs font-bold text-amber-700/70">स्टेकिंग ग्लोबल कॉन्फ़िगरेशन</h4><div class="flex items-center gap-2"><span class="text-[10px] text-amber-600/40">स्टेकिंग सक्षम:</span><input type="checkbox" id="adminStakingGloballyEnabled" checked onchange="toggleGlobalStakingState(this.checked)" class="w-4 h-4 accent-amber-500 rounded cursor-pointer"></div></div>
+                            <div class="space-y-2"><span class="text-[10px] text-amber-600/40 block">सक्रिय प्लान्स सिलेक्ट करें:</span><div id="adminStakingPlansConfig" class="grid grid-cols-3 gap-2 text-xs"></div></div>
                         </div>
-                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">सभी एक्टिव स्टेकिंग रिकॉर्ड्स</h4><div id="adminStakingList" class="space-y-2 text-xs max-h-[200px] overflow-y-auto"></div></div>
+                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">सभी एक्टिव स्टेकिंग रिकॉर्ड्स</h4><div id="adminStakingList" class="space-y-2 text-xs max-h-[200px] overflow-y-auto"></div></div>
                     </div>
-                    <div id="adminSection-referrals" class="admin-sec space-y-3 hidden"><div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">रेफ़रल रिकॉर्ड ट्रैकर</h4><div id="adminReferralsList" class="space-y-2 text-xs max-h-[300px] overflow-y-auto"></div></div></div>
+                    <div id="adminSection-referrals" class="admin-sec space-y-3 hidden"><div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-xs font-bold text-amber-700/70">रेफ़रल रिकॉर्ड ट्रैकर</h4><div id="adminReferralsList" class="space-y-2 text-xs max-h-[300px] overflow-y-auto"></div></div></div>
                     <div id="adminSection-transfer" class="admin-sec space-y-3 hidden">
-                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3"><h4 class="text-xs font-bold text-amber-700/70 text-clear-sm">USDT (BEP20) ट्रांसफर (SPX ID से)</h4><p class="text-[9px] text-amber-600/40 text-clear-sm">SPX ID के माध्यम से किसी भी यूजर को USDT भेजें</p>
+                        <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3"><h4 class="text-xs font-bold text-amber-700/70">USDT (BEP20) ट्रांसफर (SPX ID से)</h4><p class="text-[9px] text-amber-600/40">SPX ID के माध्यम से किसी भी यूजर को USDT भेजें</p>
                             <div class="grid grid-cols-2 gap-2 text-xs">
-                                <input type="text" id="adminTransferFrom" placeholder="स्रोत SPX ID" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm text-clear-sm">
-                                <input type="text" id="adminTransferTo" placeholder="लक्ष्य SPX ID" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm text-clear-sm">
-                                <input type="number" id="adminTransferAmount" placeholder="USDT संख्या" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm text-clear-sm">
-                                <button id="btn-admin-transfer" onclick="adminTransferUSDT(this)" class="col-span-2 btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1 shadow-xl text-clear-sm"><span>USDT ट्रांसफर करें</span> <i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+                                <input type="text" id="adminTransferFrom" placeholder="स्रोत SPX ID" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm">
+                                <input type="text" id="adminTransferTo" placeholder="लक्ष्य SPX ID" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm">
+                                <input type="number" id="adminTransferAmount" placeholder="USDT संख्या" class="col-span-2 bg-white/80 border border-amber-500/20 rounded-xl p-2 text-xs text-[#1a1a2e] focus:outline-none backdrop-blur-sm">
+                                <button id="btn-admin-transfer" onclick="adminTransferUSDT(this)" class="col-span-2 btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1 shadow-xl"><span>USDT ट्रांसफर करें</span> <i class="fa-solid fa-arrow-right-arrow-left"></i></button>
                             </div>
-                            <div class="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2 text-center"><span class="text-[9px] text-amber-600/60 text-clear-sm"><i class="fa-solid fa-info-circle mr-1"></i> SPX ID का उपयोग करें (जैसे SPX100001)</span></div>
+                            <div class="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2 text-center"><span class="text-[9px] text-amber-600/60"><i class="fa-solid fa-info-circle mr-1"></i> SPX ID का उपयोग करें (जैसे SPX100001)</span></div>
                         </div>
                     </div>
                 </section>
@@ -1928,7 +1785,7 @@
             <div class="receipt-card" id="receiptCard">
                 <div class="globe-watermark"><i class="fa-solid fa-globe"></i></div>
                 <div class="receipt-logo"><img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" style="height:32px;width:32px;object-fit:cover;border-radius:50%;display:inline-block;border:2px solid #d4af37;" /><small>Premium • Gold Edition</small></div>
-                <div class="receipt-header"><h3 class="text-clear"><i class="fa-solid fa-receipt mr-2"></i> Official Payment Receipt</h3><button class="receipt-close" onclick="closeReceipt()"><i class="fa-solid fa-xmark"></i></button></div>
+                <div class="receipt-header"><h3><i class="fa-solid fa-receipt mr-2"></i> Official Payment Receipt</h3><button class="receipt-close" onclick="closeReceipt()"><i class="fa-solid fa-xmark"></i></button></div>
                 <div id="receiptContent"></div>
                 <div class="receipt-footer"><button class="btn-download" onclick="downloadReceipt()"><i class="fa-solid fa-download"></i> डाउनलोड करें</button><button class="btn-print" onclick="printReceipt()"><i class="fa-solid fa-print"></i> प्रिंट करें</button></div>
             </div>
@@ -1937,60 +1794,59 @@
         <!-- Voice Toast -->
         <div id="voiceToast" class="voice-toast">
             <span class="voice-icon"><i class="fa-solid fa-circle-check"></i></span>
-            <p class="voice-msg text-clear" id="voiceToastMsg">🎉 Congratulations! आपका Daily Reward सफलतापूर्वक आपके अकाउंट में क्रेडिट कर दिया गया है।</p>
-            <button class="voice-close text-clear-sm" onclick="closeVoiceToast()">ठीक है</button>
+            <p class="voice-msg" id="voiceToastMsg">🎉 Congratulations! आपका Daily Reward सफलतापूर्वक आपके अकाउंट में क्रेडिट कर दिया गया है। 24 घंटे बाद फिर से आपका इंतज़ार रहेगा। SupriX Global से जुड़े रहने के लिए धन्यवाद! आपका दिन शुभ हो।</p>
+            <button class="voice-close" onclick="closeVoiceToast()">ठीक है</button>
         </div>
 
         <!-- MODALS -->
         <div id="fullscreenImageModal" class="fixed inset-0 bg-black/95 flex flex-col items-center justify-center z-50 p-4 hidden">
             <div class="absolute top-4 right-4 z-50"><button onclick="closeFullscreenImage()" class="bg-amber-500/20 hover:bg-amber-500 text-amber-500 hover:text-[#1a1a2e] w-10 h-10 rounded-full flex items-center justify-center transition-all btn-animate"><i class="fa-solid fa-xmark text-lg"></i></button></div>
-            <div class="w-full max-w-md flex flex-col items-center justify-center max-h-[80vh]"><img id="fullscreenImgTarget" src="" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 transform scale-100 cursor-zoom-in" onclick="toggleZoomImage(this)"><p class="text-[10px] text-amber-300/30 mt-2 text-clear-sm">ज़ूम करने के लिए क्लिक करें</p></div>
+            <div class="w-full max-w-md flex flex-col items-center justify-center max-h-[80vh]"><img id="fullscreenImgTarget" src="" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 transform scale-100 cursor-zoom-in" onclick="toggleZoomImage(this)"><p class="text-[10px] text-amber-300/30 mt-2">ज़ूम करने के लिए क्लिक करें</p></div>
         </div>
         <div id="myReferralsModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 hidden">
             <div class="glass-gold p-5 rounded-2xl w-full max-w-sm space-y-4 shadow-2xl flex flex-col max-h-[85vh] border-amber-500/30">
-                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2 shrink-0"><h4 class="text-xs font-bold text-amber-600 text-clear"><i class="fa-solid fa-users mr-1"></i> मेरे रेफ़रल</h4><button onclick="toggleMyReferralsModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
+                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2 shrink-0"><h4 class="text-xs font-bold text-amber-600"><i class="fa-solid fa-users mr-1"></i> मेरे रेफ़रल</h4><button onclick="toggleMyReferralsModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
                 <div id="referralsListArea" class="flex-1 overflow-y-auto space-y-2 text-xs pr-1"></div>
             </div>
         </div>
         <div id="txHistoryModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 hidden">
             <div class="glass-gold p-5 rounded-2xl w-full max-w-sm space-y-4 shadow-2xl flex flex-col max-h-[85vh] border-amber-500/30">
-                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2 shrink-0"><h4 class="text-xs font-bold text-amber-600 text-clear"><i class="fa-solid fa-receipt mr-1"></i> लेनदेन इतिहास</h4><button onclick="toggleTxHistoryModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
+                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2 shrink-0"><h4 class="text-xs font-bold text-amber-600"><i class="fa-solid fa-receipt mr-1"></i> लेनदेन इतिहास</h4><button onclick="toggleTxHistoryModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
                 <div class="flex bg-white/80 p-1 rounded-xl border border-amber-500/15 text-[10px] shrink-0">
-                    <button id="txTab-deposit" onclick="switchTxTab('deposit')" class="flex-1 py-1 text-center font-bold rounded bg-amber-500 text-[#1a1a2e] transition-all btn-animate text-clear-sm">Deposit</button>
-                    <button id="txTab-withdraw" onclick="switchTxTab('withdraw')" class="flex-1 py-1 text-center font-bold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Withdraw</button>
-                    <button id="txTab-daily" onclick="switchTxTab('daily')" class="flex-1 py-1 text-center font-bold text-amber-600/40 rounded transition-all btn-animate text-clear-sm">Daily</button>
+                    <button id="txTab-deposit" onclick="switchTxTab('deposit')" class="flex-1 py-1 text-center font-bold rounded bg-amber-500 text-[#1a1a2e] transition-all btn-animate">Deposit</button>
+                    <button id="txTab-withdraw" onclick="switchTxTab('withdraw')" class="flex-1 py-1 text-center font-bold text-amber-600/40 rounded transition-all btn-animate">Withdraw</button>
+                    <button id="txTab-daily" onclick="switchTxTab('daily')" class="flex-1 py-1 text-center font-bold text-amber-600/40 rounded transition-all btn-animate">Daily</button>
                 </div>
                 <div id="txHistoryListArea" class="flex-1 overflow-y-auto space-y-2 text-xs pr-1"></div>
             </div>
         </div>
         <div id="teamModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 hidden">
             <div class="glass-gold p-5 rounded-2xl w-full max-w-sm space-y-4 shadow-2xl flex flex-col max-h-[85vh] border-amber-500/30">
-                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2 shrink-0"><h4 class="text-xs font-bold text-amber-600 text-clear"><i class="fa-solid fa-people-group mr-1"></i> मेरी टीम (Team)</h4><button onclick="toggleTeamModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
+                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2 shrink-0"><h4 class="text-xs font-bold text-amber-600"><i class="fa-solid fa-people-group mr-1"></i> मेरी टीम (Team)</h4><button onclick="toggleTeamModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
                 <div id="teamStats" class="grid grid-cols-3 gap-2 text-center text-xs shrink-0">
-                    <div class="bg-white/80 p-2 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block text-clear-sm">Total Members</span><strong id="teamTotalMembers" class="text-[#1a1a2e] text-clear">0</strong></div>
-                    <div class="bg-white/80 p-2 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block text-clear-sm">Total Staked</span><strong id="teamTotalStaked" class="currency-usdt text-clear">0 USDT</strong></div>
-                    <div class="bg-white/80 p-2 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block text-clear-sm">Total Bonus</span><strong id="teamTotalBonus" class="currency-usdt text-clear">0 USDT</strong></div>
+                    <div class="bg-white/80 p-2 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block">Total Members</span><strong id="teamTotalMembers" class="text-[#1a1a2e]">0</strong></div>
+                    <div class="bg-white/80 p-2 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block">Total Staked</span><strong id="teamTotalStaked" class="currency-usdt">0 USDT</strong></div>
+                    <div class="bg-white/80 p-2 rounded-xl border border-amber-500/15"><span class="text-[8px] text-amber-600/30 block">Total Bonus</span><strong id="teamTotalBonus" class="currency-usdt">0 USDT</strong></div>
                 </div>
                 <div id="teamListArea" class="flex-1 overflow-y-auto space-y-2 text-xs pr-1"></div>
             </div>
         </div>
         <div id="forgotPasswordModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 hidden">
             <div class="glass-gold p-5 rounded-2xl w-full max-w-sm space-y-4 shadow-2xl border-amber-500/30">
-                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2"><h4 class="text-xs font-bold text-amber-600 text-clear"><i class="fa-solid fa-circle-question mr-1"></i> पासवर्ड रिकवर</h4><button onclick="toggleForgotPasswordModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
-                <p class="text-[10px] text-amber-600/40 text-clear-sm">अपना रजिस्टर्ड ईमेल दर्ज करें। हम आपको पासवर्ड रीसेट लिंक भेजेंगे।</p>
-                <div><input type="text" id="forgotInput" placeholder="ईमेल दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm text-clear-sm"></div>
-                <div id="forgotResponseMsg" class="text-center text-sm font-semibold hidden"></div>
-                <button id="btn-forgot" onclick="handleForgotPassword(this)" class="w-full btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1 shadow-xl text-clear-sm"><span>पासवर्ड खोजें</span></button>
+                <div class="flex items-center justify-between border-b border-amber-500/15 pb-2"><h4 class="text-xs font-bold text-amber-600"><i class="fa-solid fa-circle-question mr-1"></i> पासवर्ड रिकवर</h4><button onclick="toggleForgotPasswordModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
+                <p class="text-[10px] text-amber-600/40">अपना रजिस्टर्ड ईमेल दर्ज करें।</p>
+                <div><input type="text" id="forgotInput" placeholder="ईमेल दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm"></div>
+                <button id="btn-forgot" onclick="handleForgotPassword(this)" class="w-full btn-gold py-2 rounded-xl text-xs flex items-center justify-center gap-1 shadow-xl"><span>पासवर्ड खोजें</span></button>
             </div>
         </div>
 
         <!-- TOAST -->
-        <div id="toastNotification"><span id="toastMessage" class="text-clear-sm"></span><button onclick="hideToast()"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="toastNotification"><span id="toastMessage"></span><button onclick="hideToast()"><i class="fa-solid fa-xmark"></i></button></div>
 
     </div>
 
     <!-- ============================================================ -->
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT – FIXED: dailyRewards removed, transactions used   -->
     <!-- ============================================================ -->
     <script>
         // ============================================================
@@ -2035,8 +1891,6 @@
         let isAdminMode = false;
         let receiptData = null;
         let cooldownTimerInterval = null;
-        let voiceEnabled = true;
-        let pageVoicesPlayed = {};
 
         // ============================================================
         // UTILITY FUNCTIONS
@@ -2149,155 +2003,32 @@
         }
 
         // ============================================================
-        // VOICE SYSTEM
+        // VOICE NOTIFICATIONS
         // ============================================================
-        function toggleVoice() {
-            voiceEnabled = !voiceEnabled;
-            const btn = document.getElementById('voiceToggleBtn');
-            const icon = document.getElementById('voiceIcon');
-            const tooltip = document.getElementById('voiceTooltip');
-            if (voiceEnabled) {
-                btn.classList.remove('off');
-                icon.className = 'fa-solid fa-volume-high';
-                tooltip.textContent = 'वॉइस चालू';
-            } else {
-                btn.classList.add('off');
-                icon.className = 'fa-solid fa-volume-xmark';
-                tooltip.textContent = 'वॉइस बंद';
-                window.speechSynthesis.cancel();
-            }
-        }
-
         function speakHindi(text, callback) {
-            if (!voiceEnabled) { if (callback) setTimeout(callback, 100); return; }
             try {
-                window.speechSynthesis.cancel();
                 const speech = new SpeechSynthesisUtterance(text);
                 speech.lang = 'hi-IN';
                 speech.rate = 0.9;
                 speech.pitch = 1.1;
                 speech.volume = 1;
-                // Try to find a male Hindi voice
                 const voices = window.speechSynthesis.getVoices();
-                const maleVoice = voices.find(v => v.lang === 'hi-IN' && (v.name.includes('Male') || v.name.includes(
-                    'Google हिन्दी')));
-                if (maleVoice) speech.voice = maleVoice;
-                // Fallback: any Hindi voice
-                const anyHindi = voices.find(v => v.lang === 'hi-IN');
-                if (anyHindi && !maleVoice) speech.voice = anyHindi;
+                const femaleVoice = voices.find(v => v.lang === 'hi-IN' && v.name.includes('Female'));
+                if (femaleVoice) speech.voice = femaleVoice;
                 window.speechSynthesis.speak(speech);
-                if (callback) {
-                    const checkDone = () => {
-                        if (window.speechSynthesis.speaking) {
-                            setTimeout(checkDone, 200);
-                        } else {
-                            callback();
-                        }
-                    };
-                    setTimeout(checkDone, 500);
-                }
-            } catch (e) { if (callback) setTimeout(callback, 200); }
+                if (callback) setTimeout(callback, 3000);
+            } catch (e) { if (callback) callback(); }
         }
 
-        function playCelebrationVoice() {
-            speakHindi('कांग्रेचूलेशंस! आपका रजिस्ट्रेशन सफलतापूर्वक पूर्ण हुआ। SupriX Global परिवार में आपका स्वागत है।');
-            // Also play clapping sounds via audio context
-            try {
-                const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-                for (let i = 0; i < 8; i++) {
-                    setTimeout(() => {
-                        const osc = audioCtx.createOscillator();
-                        const gain = audioCtx.createGain();
-                        osc.connect(gain);
-                        gain.connect(audioCtx.destination);
-                        osc.frequency.value = 800 + Math.random() * 400;
-                        osc.type = 'square';
-                        gain.gain.value = 0.06;
-                        osc.start();
-                        osc.stop(0.08);
-                    }, i * 120);
-                }
-            } catch (e) { /* silent */ }
+        function showVoiceToast(msg) {
+            const el = document.getElementById('voiceToast');
+            document.getElementById('voiceToastMsg').innerText = msg;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 6000);
         }
 
-        function playDashboardWelcomeVoice() {
-            speakHindi(
-                'SupriX Global के साथ जुड़ने के लिए धन्यवाद। हमारा लक्ष्य है आत्मनिर्भर भारत बनाना।');
-        }
-
-        function playLoginPageVoice() {
-            speakHindi('कृपया लॉगिन करें। अपनी ईमेल आईडी या SPX आईडी और पासवर्ड दर्ज करें।');
-        }
-
-        function playRegistrationPageVoice() {
-            speakHindi(
-                'SupriX Global में आपका स्वागत है। कृपया अपना डिटेल्स भरे और रजिस्ट्रेशन करें।');
-        }
-
-        // ============================================================
-        // CONFETTI & CELEBRATION
-        // ============================================================
-        function launchConfetti() {
-            const container = document.getElementById('successConfettiContainer');
-            if (!container) return;
-            const colors = ['#d4af37', '#f5d97e', '#c9a030', '#e8c84a', '#b8962a', '#f0d060', '#22C55E', '#26A17B', '#fbbf24',
-                '#ff6b6b', '#ffd93d', '#6bcb77', '#4d96ff'
-            ];
-            const emojis = ['🎉', '🎊', '✨', '⭐', '🌟', '💫', '🎈', '🎀', '🏆', '👑'];
-            for (let i = 0; i < 80; i++) {
-                const el = document.createElement('div');
-                el.className = 'confetti-piece';
-                const size = Math.random() * 10 + 6;
-                const isEmoji = Math.random() > 0.5;
-                const left = Math.random() * 100;
-                const delay = Math.random() * 3;
-                const duration = Math.random() * 2.5 + 2;
-                if (isEmoji) {
-                    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                    el.style.fontSize = (Math.random() * 14 + 12) + 'px';
-                    el.style.background = 'transparent';
-                } else {
-                    el.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    el.style.width = size + 'px';
-                    el.style.height = (size * 0.6) + 'px';
-                    el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                }
-                el.style.left = left + '%';
-                el.style.animationDelay = delay + 's';
-                el.style.animationDuration = duration + 's';
-                el.style.transform = `rotate(${Math.random()*360}deg)`;
-                container.appendChild(el);
-                setTimeout(() => el.remove(), (duration + delay) * 1000 + 500);
-            }
-
-            // Firework bursts
-            for (let burst = 0; burst < 5; burst++) {
-                setTimeout(() => {
-                    const cx = 20 + Math.random() * 60;
-                    const cy = 20 + Math.random() * 40;
-                    for (let i = 0; i < 20; i++) {
-                        const p = document.createElement('div');
-                        p.className = 'firework-particle';
-                        const size = Math.random() * 5 + 3;
-                        const angle = Math.random() * Math.PI * 2;
-                        const dist = 60 + Math.random() * 120;
-                        const dx = Math.cos(angle) * dist;
-                        const dy = Math.sin(angle) * dist;
-                        p.style.width = size + 'px';
-                        p.style.height = size + 'px';
-                        p.style.left = cx + 'vw';
-                        p.style.top = cy + 'vh';
-                        p.style.background = colors[Math.floor(Math.random() * colors.length)];
-                        p.style.boxShadow = `0 0 6px ${p.style.background}`;
-                        p.style.setProperty('--dx', dx + 'px');
-                        p.style.setProperty('--dy', dy + 'px');
-                        p.style.animation = `firework-burst ${0.8+Math.random()*0.6}s ease-out forwards`;
-                        p.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
-                        document.body.appendChild(p);
-                        setTimeout(() => p.remove(), 1500);
-                    }
-                }, burst * 300);
-            }
+        function closeVoiceToast() {
+            document.getElementById('voiceToast').classList.remove('show');
         }
 
         // ============================================================
@@ -2305,7 +2036,9 @@
         // ============================================================
         function createButterflies() {
             const container = document.getElementById('butterflyContainer');
-            const emojis = ['🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋'];
+            const emojis = ['🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋', '🦋',
+                '🦋', '🦋', '🦋'
+            ];
             const colors = ['#d4af37', '#f5d97e', '#c9a030', '#e8c84a', '#b8962a', '#f0d060', '#d4af37', '#e0c040'];
             for (let i = 0; i < 25; i++) {
                 const el = document.createElement('span');
@@ -2450,14 +2183,14 @@
                 const card = document.createElement('div');
                 card.className = 'bg-white/80 p-3 rounded-xl border border-amber-500/15 space-y-1';
                 card.innerHTML = `
-                            <div class="flex justify-between font-bold text-amber-600 text-clear"><span>${u.name||'N/A'}</span><span class="text-[#1a1a2e]">${parseFloat(u.coins||0).toFixed(2)} USDT</span></div>
-                            <div class="text-[10px] text-amber-600/30 grid grid-cols-2 gap-1 pb-1 text-clear-sm">
+                            <div class="flex justify-between font-bold text-amber-600"><span>${u.name||'N/A'}</span><span class="text-[#1a1a2e]">${parseFloat(u.coins||0).toFixed(2)} USDT</span></div>
+                            <div class="text-[10px] text-amber-600/30 grid grid-cols-2 gap-1 pb-1">
                                 <span>ईमेल: ${u.email||'N/A'} <button onclick="copyToClipboard('${emailId}','✅ Email कॉपी!')" class="copy-btn-admin"><i class="fa-solid fa-copy"></i></button></span>
                                 <span>मोबाइल: ${u.phone||'N/A'} <button onclick="copyToClipboard('${phoneId}','✅ Phone कॉपी!')" class="copy-btn-admin"><i class="fa-solid fa-copy"></i></button></span>
                                 <span class="col-span-2 font-bold text-amber-600">SPX ID: ${u.coinxId||'N/A'} <button onclick="copyToClipboard('${coinxId}','✅ SPX ID कॉपी!')" class="copy-btn-admin"><i class="fa-solid fa-copy"></i></button></span>
                                 <span class="col-span-2">रेफरल: ${u.$id||'N/A'} <button onclick="copyToClipboard('${refId}','✅ रेफरल कॉपी!')" class="copy-btn-admin"><i class="fa-solid fa-copy"></i></button></span>
                             </div>
-                            <div class="flex justify-between items-center pt-1 border-t border-amber-500/10 text-[10px] text-amber-600/30 text-clear-sm"><span>${u.$createdAt ? new Date(u.$createdAt).toLocaleDateString('hi-IN') : 'N/A'}</span><button onclick="toggleBlock('${u.$id}')" class="text-[9px] px-2.5 py-0.5 rounded font-bold ${u.isBlocked?'bg-green-500/20 text-green-600':'bg-red-500/20 text-red-600'}">${u.isBlocked?'Unblock':'Block'}</button></div>
+                            <div class="flex justify-between items-center pt-1 border-t border-amber-500/10 text-[10px] text-amber-600/30"><span>${u.$createdAt ? new Date(u.$createdAt).toLocaleDateString('hi-IN') : 'N/A'}</span><button onclick="toggleBlock('${u.$id}')" class="text-[9px] px-2.5 py-0.5 rounded font-bold ${u.isBlocked?'bg-green-500/20 text-green-600':'bg-red-500/20 text-red-600'}">${u.isBlocked?'Unblock':'Block'}</button></div>
                             <span id="${emailId}" class="hidden">${u.email||''}</span><span id="${phoneId}" class="hidden">${u.phone||''}</span><span id="${coinxId}" class="hidden">${u.coinxId||''}</span><span id="${refId}" class="hidden">${u.$id||''}</span>
                         `;
                 list.appendChild(card);
@@ -2503,7 +2236,7 @@
         }
 
         // ============================================================
-        // ADMIN TRANSFER
+        // ADMIN TRANSFER (SPX ID based)
         // ============================================================
         async function adminTransferUSDT(btn) {
             if (!isAdminMode) return;
@@ -2562,11 +2295,11 @@
                 const card = document.createElement('div');
                 card.className = 'bg-white/80 p-3 rounded-xl border border-amber-500/15 space-y-2';
                 card.innerHTML = `
-                            <div class="flex justify-between font-bold text-xs text-clear"><span class="text-[#1a1a2e]">${u.name} (${u.email})</span><span class="text-green-600">$${d.amountUSD}</span></div>
-                            <div class="text-[10px] text-amber-600/30 text-clear-sm">USDT: ${d.coinsAmount} USDT | ${d.dateTime}</div>
-                            <div class="text-[10px] text-amber-600/30 font-mono text-clear-sm">SPX: ${u.coinxId||'N/A'}</div>
+                            <div class="flex justify-between font-bold text-xs"><span class="text-[#1a1a2e]">${u.name} (${u.email})</span><span class="text-green-600">$${d.amountUSD}</span></div>
+                            <div class="text-[10px] text-amber-600/30">USDT: ${d.coinsAmount} USDT | ${d.dateTime}</div>
+                            <div class="text-[10px] text-amber-600/30 font-mono">SPX: ${u.coinxId||'N/A'}</div>
                             ${d.receiptFileId?`<div class="mt-1"><img src="${resolveImageUrl(d.receiptFileId)}" class="w-16 h-16 object-contain cursor-pointer" onclick="openFullscreenImage('${resolveImageUrl(d.receiptFileId)}')"></div>`:''}
-                            <div class="flex gap-2 justify-end"><button onclick="approveDeposit('${u.$id}')" class="bg-green-500 text-[#1a1a2e] px-3 py-1 rounded text-[10px] text-clear-sm">Approve</button><button onclick="rejectDeposit('${u.$id}')" class="bg-red-500 text-white px-3 py-1 rounded text-[10px] text-clear-sm">Reject</button></div>
+                            <div class="flex gap-2 justify-end"><button onclick="approveDeposit('${u.$id}')" class="bg-green-500 text-[#1a1a2e] px-3 py-1 rounded text-[10px]">Approve</button><button onclick="rejectDeposit('${u.$id}')" class="bg-red-500 text-white px-3 py-1 rounded text-[10px]">Reject</button></div>
                         `;
                 list.appendChild(card);
             });
@@ -2633,13 +2366,13 @@
                 const card = document.createElement('div');
                 card.className = 'bg-white/80 p-3 rounded-xl border border-amber-500/15 space-y-2';
                 card.innerHTML = `
-                            <div class="flex justify-between font-bold text-xs text-clear"><span class="text-[#1a1a2e]">${u.name} (${u.email})</span><span class="currency-usdt">${w.coinsAmount} USDT</span></div>
-                            <div class="text-[10px] text-amber-600/30 text-clear-sm">Address: ${u.withdrawal_address||'N/A'} | ${w.dateTime}</div>
-                            <div class="text-[10px] text-amber-600/30 font-mono text-clear-sm">SPX: ${u.coinxId||'N/A'}</div>
-                            <div class="text-[10px] currency-inr font-bold text-clear-sm">💰 INR: ₹${inrAmount} (10% चार्ज कट)</div>
-                            <div class="text-[10px] text-blue-600 text-clear-sm">💵 USDT BEP20: ${w.coinsAmount} USDT</div>
+                            <div class="flex justify-between font-bold text-xs"><span class="text-[#1a1a2e]">${u.name} (${u.email})</span><span class="currency-usdt">${w.coinsAmount} USDT</span></div>
+                            <div class="text-[10px] text-amber-600/30">Address: ${u.withdrawal_address||'N/A'} | ${w.dateTime}</div>
+                            <div class="text-[10px] text-amber-600/30 font-mono">SPX: ${u.coinxId||'N/A'}</div>
+                            <div class="text-[10px] currency-inr font-bold">💰 INR: ₹${inrAmount} (10% चार्ज कट)</div>
+                            <div class="text-[10px] text-blue-600">💵 USDT BEP20: ${w.coinsAmount} USDT</div>
                             ${u.withdrawal_screenshot?`<div class="mt-1"><img src="${resolveImageUrl(u.withdrawal_screenshot)}" class="w-16 h-16 object-contain cursor-pointer" onclick="openFullscreenImage('${resolveImageUrl(u.withdrawal_screenshot)}')"></div>`:''}
-                            <div class="flex gap-2 justify-end"><button onclick="approveWithdrawal('${u.$id}')" class="bg-green-500 text-[#1a1a2e] px-3 py-1 rounded text-[10px] text-clear-sm">Complete</button><button onclick="rejectWithdrawal('${u.$id}')" class="bg-red-500 text-white px-3 py-1 rounded text-[10px] text-clear-sm">Reject</button></div>
+                            <div class="flex gap-2 justify-end"><button onclick="approveWithdrawal('${u.$id}')" class="bg-green-500 text-[#1a1a2e] px-3 py-1 rounded text-[10px]">Complete</button><button onclick="rejectWithdrawal('${u.$id}')" class="bg-red-500 text-white px-3 py-1 rounded text-[10px]">Reject</button></div>
                         `;
                 list.appendChild(card);
             });
@@ -2709,7 +2442,7 @@
             plansConfig.innerHTML = '';
             adminStakingSettings.plans.forEach(p => {
                 plansConfig.innerHTML += `
-                            <label class="flex items-center justify-between bg-white/80 p-2 rounded border border-amber-500/15 text-clear-sm">
+                            <label class="flex items-center justify-between bg-white/80 p-2 rounded border border-amber-500/15">
                                 <span class="text-amber-600/50">${p.days} दिन</span>
                                 <input type="checkbox" ${p.enabled?'checked':''} onchange="togglePlanState(${p.days},this.checked)" class="accent-amber-500 w-3.5 h-3.5">
                             </label>
@@ -2728,19 +2461,19 @@
                         const isUnlockable = s.lockUntil <= now;
                         const div = document.createElement('div');
                         div.className =
-                            'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 flex justify-between items-center text-clear-sm';
+                            'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 flex justify-between items-center';
                         div.innerHTML = `
                                     <div><div class="text-amber-600 text-xs font-bold">${u.name} (${u.coinxId||'N/A'})</div>
                                     <div class="text-[9px] text-amber-600/30">${s.amount} USDT | ${s.days} days</div>
                                     <div class="text-[9px] text-amber-600/30">Stake: ${s.startDate || 'N/A'} | Unlock: ${new Date(s.lockUntil).toLocaleDateString('hi-IN')}</div></div>
                                     <div class="text-right"><span class="text-[10px] ${isUnlockable ? 'text-green-600' : 'text-yellow-600'}">${isUnlockable ? '🔓 Ready' : '🔒 Locked'}</span>
-                                    ${isUnlockable ? `<button onclick="adminUnlockStake('${u.$id}','${s.stakeId}')" class="bg-amber-500 text-[#1a1a2e] px-2 py-0.5 rounded text-[9px] mt-1 block text-clear-sm">Unlock</button>` : ''}</div>
+                                    ${isUnlockable ? `<button onclick="adminUnlockStake('${u.$id}','${s.stakeId}')" class="bg-amber-500 text-[#1a1a2e] px-2 py-0.5 rounded text-[9px] mt-1 block">Unlock</button>` : ''}</div>
                                 `;
                         list.appendChild(div);
                     });
                 }
             });
-            if (!found) list.innerHTML = '<p class="text-amber-600/30 text-center py-2 text-clear-sm">कोई स्टेकिंग नहीं</p>';
+            if (!found) list.innerHTML = '<p class="text-amber-600/30 text-center py-2">कोई स्टेकिंग नहीं</p>';
         }
 
         async function adminUnlockStake(userId, stakeId) {
@@ -2819,9 +2552,9 @@
             all.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
             all.forEach(r => {
                 const div = document.createElement('div');
-                div.className = 'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 space-y-1 text-clear-sm';
+                div.className = 'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 space-y-1';
                 div.innerHTML =
-                    `<div class="flex justify-between text-xs text-clear"><span class="font-bold text-amber-600">${r.referrer} (${r.referrerSPX})</span><span class="currency-usdt">+${Number(r.bonusReceived||0).toFixed(2)} USDT</span></div>
+                    `<div class="flex justify-between text-xs"><span class="font-bold text-amber-600">${r.referrer} (${r.referrerSPX})</span><span class="currency-usdt">+${Number(r.bonusReceived||0).toFixed(2)} USDT</span></div>
                             <div class="text-[10px] text-amber-600/30">रेफर: ${r.referredName||'N/A'} (${r.referredEmail||'N/A'}) | स्टेक: ${Number(r.stakedAmount||0).toFixed(2)} USDT | ${r.dateTime||''}</div>`;
                 list.appendChild(div);
             });
@@ -2904,7 +2637,7 @@
             const phonePartial = currentUser?.phone ? partialHide(currentUser.phone, 3) : 'N/A';
 
             let receiptHTML = `
-                        <div class="receipt-row text-clear-sm"><span class="label">📋 लेनदेन प्रकार</span><span class="value highlight">${typeLabel}</span></div>
+                        <div class="receipt-row"><span class="label">📋 लेनदेन प्रकार</span><span class="value highlight">${typeLabel}</span></div>
                         <div class="receipt-currency-box border-gold-strong bg-inr-light">
                             <span class="globe-bg"><i class="fa-solid fa-globe"></i></span>
                             <span class="verified-stamp">✔ Verified</span>
@@ -2913,16 +2646,16 @@
                             <span class="usdt-amount">${usdtDisplay} USDT</span>
                             <span class="usdt-label">💲 USDT (BEP-20)</span>
                         </div>
-                        <div class="receipt-row text-clear-sm"><span class="label">👤 सदस्य का नाम</span><span class="value">${memberName}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">🆔 सदस्य ID</span><span class="value spx-id-display" style="font-size:13px;font-weight:700;color:#d4af37;">${memberId}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">🧾 रसीद ID</span><span class="value" style="font-size:11px;">${receiptId}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">📧 ईमेल</span><span class="value partial-hide-email" style="filter:blur(3px);">${emailPartial}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">📱 मोबाइल</span><span class="value partial-hide-email" style="filter:blur(3px);">${phonePartial}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">🌐 नेटवर्क</span><span class="value currency-usdt">BNB Smart Chain (BEP20)</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">📅 तारीख & समय</span><span class="value">${data.dateTime || 'N/A'}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">📊 स्थिति</span><span class="value">${statusBadge}</span></div>
-                        <div class="receipt-row text-clear-sm"><span class="label">🔗 ट्रांजैक्शन हैश</span><span class="value" style="font-size:10px;">${txHash}</span></div>
-                        <div class="receipt-row text-clear-sm" style="border-bottom:none;padding-bottom:2px;"><span class="label">💱 दर</span><span class="value" style="color:#d4af37;font-weight:600;">$1 = ₹${EXCHANGE_RATE}</span></div>
+                        <div class="receipt-row"><span class="label">👤 सदस्य का नाम</span><span class="value">${memberName}</span></div>
+                        <div class="receipt-row"><span class="label">🆔 सदस्य ID</span><span class="value spx-id-display" style="font-size:13px;font-weight:700;color:#d4af37;">${memberId}</span></div>
+                        <div class="receipt-row"><span class="label">🧾 रसीद ID</span><span class="value" style="font-size:11px;">${receiptId}</span></div>
+                        <div class="receipt-row"><span class="label">📧 ईमेल</span><span class="value partial-hide-email" style="filter:blur(3px);">${emailPartial}</span></div>
+                        <div class="receipt-row"><span class="label">📱 मोबाइल</span><span class="value partial-hide-email" style="filter:blur(3px);">${phonePartial}</span></div>
+                        <div class="receipt-row"><span class="label">🌐 नेटवर्क</span><span class="value currency-usdt">BNB Smart Chain (BEP20)</span></div>
+                        <div class="receipt-row"><span class="label">📅 तारीख & समय</span><span class="value">${data.dateTime || 'N/A'}</span></div>
+                        <div class="receipt-row"><span class="label">📊 स्थिति</span><span class="value">${statusBadge}</span></div>
+                        <div class="receipt-row"><span class="label">🔗 ट्रांजैक्शन हैश</span><span class="value" style="font-size:10px;">${txHash}</span></div>
+                        <div class="receipt-row" style="border-bottom:none;padding-bottom:2px;"><span class="label">💱 दर</span><span class="value" style="color:#d4af37;font-weight:600;">$1 = ₹${EXCHANGE_RATE}</span></div>
                         ${data.receiptFileId ? `<div class="receipt-row" style="flex-direction:column;align-items:center;padding:8px 0;"><span class="label" style="margin-bottom:6px;">🧾 रसीद स्क्रीनशॉट</span><img src="${resolveImageUrl(data.receiptFileId)}" class="w-24 h-24 object-contain rounded-lg border border-amber-500/20 cursor-pointer" onclick="openFullscreenImage('${resolveImageUrl(data.receiptFileId)}')"></div>` : ''}
                         <div class="receipt-qr-box"><div id="receiptQrContainer"></div></div>
                         <div style="border-top:1px solid rgba(212,175,55,0.08);margin-top:6px;padding-top:6px;text-align:center;"><span style="font-size:8px;color:#6b4a7a;">🔒 सुरक्षित लेनदेन • SupriX Global • $1 = ₹${EXCHANGE_RATE}</span></div>
@@ -3082,27 +2815,6 @@
                 if (pageId === 'dashboardPage') startCooldownTimer();
                 else stopCooldownTimer();
             }
-
-            // Voice triggers per page
-            if (pageId === 'registrationPage' && !pageVoicesPlayed.registration) {
-                pageVoicesPlayed.registration = true;
-                setTimeout(playRegistrationPageVoice, 600);
-            }
-            if (pageId === 'loginPage' && !pageVoicesPlayed.login) {
-                pageVoicesPlayed.login = true;
-                setTimeout(playLoginPageVoice, 500);
-            }
-            if (pageId === 'dashboardPage' && currentUser && !pageVoicesPlayed.dashboard) {
-                pageVoicesPlayed.dashboard = true;
-                setTimeout(playDashboardWelcomeVoice, 800);
-            }
-            if (pageId === 'regSuccessPage' && !pageVoicesPlayed.regSuccess) {
-                pageVoicesPlayed.regSuccess = true;
-                setTimeout(() => {
-                    playCelebrationVoice();
-                    launchConfetti();
-                }, 400);
-            }
         }
 
         // ============================================================
@@ -3205,7 +2917,7 @@
                 currentUser.stakingHistory = history;
                 currentUser.coins = newCoins;
                 currentUser.staked = Math.max(0, newStaked);
-                showToast(`✅ ${totalMaturedAmount.toFixed(2)} USDT स्टेकिंग मैच्योर हो गई!`, 'success');
+                showToast(`✅ ${totalMaturedAmount.toFixed(2)} USDT स्टेकिंग मैच्योर हो गई! मूलधन वापस जोड़ा गया।`, 'success');
                 if (document.getElementById('stakingPage') && !document.getElementById('stakingPage').classList.contains(
                         'hidden')) {
                     renderStakingDetails();
@@ -3221,32 +2933,9 @@
         // USER AUTH
         // ============================================================
         async function handleLogin(btn) {
-            const loginInput = document.getElementById('loginUserId').value.trim();
+            const email = document.getElementById('loginUserId').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
-            if (!loginInput || !password) { showToast('ईमेल/SPX ID और पासवर्ड दर्ज करें', 'error'); return; }
-
-            // Determine if input is email or SPX ID
-            let email = loginInput;
-            let isSpxId = loginInput.toUpperCase().startsWith('SPX');
-
-            if (isSpxId) {
-                // Find user by SPX ID
-                try {
-                    const result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
-                        Query.equal('coinxId', loginInput.toUpperCase())
-                    ]);
-                    if (result.documents.length > 0) {
-                        email = result.documents[0].email;
-                    } else {
-                        showToast('❌ SPX ID नहीं मिली!', 'error');
-                        return;
-                    }
-                } catch (e) {
-                    showToast('❌ त्रुटि: ' + e.message, 'error');
-                    return;
-                }
-            }
-
+            if (!email || !password) { showToast('ईमेल और पासवर्ड दर्ज करें', 'error'); return; }
             setButtonLoading(btn, true);
             document.getElementById('loadingOverlay').classList.add('show');
             try {
@@ -3321,13 +3010,12 @@
                 await loadStakingSettings();
                 await autoUnlockMaturedStakes();
                 showToast('✅ लॉगिन सफल!', 'success');
-                pageVoicesPlayed.dashboard = false;
                 showPage('dashboardPage');
                 startCooldownTimer();
             } catch (e) {
                 console.error('Login error:', e);
-                let msg = '❌ गलत ईमेल/SPX ID या पासवर्ड';
-                if (e.code === 401) msg = '❌ गलत ईमेल/SPX ID या पासवर्ड';
+                let msg = '❌ गलत ईमेल या पासवर्ड';
+                if (e.code === 401) msg = '❌ गलत ईमेल या पासवर्ड';
                 else if (e.code === 404) msg = '❌ यूजर नहीं मिला। कृपया रजिस्टर करें।';
                 else if (e.message && e.message.includes('network')) msg = '❌ नेटवर्क कनेक्शन में समस्या।';
                 else if (e.message) msg = '❌ ' + e.message;
@@ -3342,7 +3030,6 @@
             try { await account.deleteSession('current'); } catch (e) {}
             currentUser = null;
             stopCooldownTimer();
-            pageVoicesPlayed = {};
             showToast('लॉगआउट हो गया', 'info');
             showPage('loginPage');
         }
@@ -3407,18 +3094,11 @@
                 };
                 await databases.createDocument(DATABASE_ID, USERS_COLLECTION_ID, newAccount.$id, userData);
                 if (referral) localStorage.setItem('cx_pending_referral_code', referral);
-
-                // Set success page data
                 document.getElementById('successUserId').innerText = email;
-                document.getElementById('successSpxId').innerText = coinxId;
                 document.getElementById('successPassword').innerText = phone;
-
-                pageVoicesPlayed.regSuccess = false;
                 showPage('regSuccessPage');
+                setTimeout(() => launchConfetti(), 300);
                 showToast('🎉 रजिस्ट्रेशन सफल!', 'success');
-
-                // Also store in currentUser temporarily for voice
-                currentUser = { name, email, phone, coinxId };
             } catch (e) {
                 console.error('Registration error:', e);
                 let msg = '❌ ' + (e.message || 'त्रुटि');
@@ -3430,39 +3110,36 @@
             }
         }
 
+        function launchConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#d4af37', '#f5d97e', '#c9a030', '#e8c84a', '#b8962a', '#f0d060', '#22C55E', '#26A17B', '#fbbf24'];
+            for (let i = 0; i < 50; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti';
+                const size = Math.random() * 8 + 4;
+                c.style.cssText =
+                    `left:${Math.random()*100}%;width:${size}px;height:${size*0.6}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>0.5?'50%':'2px'};animation-delay:${Math.random()*2}s;animation-duration:${Math.random()*2+2}s;`;
+                container.appendChild(c);
+                setTimeout(() => c.remove(), 5000);
+            }
+        }
+
         // ============================================================
         // FORGOT PASSWORD
         // ============================================================
         function toggleForgotPasswordModal(show) {
             document.getElementById('forgotPasswordModal').classList.toggle('hidden', !show);
-            document.getElementById('forgotResponseMsg').classList.add('hidden');
-            document.getElementById('forgotResponseMsg').innerHTML = '';
-            if (!show) document.getElementById('forgotInput').value = '';
         }
 
         async function handleForgotPassword(btn) {
             const input = document.getElementById('forgotInput').value.trim();
-            const responseMsg = document.getElementById('forgotResponseMsg');
             if (!input) { showToast('ईमेल दर्ज करें', 'error'); return; }
             setButtonLoading(btn, true);
-            responseMsg.classList.add('hidden');
             try {
                 await account.createRecovery(input, window.location.origin + window.location.pathname);
-                responseMsg.className = 'forgot-success';
-                responseMsg.innerHTML =
-                    '✅ पासवर्ड रीसेट लिंक आपके ईमेल पर भेजा गया है। कृपया अपने ईमेल चेक करें और नया पासवर्ड सेट करें।';
-                responseMsg.classList.remove('hidden');
-                showToast('✅ रीसेट लिंक ईमेल पर भेजा गया!', 'success');
-                setTimeout(() => toggleForgotPasswordModal(false), 4000);
-            } catch (e) {
-                responseMsg.className = 'forgot-error';
-                let msg = '❌ ' + (e.message || 'त्रुटि');
-                if (e.code === 404) msg = '❌ यह ईमेल रजिस्टर्ड नहीं है।';
-                else if (e.message && e.message.includes('network')) msg = '❌ नेटवर्क कनेक्शन में समस्या।';
-                responseMsg.innerHTML = msg;
-                responseMsg.classList.remove('hidden');
-                showToast(msg, 'error');
-            } finally { setButtonLoading(btn, false); }
+                showToast('✅ पासवर्ड रीसेट लिंक आपके ईमेल पर भेजा गया है।', 'success');
+                toggleForgotPasswordModal(false);
+            } catch (e) { showToast('❌ ' + (e.message || 'त्रुटि'), 'error'); } finally { setButtonLoading(btn, false); }
         }
 
         // ============================================================
@@ -3488,7 +3165,7 @@
         }
 
         // ============================================================
-        // MINING REWARD
+        // MINING REWARD - FIXED: no dailyRewards, uses transactions
         // ============================================================
         async function triggerMiningReward(btn) {
             if (!currentUser) {
@@ -3556,10 +3233,10 @@
 
                 updateDashboardStats();
                 const msg =
-                    `🎉 Congratulations! आपका Daily Reward सफलतापूर्वक आपके अकाउंट में क्रेडिट कर दिया गया है। 24 घंटे बाद फिर से आपका इंतज़ार रहेगा।`;
+                    `🎉 Congratulations! आपका Daily Reward सफलतापूर्वक आपके अकाउंट में क्रेडिट कर दिया गया है। 24 घंटे बाद फिर से आपका इंतज़ार रहेगा। SupriX Global से जुड़े रहने के लिए धन्यवाद! आपका दिन शुभ हो।`;
                 showVoiceToast(msg);
                 speakHindi(
-                    'बधाई हो! आपका आज का डेली रिवॉर्ड सफलतापूर्वक आपके वॉलेट में जोड़ दिया गया है। 24 घंटे बाद फिर से आपका इंतज़ार रहेगा। धन्यवाद।'
+                    'बधाई हो! आपका आज का डेली रिवॉर्ड सफलतापूर्वक आपके वॉलेट में जोड़ दिया गया है। 24 घंटे बाद फिर से आपका इंतज़ार रहेगा। SupriX Global के साथ जुड़े रहने के लिए आपका धन्यवाद। आपका दिन शुभ हो।'
                     );
                 showToast(`✅ ${reward.toFixed(2)} USDT (₹${(reward * EXCHANGE_RATE).toFixed(2)}) रिवॉर्ड मिला!`, 'success');
             } catch (e) {
@@ -3633,7 +3310,7 @@
                 const coins = usd;
                 const card = document.createElement('div');
                 card.className =
-                    'bg-white/80 p-2.5 rounded-xl border border-amber-500/20 flex flex-col justify-between hover:border-amber-400 cursor-pointer transition-all btn-animate card-3d text-clear-sm';
+                    'bg-white/80 p-2.5 rounded-xl border border-amber-500/20 flex flex-col justify-between hover:border-amber-400 cursor-pointer transition-all btn-animate card-3d';
                 card.onclick = () => selectPurchaseSlab(usd, coins);
                 card.innerHTML =
                     `<div><span class="text-[9px] text-amber-600 font-bold tracking-wider">PACK $${usd}</span><h4 class="text-xs font-extrabold text-[#1a1a2e]">${coins} USDT</h4></div><div class="mt-1 flex justify-between text-[8px] text-amber-600/30"><span>$${usd} USDT</span><span class="bg-amber-500/15 text-amber-600 px-1 py-0.5 rounded">बाय</span></div>`;
@@ -3709,7 +3386,7 @@
             container.innerHTML = '';
             if (!adminStakingSettings.globallyEnabled) {
                 container.innerHTML =
-                    `<p class="col-span-3 text-[10px] text-red-500 text-center py-2 text-clear-sm"><i class="fa-solid fa-circle-exclamation mr-1"></i> स्टेकिंग बंद है।</p>`;
+                    `<p class="col-span-3 text-[10px] text-red-500 text-center py-2"><i class="fa-solid fa-circle-exclamation mr-1"></i> स्टेकिंग बंद है।</p>`;
                 document.getElementById('btn-submit-stake').disabled = true;
                 return;
             } else { document.getElementById('btn-submit-stake').disabled = false; }
@@ -3717,8 +3394,8 @@
                 if (p.enabled) {
                     const sel = p.days === selectedStakingDays;
                     const cls = sel ?
-                        'bg-amber-500/20 border border-amber-400 text-amber-600 text-[11px] py-2 rounded-xl hover:border-amber-400 transition-all text-center btn-animate staking-plan-btn active text-clear-sm' :
-                        'bg-white/80 border border-amber-500/20 text-[11px] py-2 rounded-xl hover:border-amber-400 transition-all text-center btn-animate staking-plan-btn text-amber-600/50 text-clear-sm';
+                        'bg-amber-500/20 border border-amber-400 text-amber-600 text-[11px] py-2 rounded-xl hover:border-amber-400 transition-all text-center btn-animate staking-plan-btn active' :
+                        'bg-white/80 border border-amber-500/20 text-[11px] py-2 rounded-xl hover:border-amber-400 transition-all text-center btn-animate staking-plan-btn text-amber-600/50';
                     const div = document.createElement('div');
                     div.className = cls;
                     div.onclick = () => { selectedStakingDays = p.days;
@@ -3796,7 +3473,8 @@
                 await databases.updateDocument(DATABASE_ID, USERS_COLLECTION_ID, referrer.$id, { coins: newCoins,
                     referrals: JSON.stringify(refs) });
                 if (!currentUser.referredBy) await saveUserFields({ referredBy: code });
-                showToast(`✅ ${referrer.name} को ${bonus.toFixed(2)} USDT रेफरल बोनस मिला!`, 'success');
+                showToast(`✅ ${referrer.name} को ${bonus.toFixed(2)} USDT रेफरल बोनस मिला! (${stakingDays||0} दिन)`,
+                    'success');
             } catch (e) { throw e; }
         }
 
@@ -3806,7 +3484,7 @@
             list.innerHTML = '';
             if (!currentUser.staking || currentUser.staking.length === 0) {
                 list.innerHTML =
-                    '<p class="text-[10px] text-amber-600/30 text-center py-2 text-clear-sm">कोई एक्टिव स्टेकिंग नहीं।</p>';
+                    '<p class="text-[10px] text-amber-600/30 text-center py-2">कोई एक्टिव स्टेकिंग नहीं।</p>';
                 return;
             }
             const now = Date.now();
@@ -3814,7 +3492,7 @@
                 const diff = s.lockUntil - now;
                 const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
                 const div = document.createElement('div');
-                div.className = 'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 flex justify-between text-clear-sm';
+                div.className = 'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 flex justify-between';
                 div.innerHTML =
                     `<div><div class="font-bold text-[#1a1a2e] text-xs">${Number(s.amount).toFixed(2)} USDT</div><div class="text-[9px] text-amber-600/30">${s.startDate} (${s.days} दिन)</div><div class="text-[9px] text-amber-600/30">🔓 ${s.unlockDate || new Date(s.lockUntil).toLocaleDateString('hi-IN')} ${s.unlockTime || ''}</div></div><div class="text-right"><span class="text-amber-600 text-[10px]"><i class="fa-solid fa-lock mr-0.5"></i> ${days>0?days+' दिन शेष':'अनलॉक होने वाला'}</span><div class="text-[8px] text-amber-600/30">${days>0?'':'⏳ जल्द ही'}</div></div>`;
                 list.appendChild(div);
@@ -3827,13 +3505,12 @@
             list.innerHTML = '';
             const history = currentUser.stakingHistory || [];
             if (history.length === 0) {
-                list.innerHTML =
-                    '<p class="text-[10px] text-amber-600/30 text-center py-2 text-clear-sm">कोई हिस्ट्री नहीं है।</p>';
+                list.innerHTML = '<p class="text-[10px] text-amber-600/30 text-center py-2">कोई हिस्ट्री नहीं है।</p>';
                 return;
             }
             history.slice().reverse().forEach(s => {
                 const div = document.createElement('div');
-                div.className = 'staking-history-item text-clear-sm';
+                div.className = 'staking-history-item';
                 const statusClass = s.unlockedAt ? 'unlocked' : 'locked';
                 const statusText = s.unlockedAt ? '✅ अनलॉक' : '🔒 लॉक';
                 div.innerHTML =
@@ -4006,10 +3683,10 @@
             list.innerHTML = '';
             const refs = currentUser?.referrals || [];
             if (refs.length === 0) { list.innerHTML =
-                    '<p class="text-amber-600/30 text-center py-4 text-clear-sm">कोई रेफरल नहीं।</p>'; return; }
+                    '<p class="text-amber-600/30 text-center py-4">कोई रेफरल नहीं।</p>'; return; }
             refs.forEach(r => {
                 const div = document.createElement('div');
-                div.className = 'bg-white/80 p-3 rounded-xl border border-amber-500/15 space-y-1 text-clear-sm';
+                div.className = 'bg-white/80 p-3 rounded-xl border border-amber-500/15 space-y-1';
                 div.innerHTML =
                     `<div class="flex justify-between text-xs"><span class="font-bold text-[#1a1a2e]">${r.referredName || 'N/A'}</span><span class="currency-usdt">+${Number(r.bonusReceived || 0).toFixed(2)} USDT</span></div><div class="text-[10px] text-amber-600/30 flex flex-wrap gap-2"><span>📧 ${r.referredEmail || 'N/A'}</span><span>💰 ${Number(r.stakedAmount || 0).toFixed(2)} USDT</span><span>📅 ${Number(r.stakingDays || 0)} दिन</span><span>🕐 ${r.dateTime || ''}</span></div>`;
                 list.appendChild(div);
@@ -4025,12 +3702,12 @@
         function switchTxTab(tab) {
             currentTxHistoryTab = tab;
             document.querySelectorAll('#txHistoryModal .flex button').forEach(b => {
-                b.className = 'flex-1 py-1 text-center font-bold rounded text-amber-600/40 transition-all btn-animate text-clear-sm';
+                b.className = 'flex-1 py-1 text-center font-bold rounded text-amber-600/40 transition-all btn-animate';
             });
             const tabMap = { deposit: 'txTab-deposit', withdraw: 'txTab-withdraw', daily: 'txTab-daily' };
             const el = document.getElementById(tabMap[tab]);
             if (el) el.className =
-                'flex-1 py-1 text-center font-bold rounded bg-amber-500 text-[#1a1a2e] transition-all btn-animate text-clear-sm';
+                'flex-1 py-1 text-center font-bold rounded bg-amber-500 text-[#1a1a2e] transition-all btn-animate';
             renderTxHistory();
         }
 
@@ -4051,7 +3728,7 @@
                 entries = [...(currentUser?.transactions || []).filter(t => t.type === 'daily_reward')];
             }
             if (entries.length === 0) { list.innerHTML =
-                    '<p class="text-amber-600/30 text-center py-4 text-clear-sm">कोई हिस्ट्री नहीं।</p>'; return; }
+                    '<p class="text-amber-600/30 text-center py-4">कोई हिस्ट्री नहीं।</p>'; return; }
             entries.slice().reverse().forEach(e => {
                 const statusColors = { 'Pending': 'text-yellow-600 bg-yellow-500/10', 'Approved': 'text-green-600 bg-green-500/10',
                     'Completed': 'text-green-600 bg-green-500/20', 'SUCCESS': 'text-green-600 bg-green-500/20',
@@ -4059,13 +3736,13 @@
                 const color = statusColors[e.status] || 'text-amber-600/30 bg-amber-500/10';
                 const div = document.createElement('div');
                 div.className =
-                    'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 flex justify-between items-center text-clear-sm';
+                    'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 flex justify-between items-center';
                 const isDaily = e.type === 'daily_reward' || e.type === 'daily';
                 const label = isDaily ? `🌟 ${e.coinsAmount} USDT` : e.amountUSD ? `+$${e.amountUSD}` :
                     `-${e.coinsAmount} USDT`;
                 const isDeposit = e.type === 'deposit' || e.amountUSD;
                 div.innerHTML =
-                    `<div><div class="font-bold text-[#1a1a2e] text-xs">${label}</div><div class="text-[9px] text-amber-600/30">${e.dateTime||''} ${e.coinsAmount ? `(${e.coinsAmount} USDT)` : ''}</div>${isDaily ? `<div class="text-[8px] text-green-600/50">⭐ Daily Reward</div>` : ''}</div><div class="text-right flex flex-col items-end gap-1"><span class="px-2 py-0.5 rounded text-[9px] font-bold ${color}">${e.status}</span>${(isDeposit && e.receiptFileId) || isDaily || e.receiptId ? `<button onclick="viewReceiptItem('${e.type||'deposit'}','${e.coinsAmount||e.amount||0}','${e.amountUSD||0}','${e.dateTime||''}','${e.status||'SUCCESS'}','${e.receiptFileId||''}','${e.receiptId||''}')" class="text-[8px] bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded text-amber-600 hover:bg-amber-500/30 transition-all text-clear-sm">🧾 View Receipt</button>` : ''}${(!isDeposit && !isDaily && e.coinsAmount) ? `<button onclick="viewWithdrawalReceipt('${e.coinsAmount}','${e.dateTime||''}','${e.status||'Completed'}')" class="text-[8px] bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded text-amber-600 hover:bg-amber-500/30 transition-all text-clear-sm">🧾 View Receipt</button>` : ''}</div>`;
+                    `<div><div class="font-bold text-[#1a1a2e] text-xs">${label}</div><div class="text-[9px] text-amber-600/30">${e.dateTime||''} ${e.coinsAmount ? `(${e.coinsAmount} USDT)` : ''}</div>${isDaily ? `<div class="text-[8px] text-green-600/50">⭐ Daily Reward</div>` : ''}</div><div class="text-right flex flex-col items-end gap-1"><span class="px-2 py-0.5 rounded text-[9px] font-bold ${color}">${e.status}</span>${(isDeposit && e.receiptFileId) || isDaily || e.receiptId ? `<button onclick="viewReceiptItem('${e.type||'deposit'}','${e.coinsAmount||e.amount||0}','${e.amountUSD||0}','${e.dateTime||''}','${e.status||'SUCCESS'}','${e.receiptFileId||''}','${e.receiptId||''}')" class="text-[8px] bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded text-amber-600 hover:bg-amber-500/30 transition-all">🧾 View Receipt</button>` : ''}${(!isDeposit && !isDaily && e.coinsAmount) ? `<button onclick="viewWithdrawalReceipt('${e.coinsAmount}','${e.dateTime||''}','${e.status||'Completed'}')" class="text-[8px] bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded text-amber-600 hover:bg-amber-500/30 transition-all">🧾 View Receipt</button>` : ''}</div>`;
                 list.appendChild(div);
             });
         }
@@ -4115,10 +3792,10 @@
                 ' <span class="currency-usdt">USDT</span>';
             list.innerHTML = '';
             if (refs.length === 0) { list.innerHTML =
-                    '<p class="text-amber-600/30 text-center py-4 text-clear-sm">टीम में कोई नहीं।</p>'; return; }
+                    '<p class="text-amber-600/30 text-center py-4">टीम में कोई नहीं।</p>'; return; }
             refs.forEach(r => {
                 const div = document.createElement('div');
-                div.className = 'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 space-y-1 text-clear-sm';
+                div.className = 'bg-white/80 p-2.5 rounded-xl border border-amber-500/15 space-y-1';
                 div.innerHTML =
                     `<div class="flex justify-between text-xs"><span class="font-bold text-amber-600">${r.referredName || 'N/A'}</span><span class="currency-usdt">+${Number(r.bonusReceived || 0).toFixed(2)} USDT</span></div><div class="text-[10px] text-amber-600/30 flex flex-wrap gap-2"><span>📧 ${r.referredEmail || 'N/A'}</span><span>💰 ${Number(r.stakedAmount || 0).toFixed(2)} USDT</span><span>📅 ${Number(r.stakingDays || 0)} दिन</span><span>🕐 ${r.dateTime || ''}</span></div>`;
                 list.appendChild(div);
@@ -4126,16 +3803,16 @@
         }
 
         // ============================================================
-        // SLIDER
+        // SLIDER - Updated with Gift Offers
         // ============================================================
         function generateSliderData() {
+            // Use 30 slides - first 3 are gift offers, rest motivational
             const giftSlides = [
                 { icon: '🎁', line1: '500 USDT + 3 Active Referral', line2: 'पर मिलेगा स्लिम कीपैड फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
-                { icon: '📱', line1: '1050 USDT + 10 Active Referral', line2: 'पर मिलेगा ₹10000 का Android फोन 🎁',
-                    badge: '🎁 गिफ्ट 🎁' },
-                { icon: '📟', line1: '2100 USDT + 5 Active Referral', line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁',
-                    badge: '🎁 गिफ्ट 🎁' },
+                { icon: '📱', line1: '1050 USDT + 10 Active Referral', line2: 'पर मिलेगा ₹10000 का Android फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
+                { icon: '📟', line1: '2100 USDT + 5 Active Referral', line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁', badge: '🎁 गिफ्ट 🎁' },
             ];
+
             const motivationalSlides = [
                 { icon: '🚀', line1: 'अपने सपनों को पंख लगाओ', line2: 'SupriX Global के साथ आज ही शुरू करें',
                     badge: '✦ शुरुआत ✦' },
@@ -4195,13 +3872,18 @@
                 { icon: '⚔️', line1: 'जब तक जीत नहीं मिलती', line2: 'तब तक लड़ना ही असली पहचान है',
                     badge: '✦ संघर्ष ✦' },
             ];
+
+            // Combine: first 3 gift slides, then motivational
             let slides = [...giftSlides];
+            // Add enough motivational slides to reach 30
             let idx = 0;
             while (slides.length < 30) {
                 const m = motivationalSlides[idx % motivationalSlides.length];
                 slides.push(m);
                 idx++;
             }
+
+            // Add random images
             return slides.map((s, i) => ({
                 img: `https://picsum.photos/seed/gold${i+100}/600/400`,
                 icon: s.icon,
@@ -4221,7 +3903,7 @@
                 const div = document.createElement('div');
                 div.className = 'slide-item';
                 div.innerHTML =
-                    `<img src="${s.img}" alt="Slide ${i+1}" loading="lazy"><div class="slide-text"><span class="quote-icon">${s.icon}</span><span class="quote-line text-clear">${s.line1}</span><span class="quote-line2 text-clear-sm">${s.line2}</span><span class="quote-badge text-clear-sm">${s.badge}</span></div>`;
+                    `<img src="${s.img}" alt="Slide ${i+1}" loading="lazy"><div class="slide-text"><span class="quote-icon">${s.icon}</span><span class="quote-line">${s.line1}</span><span class="quote-line2">${s.line2}</span><span class="quote-badge">${s.badge}</span></div>`;
                 track.appendChild(div);
             });
             if (dots) { dots.innerHTML = '';
@@ -4275,43 +3957,34 @@
         }
 
         // ============================================================
-        // APP DOWNLOAD
+        // APP DOWNLOAD (PWA) AND APK FALLBACK
         // ============================================================
         let deferredPrompt = null;
+
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
+            console.log('✅ PWA install available');
         });
 
         function installApp() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') showToast('✅ ऐप इंस्टॉल हो रहा है!', 'success');
-                    else showToast('❌ इंस्टॉलेशन रद्द।', 'info');
+                    if (choiceResult.outcome === 'accepted') {
+                        showToast('✅ ऐप इंस्टॉल हो रहा है!', 'success');
+                    } else {
+                        showToast('❌ इंस्टॉलेशन रद्द कर दिया गया।', 'info');
+                    }
                     deferredPrompt = null;
                 });
             } else {
-                showToast('📲 "Add to Home Screen" / "Install App" चुनें।', 'info');
+                showToast('📲 Browser Menu से "Add to Home Screen" / "Install App" चुनें।', 'info');
             }
         }
 
         function downloadAPK() {
-            showToast('📲 APK जल्द उपलब्ध। PWA इंस्टॉल करें।', 'info');
-        }
-
-        // ============================================================
-        // VOICE TOAST
-        // ============================================================
-        function showVoiceToast(msg) {
-            const el = document.getElementById('voiceToast');
-            document.getElementById('voiceToastMsg').innerText = msg;
-            el.classList.add('show');
-            setTimeout(() => el.classList.remove('show'), 6000);
-        }
-
-        function closeVoiceToast() {
-            document.getElementById('voiceToast').classList.remove('show');
+            showToast('📲 APK लिंक जल्द उपलब्ध होगा। कृपया PWA इंस्टॉल करें।', 'info');
         }
 
         // ============================================================
@@ -4320,40 +3993,20 @@
         window.onload = async function() {
             createButterflies();
             renderSlider();
-            // Load saved voice preference
-            const savedVoice = localStorage.getItem('suprix_voice_enabled');
-            if (savedVoice !== null) {
-                voiceEnabled = savedVoice === 'true';
-                const btn = document.getElementById('voiceToggleBtn');
-                const icon = document.getElementById('voiceIcon');
-                const tooltip = document.getElementById('voiceTooltip');
-                if (!voiceEnabled) {
-                    btn.classList.add('off');
-                    icon.className = 'fa-solid fa-volume-xmark';
-                    tooltip.textContent = 'वॉइस बंद';
-                } else {
-                    btn.classList.remove('off');
-                    icon.className = 'fa-solid fa-volume-high';
-                    tooltip.textContent = 'वॉइस चालू';
-                }
-            }
             try {
                 const loaded = await loadCurrentUserData();
                 if (loaded && !currentUser.isBlocked) {
                     await autoUnlockMaturedStakes();
-                    pageVoicesPlayed.dashboard = false;
                     showPage('dashboardPage');
                     startCooldownTimer();
                 } else {
-                    pageVoicesPlayed.registration = false;
-                    showPage('registrationPage');
+                    showPage('loginPage');
                     const urlParams = new URLSearchParams(window.location.search);
                     const ref = urlParams.get('ref');
                     if (ref) document.getElementById('regReferral').value = ref;
                 }
             } catch (e) {
-                pageVoicesPlayed.registration = false;
-                showPage('registrationPage');
+                showPage('loginPage');
                 const urlParams = new URLSearchParams(window.location.search);
                 const ref = urlParams.get('ref');
                 if (ref) document.getElementById('regReferral').value = ref;
@@ -4376,13 +4029,6 @@
                 return false;
             } catch (e) { return false; }
         }
-
-        // Save voice preference on toggle
-        const origToggle = toggleVoice;
-        toggleVoice = function() {
-            origToggle();
-            localStorage.setItem('suprix_voice_enabled', voiceEnabled ? 'true' : 'false');
-        };
 
         // Global functions
         window.handleLogin = handleLogin;
@@ -4435,8 +4081,6 @@
         window.closeVoiceToast = closeVoiceToast;
         window.installApp = installApp;
         window.downloadAPK = downloadAPK;
-        window.toggleVoice = toggleVoice;
-        window.speakHindi = speakHindi;
     </script>
 
 </body>
