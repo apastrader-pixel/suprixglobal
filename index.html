@@ -14,7 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
     </script>
     <style>
-        /* ── RESET & BASE ── */
         * {
             margin: 0;
             padding: 0;
@@ -1337,7 +1336,6 @@
         .cooldown-badge i {
             font-size: 10px;
         }
-        /* voice toggle */
         .voice-toggle-btn {
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid rgba(212, 175, 55, 0.25);
@@ -1385,6 +1383,46 @@
             100% {
                 transform: scale(1.3);
             }
+        }
+        /* colourfull text helpers */
+        .text-purple {
+            color: #7c3aed;
+        }
+        .text-pink {
+            color: #ec4899;
+        }
+        .text-blue {
+            color: #3b82f6;
+        }
+        .text-orange {
+            color: #f97316;
+        }
+        .text-teal {
+            color: #14b8a6;
+        }
+        .text-indigo {
+            color: #6366f1;
+        }
+        .text-rose {
+            color: #f43f5e;
+        }
+        .text-cyan {
+            color: #06b6d4;
+        }
+        .text-lime {
+            color: #84cc16;
+        }
+        .text-fuchsia {
+            color: #d946ef;
+        }
+        .bg-gradient-multi {
+            background: linear-gradient(135deg, #d4af37, #f97316, #ec4899, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .text-shadow-glow {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
     </style>
 </head>
@@ -1439,23 +1477,23 @@
                     <div class="text-center space-y-2 py-4">
                         <img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" class="w-16 h-16 rounded-full gold-bg-gradient flex items-center justify-center p-1.5 mx-auto gold-glow border-2 border-amber-400/50 shadow-2xl object-cover" />
                         <h2 class="text-xl font-extrabold gold-text-gradient tracking-wide">✨ रजिस्ट्रेशन करें</h2>
-                        <p class="text-[11px] text-amber-600/50">SupriX Global परिवार में आपका स्वागत है</p>
+                        <p class="text-[11px] text-purple-500/70">SupriX Global परिवार में आपका स्वागत है</p>
                     </div>
                     <div class="glass-gold p-5 rounded-3xl border-amber-500/30 space-y-4 shadow-xl">
                         <div>
-                            <label class="block text-[11px] font-semibold text-amber-700/70 mb-1"><i class="fa-solid fa-user mr-1 text-amber-500"></i> पूरा नाम</label>
+                            <label class="block text-[11px] font-semibold text-indigo-600 mb-1"><i class="fa-solid fa-user mr-1 text-amber-500"></i> पूरा नाम</label>
                             <input type="text" id="regName" placeholder="अपना नाम दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-2.5 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-amber-700/70 mb-1"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल आईडी</label>
+                            <label class="block text-[11px] font-semibold text-pink-600 mb-1"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल आईडी</label>
                             <input type="email" id="regEmail" placeholder="अपनी ईमेल आईडी दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-2.5 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-amber-700/70 mb-1"><i class="fa-solid fa-phone mr-1 text-amber-500"></i> मोबाइल नंबर</label>
+                            <label class="block text-[11px] font-semibold text-cyan-600 mb-1"><i class="fa-solid fa-phone mr-1 text-amber-500"></i> मोबाइल नंबर</label>
                             <input type="tel" id="regPhone" placeholder="अपना 10 अंकों का मोबाइल नंबर डालें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-2.5 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-amber-700/70 mb-1"><i class="fa-solid fa-users mr-1 text-amber-500"></i> रेफरल कोड (वैकल्पिक)</label>
+                            <label class="block text-[11px] font-semibold text-teal-600 mb-1"><i class="fa-solid fa-users mr-1 text-amber-500"></i> रेफरल कोड (वैकल्पिक)</label>
                             <input type="text" id="regReferral" placeholder="रेफरल कोड दर्ज करें (यदि कोई हो)" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-2.5 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all backdrop-blur-sm">
                         </div>
                         <button id="btn-register" onclick="handleRegistration(this)" class="w-full btn-gold py-3 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-xl">
@@ -1483,18 +1521,18 @@
                             </div>
                             <div class="success-card text-left space-y-3 mt-4">
                                 <div>
-                                    <div class="text-[10px] font-bold text-amber-700/70 mb-1"><i class="fa-solid fa-envelope text-amber-500 mr-1"></i> आपकी ईमेल आईडी (Login ID)</div>
+                                    <div class="text-[10px] font-bold text-purple-600 mb-1"><i class="fa-solid fa-envelope text-amber-500 mr-1"></i> आपकी ईमेल आईडी (Login ID)</div>
                                     <div class="credential-box mt-0.5">
-                                        <span id="successUserId" class="value text-sm">user@example.com</span>
+                                        <span id="successUserId" class="value text-sm text-blue-600">user@example.com</span>
                                         <button onclick="copyToClipboard('successUserId', '✅ यूजर आईडी कॉपी हो गई!')" class="text-amber-600/60 hover:text-amber-700 transition-all text-xs bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
                                             <i class="fa-solid fa-copy"></i> कॉपी
                                         </button>
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="text-[10px] font-bold text-amber-700/70 mb-1"><i class="fa-solid fa-id-card text-amber-500 mr-1"></i> आपकी SPX ID (Login ID)</div>
+                                    <div class="text-[10px] font-bold text-pink-600 mb-1"><i class="fa-solid fa-id-card text-amber-500 mr-1"></i> आपकी SPX ID (Login ID)</div>
                                     <div class="credential-box mt-0.5">
-                                        <span id="successSpxId" class="value text-sm">SPX000000</span>
+                                        <span id="successSpxId" class="value text-sm text-amber-600">SPX000000</span>
                                         <button onclick="copyToClipboard('successSpxId', '✅ SPX ID कॉपी हो गई!')" class="text-amber-600/60 hover:text-amber-700 transition-all text-xs bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
                                             <i class="fa-solid fa-copy"></i> कॉपी
                                         </button>
@@ -1502,17 +1540,17 @@
                                     <p class="text-[8px] text-amber-600/40 mt-1">आप इस SPX ID से भी लॉगिन कर सकते हैं</p>
                                 </div>
                                 <div>
-                                    <div class="text-[10px] font-bold text-amber-700/70 mb-1"><i class="fa-solid fa-lock text-amber-500 mr-1"></i> आपका पासवर्ड</div>
+                                    <div class="text-[10px] font-bold text-cyan-600 mb-1"><i class="fa-solid fa-lock text-amber-500 mr-1"></i> आपका पासवर्ड</div>
                                     <div class="credential-box mt-0.5">
-                                        <span id="successPassword" class="value text-sm" style="color:#6b4a7a;">XXXXXXXXXX</span>
+                                        <span id="successPassword" class="value text-sm text-teal-600">XXXXXXXXXX</span>
                                         <span class="text-[9px] text-amber-600/70 bg-amber-500/10 px-2.5 py-0.5 rounded-full">(मोबाइल नंबर)</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="bg-amber-500/10 border border-amber-500/25 rounded-xl p-2.5 text-left mt-3">
-                                <p class="text-[10px] text-amber-700/80 flex items-start gap-2">
+                                <p class="text-[10px] text-indigo-600 flex items-start gap-2">
                                     <i class="fa-solid fa-circle-info mt-0.5 text-amber-500"></i>
-                                    <span>कृपया अपनी <strong>ईमेल आईडी</strong>, <strong>SPX ID</strong> और <strong>पासवर्ड</strong> सुरक्षित रखें। इनसे आप लॉगिन कर सकते हैं।</span>
+                                    <span>कृपया अपनी <strong class="text-amber-600">ईमेल आईडी</strong>, <strong class="text-amber-600">SPX ID</strong> और <strong class="text-amber-600">पासवर्ड</strong> सुरक्षित रखें। इनसे आप लॉगिन कर सकते हैं।</span>
                                 </p>
                             </div>
                             <button onclick="showPage('loginPage')" class="w-full btn-gold py-3 rounded-2xl text-sm flex items-center justify-center gap-2 mt-4 shadow-xl">
@@ -1529,16 +1567,16 @@
                     <div class="text-center space-y-2 py-4">
                         <img src="https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png" alt="SupriX Global" class="w-16 h-16 rounded-full gold-bg-gradient flex items-center justify-center p-1.5 mx-auto gold-glow border-2 border-amber-400/50 shadow-2xl object-cover" />
                         <h2 class="text-xl font-extrabold gold-text-gradient tracking-wide">🔐 लॉगिन अकाउंट</h2>
-                        <p class="text-[11px] text-amber-600/50">सुरक्षित माइनिंग डैशबोर्ड में प्रवेश करें</p>
+                        <p class="text-[11px] text-purple-500/70">सुरक्षित माइनिंग डैशबोर्ड में प्रवेश करें</p>
                     </div>
                     <div class="glass-gold p-5 rounded-3xl border-amber-500/30 space-y-4 shadow-xl">
                         <div>
-                            <label class="block text-[11px] font-semibold text-amber-700/70 mb-1"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल या SPX ID</label>
+                            <label class="block text-[11px] font-semibold text-indigo-600 mb-1"><i class="fa-solid fa-envelope mr-1 text-amber-500"></i> ईमेल या SPX ID</label>
                             <input type="text" id="loginUserId" placeholder="ईमेल या SPX ID दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-2.5 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all font-mono backdrop-blur-sm">
                             <p class="text-[8px] text-amber-600/30 mt-1">आप ईमेल या SPX ID दोनों में से किसी से भी लॉगिन कर सकते हैं</p>
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-amber-700/70 mb-1"><i class="fa-solid fa-lock mr-1 text-amber-500"></i> पासवर्ड</label>
+                            <label class="block text-[11px] font-semibold text-pink-600 mb-1"><i class="fa-solid fa-lock mr-1 text-amber-500"></i> पासवर्ड</label>
                             <input type="password" id="loginPassword" placeholder="अपना पासवर्ड डालें (मोबाइल नंबर)" class="w-full bg-white/80 border border-amber-500/20 rounded-2xl py-2.5 px-4 text-sm focus:outline-none focus:border-amber-400 text-[#1a1a2e] transition-all font-mono backdrop-blur-sm">
                         </div>
                         <div class="flex items-center justify-between text-[11px] py-0.5">
@@ -1565,23 +1603,23 @@
                                 <i class="fa-solid fa-user-astronaut"></i>
                             </div>
                             <div>
-                                <h4 id="userWelcomeName" class="font-bold text-sm text-[#1a1a2e]">User</h4>
-                                <p id="userWelcomeEmail" class="text-[9px] text-amber-600/40">user@example.com</p>
+                                <h4 id="userWelcomeName" class="font-bold text-sm text-purple-700">User</h4>
+                                <p id="userWelcomeEmail" class="text-[9px] text-pink-500/60">user@example.com</p>
                             </div>
                         </div>
                         <div class="text-right flex flex-col items-end gap-0.5">
-                            <span class="text-[8px] bg-amber-500/15 text-amber-700 border border-amber-500/25 px-2 py-0.5 rounded-full font-medium">✅ सक्रिय</span>
+                            <span class="text-[8px] bg-green-500/15 text-green-600 border border-green-500/25 px-2 py-0.5 rounded-full font-medium">✅ सक्रिय</span>
                             <span class="text-[7px] text-amber-600/30"><i class="fa-solid fa-indian-rupee-sign mr-0.5"></i> $1 = ₹100</span>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-2.5">
-                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-amber-600/50 block mb-0.5"><i class="fa-solid fa-dollar-sign mr-1 text-green-600"></i> Total Investment</span><span id="statInvestment" class="text-sm font-bold text-[#1a1a2e]">$0.00</span></div>
-                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-amber-600/50 block mb-0.5"><i class="fa-solid fa-lock mr-1 currency-usdt"></i> Locked Staking</span><span id="statLocked" class="text-sm font-bold currency-usdt">0.00 USDT</span></div>
-                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-amber-600/50 block mb-0.5"><i class="fa-solid fa-gift mr-1 currency-inr"></i> Daily Release (0.5%)</span><span id="statDailyRelease" class="text-sm font-bold currency-inr">₹0.00</span><span id="statDailyUsdt" class="text-[8px] text-amber-600/30 block">0.00 USDT</span></div>
-                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-amber-600/50 block mb-0.5"><i class="fa-solid fa-wallet mr-1 currency-usdt"></i> Available Balance</span><span id="statAvailable" class="text-sm font-bold currency-usdt">0.00 USDT</span></div>
+                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-indigo-500 block mb-0.5"><i class="fa-solid fa-dollar-sign mr-1 text-green-600"></i> Total Investment</span><span id="statInvestment" class="text-sm font-bold text-blue-600">$0.00</span></div>
+                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-teal-500 block mb-0.5"><i class="fa-solid fa-lock mr-1 currency-usdt"></i> Locked Staking</span><span id="statLocked" class="text-sm font-bold currency-usdt">0.00 USDT</span></div>
+                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-orange-500 block mb-0.5"><i class="fa-solid fa-gift mr-1 currency-inr"></i> Daily Release (0.5%)</span><span id="statDailyRelease" class="text-sm font-bold currency-inr">₹0.00</span><span id="statDailyUsdt" class="text-[8px] text-amber-600/30 block">0.00 USDT</span></div>
+                        <div class="glass-gold-dark p-3 rounded-2xl border-amber-500/15 card-3d"><span class="text-[9px] text-cyan-500 block mb-0.5"><i class="fa-solid fa-wallet mr-1 currency-usdt"></i> Available Balance</span><span id="statAvailable" class="text-sm font-bold currency-usdt">0.00 USDT</span></div>
                     </div>
                     <div class="glass-gold p-5 rounded-2xl border-amber-500/30 flex flex-col items-center justify-center text-center py-6 space-y-4">
-                        <div class="space-y-1"><h3 class="text-sm font-bold tracking-wider text-amber-700/80 uppercase">🌟 माइनिंग रिवॉर्ड स्टार</h3><p class="text-[10px] text-amber-600/40">डेली 0.5% कॉइन रिलीज — कम से कम 10 USDT स्टेक करें</p></div>
+                        <div class="space-y-1"><h3 class="text-sm font-bold tracking-wider text-amber-700/80 uppercase">🌟 माइनिंग रिवॉर्ड स्टार</h3><p class="text-[10px] text-purple-500/60">डेली 0.5% कॉइन रिलीज — कम से कम 10 USDT स्टेक करें</p></div>
                         <button id="miningStarBtn" onclick="triggerMiningReward(this)" class="w-28 h-28 rounded-full gold-bg-gradient flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 transition-all duration-300 animate-star relative group btn-animate">
                             <div class="absolute inset-2 bg-white/60 rounded-full flex items-center justify-center transition-all group-hover:bg-white/40 backdrop-blur-sm">
                                 <i class="fa-solid fa-star text-4xl text-amber-500 drop-shadow-[0_0_30px_rgba(212,175,55,0.6)]"></i>
@@ -1605,9 +1643,9 @@
 
                 <!-- PURCHASE -->
                 <section id="purchasePage" class="app-page w-full hidden space-y-3">
-                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-cart-shopping mr-1.5"></i> कॉइन परचेज करें</h3><p class="text-[10px] text-amber-600/40">USDT (BEP20) के माध्यम से कॉइन सुरक्षित परचेज करें। <span class="text-amber-600 font-semibold">$1 = 1 USDT</span></p><p class="text-[9px] text-green-600 font-semibold mt-1">💰 Minimum Deposit: $10 USDT</p></div>
+                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-cart-shopping mr-1.5"></i> कॉइन परचेज करें</h3><p class="text-[10px] text-purple-500/60">USDT (BEP20) के माध्यम से कॉइन सुरक्षित परचेज करें। <span class="text-amber-600 font-semibold">$1 = 1 USDT</span></p><p class="text-[9px] text-green-600 font-semibold mt-1">💰 Minimum Deposit: $10 USDT</p></div>
                     <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 space-y-3">
-                        <h4 class="text-[11px] font-bold text-amber-700/70">कस्टम अमाउंट दर्ज करें</h4>
+                        <h4 class="text-[11px] font-bold text-indigo-600">कस्टम अमाउंट दर्ज करें</h4>
                         <div class="space-y-2">
                             <div class="flex gap-2">
                                 <div class="relative flex-1"><span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-600/60 text-xs">$</span>
@@ -1648,9 +1686,9 @@
 
                 <!-- STAKING -->
                 <section id="stakingPage" class="app-page w-full hidden space-y-3">
-                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-vault mr-1.5"></i> USDT स्टेकिंग</h3><p class="text-[10px] text-amber-600/40">अपने उपलब्ध USDT को लॉक करके शानदार दैनिक रिवॉर्ड प्राप्त करें।</p></div>
+                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30"><h3 class="text-sm font-bold text-amber-600"><i class="fa-solid fa-vault mr-1.5"></i> USDT स्टेकिंग</h3><p class="text-[10px] text-purple-500/60">अपने उपलब्ध USDT को लॉक करके शानदार दैनिक रिवॉर्ड प्राप्त करें।</p></div>
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/30 space-y-3">
-                        <div class="flex justify-between items-center text-[11px]"><span class="text-amber-600/50">अवेलेबल बैलेंस:</span><span id="stakingAvailableCoins" class="font-bold currency-usdt">0.00 USDT</span></div>
+                        <div class="flex justify-between items-center text-[11px]"><span class="text-indigo-500">अवेलेबल बैलेंस:</span><span id="stakingAvailableCoins" class="font-bold currency-usdt">0.00 USDT</span></div>
                         <div>
                             <label class="block text-[9px] text-amber-600/50 mb-0.5">कितने USDT स्टेकिंग में लगाने हैं?</label>
                             <input type="number" id="stakeInputCoins" placeholder="न्यूनतम 10 USDT" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-xs focus:outline-none focus:border-amber-400 text-[#1a1a2e] backdrop-blur-sm" min="10" max="100000">
@@ -1659,8 +1697,8 @@
                         <div><label class="block text-[9px] text-amber-600/50 mb-1">लॉकिंग अवधि चुनें</label><div id="stakingPlansContainer" class="grid grid-cols-3 gap-1.5"></div></div>
                         <button id="btn-submit-stake" onclick="submitStake(this)" class="w-full btn-gold py-2 rounded-xl text-[11px] flex items-center justify-center gap-1.5 shadow-xl"><span>अभी स्टेकिंग पर लगाएं</span> <i class="fa-solid fa-lock"></i></button>
                     </div>
-                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-[11px] font-bold text-amber-700/70">सक्रिय स्टेकिंग सूची</h4><div id="activeStakesList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[9px] text-amber-600/30 text-center py-2">कोई एक्टिव स्टेकिंग नहीं है।</p></div></div>
-                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-[11px] font-bold text-amber-700/70">स्टेकिंग हिस्ट्री</h4><div id="stakingHistoryList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[9px] text-amber-600/30 text-center py-2">कोई हिस्ट्री नहीं है।</p></div></div>
+                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-[11px] font-bold text-teal-600">सक्रिय स्टेकिंग सूची</h4><div id="activeStakesList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[9px] text-amber-600/30 text-center py-2">कोई एक्टिव स्टेकिंग नहीं है।</p></div></div>
+                    <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 space-y-2"><h4 class="text-[11px] font-bold text-cyan-600">स्टेकिंग हिस्ट्री</h4><div id="stakingHistoryList" class="space-y-2 text-xs max-h-[150px] overflow-y-auto"><p class="text-[9px] text-amber-600/30 text-center py-2">कोई हिस्ट्री नहीं है।</p></div></div>
                 </section>
 
                 <!-- ======================== PROFILE ======================== -->
@@ -1668,8 +1706,8 @@
                     <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 flex items-center justify-between">
                         <div class="flex items-center gap-2.5">
                             <div class="w-11 h-11 rounded-full gold-bg-gradient flex items-center justify-center text-[#1a1a2e] font-bold text-base shadow-lg"><i class="fa-solid fa-user-tie"></i></div>
-                            <div><h3 id="profileName" class="font-bold text-sm text-[#1a1a2e]">User Profile</h3>
-                                <p id="profileEmail" class="text-[9px] text-amber-600/40 partial-hide-email">user@example.com</p>
+                            <div><h3 id="profileName" class="font-bold text-sm text-purple-700">User Profile</h3>
+                                <p id="profileEmail" class="text-[9px] text-pink-500/60 partial-hide-email">user@example.com</p>
                                 <button onclick="copyToClipboard('profileEmail', '✅ Email कॉपी हो गई!')" class="copy-email-btn text-[7px] mt-0.5"><i class="fa-solid fa-copy mr-1"></i> Email कॉपी</button>
                             </div>
                         </div>
@@ -1680,12 +1718,12 @@
                         </div>
                     </div>
                     <div class="id-box id-box-gold">
-                        <div><span class="id-label">🆔 आपकी Unique SPX ID</span><span class="id-value spx-id-display text-sm" id="profileCoinXIdDisplay">SPX123456789</span><span class="id-usage">इस ID से USDT (BEP20) भेजें/ले सकते हैं</span></div>
+                        <div><span class="id-label text-indigo-600">🆔 आपकी Unique SPX ID</span><span class="id-value spx-id-display text-sm text-amber-600" id="profileCoinXIdDisplay">SPX123456789</span><span class="id-usage">इस ID से USDT (BEP20) भेजें/ले सकते हैं</span></div>
                         <button onclick="copyToClipboard('profileCoinXIdDisplay', '✅ SPX ID कॉपी हो गई!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0 btn-animate text-[10px] bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20"><i class="fa-solid fa-copy mr-1"></i> कॉपी</button>
                     </div>
                     <div class="glass-gold p-3.5 rounded-2xl border-amber-500/30 space-y-2.5">
                         <h4 class="text-[11px] font-bold text-amber-600"><i class="fa-solid fa-share-nodes mr-1.5"></i> Invite Friends & Earn 2%</h4>
-                        <p class="text-[9px] text-amber-600/40">जब आपके द्वारा आमंत्रित सदस्य स्टेक करेंगे, आपको 2% बोनस तुरंत मिलेगा!</p>
+                        <p class="text-[9px] text-purple-500/60">जब आपके द्वारा आमंत्रित सदस्य स्टेक करेंगे, आपको 2% बोनस तुरंत मिलेगा!</p>
                         <div class="w-full bg-white/80 p-2 rounded-xl border border-amber-500/20 flex items-center justify-between text-[10px]">
                             <span id="referralShareLink" class="text-amber-600/40 truncate mr-2 select-all font-mono">https://suprixglobal.online/?ref=</span>
                             <button onclick="copyToClipboard('referralShareLink', '✅ रेफरल लिंक कॉपी हो गया!')" class="text-amber-600 hover:text-[#1a1a2e] shrink-0"><i class="fa-solid fa-copy"></i></button>
@@ -1716,7 +1754,7 @@
                         </div>
                         <div class="pt-2.5 border-t border-amber-500/15">
                             <h5 class="text-[10px] font-bold text-amber-600 mb-1.5"><i class="fa-solid fa-wallet mr-1"></i> SupriX Wallet में विथड्रॉवल</h5>
-                            <p class="text-[8px] text-amber-600/40 mb-1.5">SPX ID के माध्यम से SupriX Wallet में विथड्रॉवल करें (10% शुल्क)</p>
+                            <p class="text-[8px] text-purple-500/60 mb-1.5">SPX ID के माध्यम से SupriX Wallet में विथड्रॉवल करें (10% शुल्क)</p>
                             <div><label class="block text-[9px] text-amber-600/50 mb-0.5">रिसीवर की SPX ID</label><input type="text" id="coinxWalletSCAddress" placeholder="SPX ID दर्ज करें (जैसे SPX100001)" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-[11px] focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm"></div>
                             <div class="flex gap-2 mt-1.5">
                                 <input type="number" id="coinxWalletWithdrawAmount" placeholder="USDT संख्या" class="flex-1 bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-[11px] focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm" min="2">
@@ -1883,7 +1921,7 @@
         <div id="forgotPasswordModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 hidden">
             <div class="glass-gold p-4 rounded-2xl w-full max-w-sm space-y-3 shadow-2xl border-amber-500/30">
                 <div class="flex items-center justify-between border-b border-amber-500/15 pb-1.5"><h4 class="text-[11px] font-bold text-amber-600"><i class="fa-solid fa-circle-question mr-1"></i> पासवर्ड रिकवर</h4><button onclick="toggleForgotPasswordModal(false)" class="text-amber-600/40 hover:text-[#1a1a2e] btn-animate"><i class="fa-solid fa-xmark"></i></button></div>
-                <p class="text-[9px] text-amber-600/40">अपना रजिस्टर्ड ईमेल दर्ज करें। हम आपको पासवर्ड रीसेट लिंक भेजेंगे।</p>
+                <p class="text-[9px] text-purple-500/60">अपना रजिस्टर्ड ईमेल दर्ज करें। हम आपको पासवर्ड रीसेट लिंक भेजेंगे।</p>
                 <div><input type="text" id="forgotInput" placeholder="ईमेल दर्ज करें" class="w-full bg-white/80 border border-amber-500/20 rounded-xl py-2 px-3 text-[11px] focus:outline-none focus:border-amber-400 text-[#1a1a2e] font-mono backdrop-blur-sm"></div>
                 <button id="btn-forgot" onclick="handleForgotPassword(this)" class="w-full btn-gold py-2 rounded-xl text-[11px] flex items-center justify-center gap-1 shadow-xl"><span>पासवर्ड खोजें</span></button>
                 <p class="text-[7px] text-amber-600/30 text-center">रीसेट लिंक आपके ईमेल पर भेजा जाएगा।</p>
@@ -1896,7 +1934,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- JAVASCRIPT – FIXED: voice, registration success, confetti, clap -->
+    <!-- JAVASCRIPT – VOICE ONCE ON DASHBOARD, COLOURFUL TEXT -->
     <!-- ============================================================ -->
     <script>
         // ============================================================
@@ -1943,6 +1981,7 @@
         let cooldownTimerInterval = null;
         let voiceEnabled = true;
         let isFirstVisit = true;
+        let welcomeVoicePlayed = false; // flag to play welcome only once
 
         // ============================================================
         // UTILITY FUNCTIONS
@@ -2083,7 +2122,8 @@
                 speech.pitch = 1.1;
                 speech.volume = 1;
                 const voices = window.speechSynthesis.getVoices();
-                const femaleVoice = voices.find(v => v.lang === 'hi-IN' && v.name.includes('Female'));
+                // Prefer female voice
+                const femaleVoice = voices.find(v => v.lang === 'hi-IN' && (v.name.includes('Female') || v.name.includes('Google हिन्दी')));
                 if (femaleVoice) speech.voice = femaleVoice;
                 window.speechSynthesis.speak(speech);
                 if (callback) setTimeout(callback, Math.max(3000, text.length * 80));
@@ -2103,7 +2143,7 @@
         }
 
         // ============================================================
-        // CLAPPING SOUND (Web Audio API)
+        // CLAPPING SOUND & CONFETTI
         // ============================================================
         function playClappingSound(count = 3) {
             try {
@@ -2121,7 +2161,6 @@
                     osc.start(now + i * 0.2);
                     osc.stop(now + i * 0.2 + 0.06);
                 }
-                // Add noise burst for realism
                 for (let i = 0; i < count * 2; i++) {
                     const osc2 = audioCtx.createOscillator();
                     const gain2 = audioCtx.createGain();
@@ -2137,9 +2176,6 @@
             } catch (e) { console.log('Clap error:', e); }
         }
 
-        // ============================================================
-        // CONFETTI - flowers and leaves
-        // ============================================================
         function launchConfetti(count = 60) {
             const container = document.getElementById('confettiContainer');
             const emojis = ['🌸', '🌺', '🌹', '🌷', '🌻', '🌼', '🍃', '🍂', '🍁', '💐', '🌿', '☘️', '🌱', '🌳', '🌲', '🌵', '🌾', '🌴'];
@@ -2163,9 +2199,7 @@
                 container.appendChild(c);
                 setTimeout(() => c.remove(), (duration + delay) * 1000 + 500);
             }
-            // Play clapping sounds
             playClappingSound(5);
-            // Crowd cheer voices
             setTimeout(() => {
                 speakHindi('बधाई हो! रजिस्ट्रेशन सफल!');
                 setTimeout(() => speakHindi('SupriX Global में आपका स्वागत है!'), 1500);
@@ -2958,14 +2992,16 @@
                 if (pageId === 'dashboardPage') startCooldownTimer();
                 else stopCooldownTimer();
             }
-            // Voice guidance per page
+            // Voice guidance per page (except the welcome line on dashboard)
             if (voiceEnabled) {
                 if (pageId === 'registrationPage') {
                     speakHindi('SupriX Global में आपका स्वागत है। कृपया अपना डिटेल्स भरे और रजिस्ट्रेशन करें।');
                 } else if (pageId === 'loginPage') {
                     speakHindi('कृपया लॉगिन करें। अपनी ईमेल या SPX ID और पासवर्ड दर्ज करें।');
-                } else if (pageId === 'dashboardPage' && currentUser) {
+                } else if (pageId === 'dashboardPage' && currentUser && !welcomeVoicePlayed) {
+                    // Play welcome only once
                     speakHindi('SupriX Global के साथ जुड़ने के लिए धन्यवाद। हमारा लक्ष्य है आत्मनिर्भर भारत बनाना।');
+                    welcomeVoicePlayed = true;
                 } else if (pageId === 'regSuccessPage') {
                     speakHindi('बधाई हो! आपका रजिस्ट्रेशन सफलतापूर्वक पूर्ण हुआ।');
                 }
@@ -3091,10 +3127,8 @@
             const password = document.getElementById('loginPassword').value.trim();
             if (!input || !password) { showToast('ईमेल या SPX ID और पासवर्ड दर्ज करें', 'error'); return; }
 
-            // Check if input is SPX ID or email
             let email = input;
             if (input.startsWith('SPX')) {
-                // Try to find user by SPX ID
                 try {
                     const res = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [Query.equal('coinxId',
                         input)]);
@@ -3154,9 +3188,7 @@
                 showToast('✅ लॉगिन सफल!', 'success');
                 showPage('dashboardPage');
                 startCooldownTimer();
-                if (voiceEnabled) {
-                    speakHindi('SupriX Global के साथ जुड़ने के लिए धन्यवाद। हमारा लक्ष्य है आत्मनिर्भर भारत बनाना।');
-                }
+                // Voice welcome will be triggered inside showPage if not played
             } catch (e) {
                 console.error('Login error:', e);
                 let msg = '❌ गलत ईमेल/SPX ID या पासवर्ड';
@@ -3174,6 +3206,7 @@
         async function handleLogout() {
             try { await account.deleteSession('current'); } catch (e) {}
             currentUser = null;
+            welcomeVoicePlayed = false; // reset so next login plays welcome
             stopCooldownTimer();
             showToast('लॉगआउट हो गया', 'info');
             showPage('loginPage');
@@ -3239,18 +3272,15 @@
                 };
                 await databases.createDocument(DATABASE_ID, USERS_COLLECTION_ID, newAccount.$id, userData);
                 if (referral) localStorage.setItem('cx_pending_referral_code', referral);
-                // Set current user for success page
                 const createdDoc = await databases.getDocument(DATABASE_ID, USERS_COLLECTION_ID, newAccount.$id);
                 currentUser = mapUserDoc(createdDoc);
                 document.getElementById('successUserId').innerText = email;
                 document.getElementById('successSpxId').innerText = coinxId;
                 document.getElementById('successPassword').innerText = phone;
                 showPage('regSuccessPage');
-                // Launch confetti with clapping and voices
                 setTimeout(() => {
                     launchConfetti(70);
                 }, 300);
-                // Voice: Congratulations
                 if (voiceEnabled) {
                     setTimeout(() => {
                         speakHindi('बधाई हो! आपका रजिस्ट्रेशन सफलतापूर्वक पूर्ण हुआ।');
@@ -3279,7 +3309,6 @@
         async function handleForgotPassword(btn) {
             const input = document.getElementById('forgotInput').value.trim();
             if (!input) { showToast('ईमेल दर्ज करें', 'error'); return; }
-            // Check if input is SPX ID, convert to email if needed
             let email = input;
             if (input.startsWith('SPX')) {
                 try {
@@ -3291,8 +3320,6 @@
             }
             setButtonLoading(btn, true);
             try {
-                // Appwrite recovery - the email template should be customized in Appwrite console
-                // to remove "Appwrite" branding. This is the recommended approach.
                 await account.createRecovery(email, window.location.origin + window.location.pathname);
                 showToast('✅ पासवर्ड रीसेट लिंक आपके ईमेल पर भेजा गया है।', 'success');
                 toggleForgotPasswordModal(false);
@@ -3967,7 +3994,7 @@
         }
 
         // ============================================================
-        // SLIDER - Gift Offers & Motivational
+        // SLIDER
         // ============================================================
         function generateSliderData() {
             const giftSlides = [
@@ -4156,9 +4183,16 @@
                     await autoUnlockMaturedStakes();
                     showPage('dashboardPage');
                     startCooldownTimer();
-                    if (voiceEnabled && isFirstVisit) {
-                        speakHindi('SupriX Global के साथ जुड़ने के लिए धन्यवाद। हमारा लक्ष्य है आत्मनिर्भर भारत बनाना।');
-                        isFirstVisit = false;
+                    if (voiceEnabled && !welcomeVoicePlayed) {
+                        // Will be triggered inside showPage -> dashboardPage check
+                        // but showPage might be called before welcomeVoicePlayed is set
+                        // ensure it plays once
+                        setTimeout(() => {
+                            if (!welcomeVoicePlayed) {
+                                speakHindi('SupriX Global के साथ जुड़ने के लिए धन्यवाद। हमारा लक्ष्य है आत्मनिर्भर भारत बनाना।');
+                                welcomeVoicePlayed = true;
+                            }
+                        }, 1000);
                     }
                 } else {
                     showPage('loginPage');
