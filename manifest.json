@@ -1,0 +1,23 @@
+{
+  "name": "SupriX Global",
+  "short_name": "SupriX",
+  "description": "Premium Gold Mining & Staking Platform – Earn daily rewards with USDT.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8f5f0",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.postimg.cc/8PrDtLc2/file-00000000e6508211a748edb691eaf455.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
