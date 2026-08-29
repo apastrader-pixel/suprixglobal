@@ -1386,6 +1386,29 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            /* Progressier बैज को ऊपर दाएँ कोने में ले जाएँ */
+#progressier-app,
+[data-progressier],
+.progressier-container,
+.progressier-badge {
+  position: fixed !important;
+  bottom: auto !important;
+  top: 10px !important;
+  right: 10px !important;
+  left: auto !important;
+  z-index: 999999 !important;
+}
+
+/* अगर बैज iframe के अंदर है तो */
+iframe[src*="progressier"],
+iframe[src*="progressiser"] {
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  bottom: auto !important;
+  left: auto !important;
+  z-index: 999999 !important;
+}
         }
     </style>
 </head>
