@@ -13,11 +13,9 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
     </script>
+    <link rel="manifest" href="https://progressier.app/G0WQxZazNmz8jdGV9hOh/progressier.json"/>
+
     <style>
-        /* सुनिश्चित करें कि बटन मोबाइल पर भी सही दिखे */
-#downloadAppBtn {
-    white-space: nowrap;
-}
         /* ── RESET & BASE ── */
         * {
             margin: 0;
@@ -317,7 +315,7 @@
         .slider-container {
             position: relative;
             width: 100%;
-            height: 220px;
+            height: 250px;
             overflow: hidden;
             border-radius: 18px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
@@ -325,289 +323,46 @@
         }
         .slider-track {
             display: flex;
-            width: 3000%;
+            width: 100%;
             height: 100%;
-            animation: slide 120s infinite ease-in-out;
+            transition: transform 0.8s ease-in-out;
         }
         .slider-track .slide-item {
-            width: 3.33%;
+            min-width: 100%;
             height: 100%;
-            position: relative;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0ebe4;
         }
         .slider-track .slide-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-        .slider-track .slide-item .slide-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 18px 16px 14px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-            color: #fff;
-            text-align: center;
-        }
-        .slide-text .quote-icon {
-            font-size: 18px;
-            color: #d4af37;
-            display: block;
-            margin-bottom: 2px;
-        }
-        .slide-text .quote-line {
-            font-size: 14px;
-            font-weight: 700;
-            color: #f5d97e;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 2px 12px rgba(0, 0, 0, 0.9);
-            letter-spacing: 0.3px;
-            line-height: 1.5;
-            display: block;
-        }
-        .slide-text .quote-line2 {
-            font-size: 13px;
-            font-weight: 400;
-            color: #e2d0ed;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
-            line-height: 1.4;
-            display: block;
-            margin-top: 2px;
-        }
-        .slide-text .quote-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.25);
-            color: #f5d97e;
-            padding: 2px 14px;
-            border-radius: 30px;
-            font-size: 8px;
-            font-weight: 700;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            margin-top: 4px;
-            letter-spacing: 1px;
-            backdrop-filter: blur(4px);
-        }
-        @keyframes slide {
-            0%,
-            1% {
-                transform: translateX(0);
-            }
-            2%,
-            3% {
-                transform: translateX(-3.33%);
-            }
-            4%,
-            5% {
-                transform: translateX(-6.66%);
-            }
-            6%,
-            7% {
-                transform: translateX(-10%);
-            }
-            8%,
-            9% {
-                transform: translateX(-13.33%);
-            }
-            10%,
-            11% {
-                transform: translateX(-16.66%);
-            }
-            12%,
-            13% {
-                transform: translateX(-20%);
-            }
-            14%,
-            15% {
-                transform: translateX(-23.33%);
-            }
-            16%,
-            17% {
-                transform: translateX(-26.66%);
-            }
-            18%,
-            19% {
-                transform: translateX(-30%);
-            }
-            20%,
-            21% {
-                transform: translateX(-33.33%);
-            }
-            22%,
-            23% {
-                transform: translateX(-36.66%);
-            }
-            24%,
-            25% {
-                transform: translateX(-40%);
-            }
-            26%,
-            27% {
-                transform: translateX(-43.33%);
-            }
-            28%,
-            29% {
-                transform: translateX(-46.66%);
-            }
-            30%,
-            31% {
-                transform: translateX(-50%);
-            }
-            32%,
-            33% {
-                transform: translateX(-53.33%);
-            }
-            34%,
-            35% {
-                transform: translateX(-56.66%);
-            }
-            36%,
-            37% {
-                transform: translateX(-60%);
-            }
-            38%,
-            39% {
-                transform: translateX(-63.33%);
-            }
-            40%,
-            41% {
-                transform: translateX(-66.66%);
-            }
-            42%,
-            43% {
-                transform: translateX(-70%);
-            }
-            44%,
-            45% {
-                transform: translateX(-73.33%);
-            }
-            46%,
-            47% {
-                transform: translateX(-76.66%);
-            }
-            48%,
-            49% {
-                transform: translateX(-80%);
-            }
-            50%,
-            51% {
-                transform: translateX(-83.33%);
-            }
-            52%,
-            53% {
-                transform: translateX(-86.66%);
-            }
-            54%,
-            55% {
-                transform: translateX(-90%);
-            }
-            56%,
-            57% {
-                transform: translateX(-93.33%);
-            }
-            58%,
-            59% {
-                transform: translateX(-96.66%);
-            }
-            60%,
-            61% {
-                transform: translateX(-100%);
-            }
-            62%,
-            63% {
-                transform: translateX(-103.33%);
-            }
-            64%,
-            65% {
-                transform: translateX(-106.66%);
-            }
-            66%,
-            67% {
-                transform: translateX(-110%);
-            }
-            68%,
-            69% {
-                transform: translateX(-113.33%);
-            }
-            70%,
-            71% {
-                transform: translateX(-116.66%);
-            }
-            72%,
-            73% {
-                transform: translateX(-120%);
-            }
-            74%,
-            75% {
-                transform: translateX(-123.33%);
-            }
-            76%,
-            77% {
-                transform: translateX(-126.66%);
-            }
-            78%,
-            79% {
-                transform: translateX(-130%);
-            }
-            80%,
-            81% {
-                transform: translateX(-133.33%);
-            }
-            82%,
-            83% {
-                transform: translateX(-136.66%);
-            }
-            84%,
-            85% {
-                transform: translateX(-140%);
-            }
-            86%,
-            87% {
-                transform: translateX(-143.33%);
-            }
-            88%,
-            89% {
-                transform: translateX(-146.66%);
-            }
-            90%,
-            91% {
-                transform: translateX(-150%);
-            }
-            92%,
-            93% {
-                transform: translateX(-153.33%);
-            }
-            94%,
-            95% {
-                transform: translateX(-156.66%);
-            }
-            96%,
-            97% {
-                transform: translateX(-160%);
-            }
-            98%,
-            99% {
-                transform: translateX(-163.33%);
-            }
-            100% {
-                transform: translateX(-166.66%);
-            }
+            object-fit: contain;
+            background: #f0ebe4;
         }
         .slider-dots {
             position: absolute;
-            bottom: 6px;
+            bottom: 8px;
             left: 0;
             right: 0;
             text-align: center;
             z-index: 10;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            padding: 0 8px;
         }
         .slider-dots span {
             display: inline-block;
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 0 3px;
+            background: rgba(255, 255, 255, 0.5);
             transition: all 0.5s;
+            cursor: pointer;
         }
         .slider-dots span.active {
             background: #d4af37;
@@ -1010,12 +765,6 @@
             .slider-container {
                 height: 180px;
             }
-            .slide-text .quote-line {
-                font-size: 12px;
-            }
-            .slide-text .quote-line2 {
-                font-size: 11px;
-            }
             .receipt-modal .receipt-card {
                 padding: 18px 14px;
             }
@@ -1388,6 +1137,82 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Floating APK Download Button - visible only on web, hidden in app */
+        .floating-apk-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 16px;
+            z-index: 60;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #d4af37, #c9a030, #b8962a);
+            box-shadow: 0 4px 25px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: floatBtn 2s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #1a1a2e;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .floating-apk-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 35px rgba(212, 175, 55, 0.7);
+        }
+        .floating-apk-btn img {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+        .floating-apk-btn i {
+            font-size: 20px;
+            color: #1a1a2e;
+        }
+        @keyframes floatBtn {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+        /* Hidden in app (when installed as PWA) */
+        .floating-apk-btn.hidden-app {
+            display: none !important;
+        }
+        /* Web only - show in all pages */
+        .floating-apk-btn.web-only {
+            display: flex;
+        }
+
+        /* Header APK Download Button - small round */
+        .header-apk-btn {
+            background: linear-gradient(145deg, #d4af37, #c9a030, #b8962a);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: floatBtn 2s ease-in-out infinite;
+            box-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+            color: #1a1a2e;
+            font-size: 14px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        .header-apk-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 25px rgba(212, 175, 55, 0.6);
+        }
+        .header-apk-btn.hidden-app {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -1410,24 +1235,18 @@
                     <span id="headerSubtitle" class="text-[9px] text-amber-600/60">Premium • Gold Edition</span>
                 </div>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5">
                 <span class="ex-rate-badge"><i class="fa-solid fa-indian-rupee-sign"></i> $1 = ₹100</span>
                 <button onclick="toggleVoice()" id="voiceToggleBtn" class="voice-toggle-btn" title="वॉइस गाइड ऑन/ऑफ">
                     <i class="fa-solid fa-volume-high"></i> <span id="voiceToggleLabel">ऑन</span>
                 </button>
+                <!-- Header APK Download Button -->
+                <a id="headerApkBtn" class="header-apk-btn web-only" href="#" onclick="downloadApkDirect(event)" title="ऐप डाउनलोड करें">
+                    <i class="fa-solid fa-download"></i>
+                </a>
                 <button onclick="toggleAdminSearch()" class="text-amber-600/50 hover:text-amber-700 transition-all text-sm">
                     <i class="fa-solid fa-search"></i>
                 </button>
-                <!-- डाउनलोड बटन -->
-<a id="downloadAppBtn" href="https://drive.google.com/uc?export=download&id=1SoHGsDNb83Yo0-wv8ocKEqZvERrYYfkZ" 
-   download="SupriX_Global.apk" 
-   class="flex items-center gap-1.5 bg-amber-500/15 hover:bg-amber-500/25 text-amber-600 border border-amber-500/30 rounded-full px-3 py-1.5 transition-all duration-200 text-xs font-semibold shadow-sm hover:shadow-md" 
-   title="Download APK">
-    <img src="https://i.postimg.cc/SsQ8rqLL/file-0000000048f881fa99b571e2f3c2ecdd.png" 
-         alt="Download App" 
-         class="w-5 h-5 object-contain" />
-    <span>Download</span>
-</a>
                 <span id="headerBadge" class="text-[9px] bg-amber-500/15 text-amber-700 border border-amber-500/30 px-3 py-0.5 rounded-full font-bold">User</span>
             </div>
         </header>
@@ -1571,7 +1390,10 @@
 
                 <!-- DASHBOARD -->
                 <section id="dashboardPage" class="app-page w-full hidden space-y-4">
-                    <div class="slider-container"><div class="slider-track" id="sliderTrack"></div><div class="slider-dots" id="sliderDots"></div></div>
+                    <div class="slider-container">
+                        <div class="slider-track" id="sliderTrack"></div>
+                        <div class="slider-dots" id="sliderDots"></div>
+                    </div>
                     <div class="glass-gold p-4 rounded-2xl border-amber-500/30 flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-600">
@@ -1759,11 +1581,9 @@
                         <p class="text-[8px] text-amber-600/30 text-center">Session ID को कॉपी करें, Session ऐप में Paste करें और हमसे सीधे चैट करें।</p>
                     </div>
                     <!-- App Download (PWA) -->
-                    <button id="installAppBtn" onclick="installApp()" class="w-full app-download-btn justify-center"
+                    <button id="installAppBtn" onclick="installApp()" class="w-full app-download-btn justify-center">
                         <i class="fa-solid fa-download"></i> 📲 App Download (PWA)
                     </button>
-                    <!-- APK Download (Demo - link to your APK if you have) -->
-                    <a href="#" onclick="downloadAPK(); return false;" class="w-full text-center text-xs text-amber-600/60 hover:text-amber-700 mt-1 block">📥 APK Download (Coming Soon)</a>
                     <button onclick="handleLogout()" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-600 border border-red-500/30 font-semibold py-2.5 rounded-xl text-xs transition-all text-center btn-animate"><i class="fa-solid fa-power-off mr-1.5"></i> लॉगआउट करें</button>
                 </section>
                 <!-- BOTTOM NAV -->
@@ -1849,6 +1669,13 @@
         </main>
 
         <!-- ============================================================ -->
+        <!-- FLOATING APK DOWNLOAD BUTTON (Visible on Web only, hidden in App) -->
+        <!-- ============================================================ -->
+        <a id="floatingApkBtn" class="floating-apk-btn web-only" href="#" onclick="downloadApkDirect(event)" title="ऐप डाउनलोड करें">
+            <img src="https://i.postimg.cc/SsQ8rqLL/file-0000000048f881fa99b571e2f3c2ecdd.png" alt="Download APK" />
+        </a>
+
+        <!-- ============================================================ -->
         <!-- RECEIPT MODAL -->
         <!-- ============================================================ -->
         <div id="receiptModal" class="receipt-modal hidden">
@@ -1916,7 +1743,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- JAVASCRIPT – FIXED: dailyRewards removed, transactions used   -->
+    <!-- JAVASCRIPT – ALL FUNCTIONS INCLUDED                          -->
     <!-- ============================================================ -->
     <script>
         // ============================================================
@@ -1963,6 +1790,9 @@
         let cooldownTimerInterval = null;
         let voiceEnabled = true;
         let welcomeVoicePlayed = false;
+        let isAppInstalled = false;
+        let sliderIndex = 0;
+        let sliderInterval = null;
 
         // ============================================================
         // UTILITY FUNCTIONS
@@ -2075,7 +1905,57 @@
         }
 
         // ============================================================
-        // VOICE SYSTEM – with female voice, clear pronunciation
+        // APK DIRECT DOWNLOAD (no new page)
+        // ============================================================
+        function downloadApkDirect(event) {
+            event.preventDefault();
+            const apkUrl = "https://drive.google.com/uc?export=download&id=1SoHGsDNb83Yo0-wv8ocKEqZvERrYYfkZ";
+            const link = document.createElement('a');
+            link.href = apkUrl;
+            link.download = 'SupriX_Global.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('📲 एपीके डाउनलोड शुरू हो रहा है...', 'info');
+        }
+
+        // ============================================================
+        // DETECT APP INSTALLATION (PWA) - hide floating APK button
+        // ============================================================
+        function checkAppInstallation() {
+            if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+                isAppInstalled = true;
+                const btn = document.getElementById('floatingApkBtn');
+                const headerBtn = document.getElementById('headerApkBtn');
+                if (btn) btn.classList.add('hidden-app');
+                if (headerBtn) headerBtn.classList.add('hidden-app');
+            } else {
+                isAppInstalled = false;
+                const btn = document.getElementById('floatingApkBtn');
+                const headerBtn = document.getElementById('headerApkBtn');
+                if (btn) btn.classList.remove('hidden-app');
+                if (headerBtn) headerBtn.classList.remove('hidden-app');
+            }
+        }
+
+        window.matchMedia('(display-mode: standalone)').addEventListener('change', (e) => {
+            if (e.matches) {
+                isAppInstalled = true;
+                const btn = document.getElementById('floatingApkBtn');
+                const headerBtn = document.getElementById('headerApkBtn');
+                if (btn) btn.classList.add('hidden-app');
+                if (headerBtn) headerBtn.classList.add('hidden-app');
+            } else {
+                isAppInstalled = false;
+                const btn = document.getElementById('floatingApkBtn');
+                const headerBtn = document.getElementById('headerApkBtn');
+                if (btn) btn.classList.remove('hidden-app');
+                if (headerBtn) headerBtn.classList.remove('hidden-app');
+            }
+        });
+
+        // ============================================================
+        // VOICE SYSTEM
         // ============================================================
         function toggleVoice() {
             voiceEnabled = !voiceEnabled;
@@ -2103,7 +1983,6 @@
                 speech.pitch = 1.1;
                 speech.volume = 1;
                 const voices = window.speechSynthesis.getVoices();
-                // Prefer female voice
                 const femaleVoice = voices.find(v => v.lang === 'hi-IN' && (v.name.includes('Female') || v.name.includes('Google हिन्दी')));
                 if (femaleVoice) speech.voice = femaleVoice;
                 window.speechSynthesis.speak(speech);
@@ -2124,7 +2003,7 @@
         }
 
         // ============================================================
-        // CLAPPING SOUND & CONFETTI (Flowers/Leaves)
+        // CLAPPING SOUND & CONFETTI
         // ============================================================
         function playClappingSound(count = 3) {
             try {
@@ -2181,7 +2060,6 @@
                 setTimeout(() => c.remove(), (duration + delay) * 1000 + 500);
             }
             playClappingSound(5);
-            // Voice: Congratulations
             setTimeout(() => {
                 speakHindi('बधाई हो! रजिस्ट्रेशन सफल!');
                 setTimeout(() => speakHindi('SupriX Global में आपका स्वागत है!'), 1500);
@@ -2974,7 +2852,6 @@
                 else stopCooldownTimer();
             }
 
-            // Voice guidance per page
             if (voiceEnabled) {
                 if (pageId === 'registrationPage') {
                     speakHindi('SupriX Global में आपका स्वागत है। कृपया अपना डिटेल्स भरे और रजिस्ट्रेशन करें।');
@@ -2983,7 +2860,6 @@
                 } else if (pageId === 'regSuccessPage') {
                     speakHindi('बधाई हो! आपका रजिस्ट्रेशन सफलतापूर्वक पूर्ण हुआ।');
                 } else if (pageId === 'dashboardPage' && currentUser && !welcomeVoicePlayed) {
-                    // Play welcome only once
                     speakHindi('SupriX Global के साथ जुड़ने के लिए धन्यवाद। हमारा लक्ष्य है आत्मनिर्भर भारत बनाना।');
                     welcomeVoicePlayed = true;
                 }
@@ -3111,7 +2987,6 @@
             if (!input || !password) { showToast('ईमेल या SPX ID और पासवर्ड दर्ज करें', 'error'); return; }
 
             let email = input;
-            // Check if input is SPX ID (starts with "SPX")
             if (input.startsWith('SPX')) {
                 try {
                     const res = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [Query.equal('coinxId',
@@ -3204,7 +3079,6 @@
                 showToast('✅ लॉगिन सफल!', 'success');
                 showPage('dashboardPage');
                 startCooldownTimer();
-                // Voice welcome will be triggered inside showPage if not played
             } catch (e) {
                 console.error('Login error:', e);
                 let msg = '❌ गलत ईमेल/SPX ID या पासवर्ड';
@@ -3222,14 +3096,14 @@
         async function handleLogout() {
             try { await account.deleteSession('current'); } catch (e) {}
             currentUser = null;
-            welcomeVoicePlayed = false; // reset for next login
+            welcomeVoicePlayed = false;
             stopCooldownTimer();
             showToast('लॉगआउट हो गया', 'info');
             showPage('loginPage');
         }
 
         // ============================================================
-        // REGISTRATION – shows success page with Email and SPX ID
+        // REGISTRATION
         // ============================================================
         async function handleRegistration(btn) {
             const name = document.getElementById('regName').value.trim();
@@ -3289,13 +3163,11 @@
                 await databases.createDocument(DATABASE_ID, USERS_COLLECTION_ID, newAccount.$id, userData);
                 if (referral) localStorage.setItem('cx_pending_referral_code', referral);
 
-                // Set success page fields
                 document.getElementById('successUserId').innerText = email;
                 document.getElementById('successSpxId').innerText = coinxId;
                 document.getElementById('successPassword').innerText = phone;
 
                 showPage('regSuccessPage');
-                // Launch confetti with flowers and clapping
                 setTimeout(() => {
                     launchConfetti(70);
                 }, 300);
@@ -3318,7 +3190,7 @@
         }
 
         // ============================================================
-        // FORGOT PASSWORD – uses Appwrite recovery (email template can be customized)
+        // FORGOT PASSWORD
         // ============================================================
         function toggleForgotPasswordModal(show) {
             document.getElementById('forgotPasswordModal').classList.toggle('hidden', !show);
@@ -3375,7 +3247,7 @@
         }
 
         // ============================================================
-        // MINING REWARD - with voice guidance
+        // MINING REWARD
         // ============================================================
         async function triggerMiningReward(btn) {
             if (!currentUser) {
@@ -3561,7 +3433,7 @@
 
         async function submitDepositRequest(btn) {
             if (!currentUser) { showToast('लॉगिन करें।', 'error'); return; }
-            if (!uploadReceiptFile) { showToast('स्क्रीनशॉट अपलोड करें。', 'error'); return; }
+            if (!uploadReceiptFile) { showToast('स्क्रीनशॉट अपलोड करें।', 'error'); return; }
             if (currentUser.pendingDeposit) { showToast('पहले से पेंडिंग।', 'error'); return; }
             setButtonLoading(btn, true);
             try {
@@ -3589,7 +3461,7 @@
         }
 
         // ============================================================
-        // STAKING – with voice guidance
+        // STAKING
         // ============================================================
         function renderStakingDetails() {
             if (!currentUser) return;
@@ -3796,7 +3668,7 @@
         }
 
         // ============================================================
-        // WITHDRAWAL – with voice guidance
+        // WITHDRAWAL
         // ============================================================
         async function submitWithdrawal(btn) {
             if (!currentUser) { showToast('लॉगिन करें।', 'error'); return; }
@@ -4019,226 +3891,94 @@
         }
 
         // ============================================================
-        // SLIDER - Updated with Gift Offers
+        // SLIDER - Images only, no text, smooth slow transition
         // ============================================================
-        function generateSliderData() {
-            // Use 30 slides - first 3 are gift offers, rest motivational
-            const giftSlides = [
-                { icon: '🎁', line1: '500 USDT + 3 Active Referral', line2: 'पर मिलेगा स्लिम कीपैड फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
-                { icon: '📱', line1: '1050 USDT + 10 Active Referral', line2: 'पर मिलेगा ₹10000 का Android फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
-                { icon: '📟', line1: '2100 USDT + 5 Active Referral', line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁', badge: '🎁 गिफ्ट 🎁' },
-            ];
-function generateSliderData() {
-    // Fixed images from your provided links
-    const imageSlides = [
-        { 
-            img: "https://i.postimg.cc/0jWfTn08/file-00000000988c82119a7866f30faba9c2.png",
-            icon: '🌟',
-            line1: 'SupriX Global के साथ शुरू करें',
-            line2: 'आज ही अपनी माइनिंग यात्रा शुरू करें',
-            badge: '✦ शुरुआत ✦'
-        },
-        { 
-            img: "https://i.postimg.cc/N0BHxTRP/IMG-20260830-154634.png",
-            icon: '💎',
-            line1: 'सुरक्षित USDT स्टेकिंग',
-            line2: 'अपने सपनों को सच करें',
-            badge: '✦ स्टेकिंग ✦'
-        },
-        { 
-            img: "https://i.postimg.cc/C1tshNQ9/1786547570648.png",
-            icon: '🚀',
-            line1: 'दैनिक 0.5% रिवॉर्ड',
-            line2: 'हर दिन कमाएं, हर दिन बढ़ें',
-            badge: '✦ रिवॉर्ड ✦'
-        },
-        { 
-            img: "https://i.postimg.cc/Fz339Qcz/file-000000004eb88208adec4dca08b66c57.png",
-            icon: '🎁',
-            line1: '500 USDT + 3 Active Referral',
-            line2: 'पर मिलेगा स्लिम कीपैड फोन 🎁',
-            badge: '🎁 गिफ्ट 🎁'
-        },
-        { 
-            img: "https://i.postimg.cc/QMC7F71L/file-0000000090f08211bbcf36b0be85016d.png",
-            icon: '📱',
-            line1: '1050 USDT + 10 Active Referral',
-            line2: 'पर मिलेगा ₹10000 का Android फोन 🎁',
-            badge: '🎁 गिफ्ट 🎁'
-        },
-        { 
-            img: "https://i.postimg.cc/FHRzp4Rr/file-000000002878820b8b1bdec0b2578d5d.png",
-            icon: '📟',
-            line1: '2100 USDT + 5 Active Referral',
-            line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁',
-            badge: '🎁 गिफ्ट 🎁'
-        },
-        { 
-            img: "https://i.postimg.cc/FzpFbWXP/1786547008768.png",
-            icon: '👑',
-            line1: 'सिंहासन उन्हीं को मिलता है',
-            line2: 'जो खुद को हर दिन बेहतर बनाते हैं',
-            badge: '✦ बेहतरी ✦'
-        },
-        { 
-            img: "https://i.postimg.cc/vmnQ2Hd6/file-00000000020c820b91c52e506903a683.png",
-            icon: '🔥',
-            line1: 'आज पसीना बहाओ, कल दुनिया सलाम करेगी',
-            line2: 'मेहनत की आग में तपकर ही सोना चमकता है',
-            badge: '✦ तपस्या ✦'
-        },
-        { 
-            img: "https://i.postimg.cc/7ZRxHJN9/1788087971847.png",
-            icon: '🏆',
-            line1: 'सम्मानित किया जाएगा कंपनी की ओर से',
-            line2: 'आपकी मेहनत को मिलेगा पहचान',
-            badge: '✦ सम्मान ✦'
-        }
-    ];
-
-    // Motivational quotes (without images - will use same images in loop)
-    const motivationalSlides = [
-        { icon: '🦋', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है', badge: '✦ धैर्य ✦' },
-        { icon: '🌟', line1: 'जो आज तुम्हारा मज़ाक उड़ा रहे हैं', line2: 'कल वही तुम्हारी सफलता पर ताली बजाएँगे', badge: '✦ विश्वास ✦' },
-        { icon: '⚔️', line1: 'जब तक जीत नहीं मिलती', line2: 'तब तक लड़ना ही असली पहचान है', badge: '✦ संघर्ष ✦' },
-        { icon: '🎯', line1: 'अपने लक्ष्य पर नज़र रखो', line2: 'दुनिया की नज़रें तुम्हारी तरफ होंगी', badge: '✦ लक्ष्य ✦' },
-        { icon: '🌅', line1: 'हर सुबह एक नई शुरुआत है', line2: 'अपने सपनों को पंख लगाओ और उड़ान भरो', badge: '✦ शुरुआत ✦' },
-        { icon: '🙏', line1: 'जिस दिन तुमने खुद पर विश्वास कर लिया', line2: 'उस दिन दुनिया की कोई ताकत तुम्हें रोक नहीं सकती', badge: '✦ विश्वास ✦' },
-        { icon: '📈', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है', badge: '✦ धैर्य ✦' },
-        { icon: '⭐', line1: 'मेहनत करो इतनी कि किस्मत भी झुक जाए', line2: 'सपने सच करने की ताकत रखो', badge: '✦ सपना ✦' },
-        { icon: '💪', line1: 'तूफानों से डरकर नाव पार नहीं होती', line2: 'हिम्मत करने वालों की कभी हार नहीं होती', badge: '✦ हिम्मत ✦' },
-        { icon: '🌊', line1: 'अपनी मेहनत इतनी ख़ामोशी से करो', line2: 'कि सफलता खुद शोर मचा दे', badge: '✦ मेहनत ✦' },
-        { icon: '🕊️', line1: 'सपने देखने वाले बहुत मिलेंगे', line2: 'उन्हें पूरा करने वाले बहुत कम होते हैं', badge: '✦ सपना ✦' },
-        { icon: '🌿', line1: 'प्रकृति से सीखो, हर पल बढ़ो', line2: 'जीवन एक उपहार है, इसे संजोओ', badge: '✦ प्रकृति ✦' },
-        { icon: '🌈', line1: 'हर बादल में एक सुनहरी रेखा होती है', line2: 'मुश्किलों के बाद ही सफलता मिलती है', badge: '✦ उम्मीद ✦' },
-        { icon: '🌺', line1: 'खिलो, महकाओ, और बढ़ो', line2: 'हर दिन नई ऊँचाइयों को छुओ', badge: '✦ विकास ✦' },
-        { icon: '🌄', line1: 'हर सुबह एक नया अवसर है', line2: 'आज का दिन आपका है, इसे जीतो', badge: '✦ नई शुरुआत ✦' },
-        { icon: '🦁', line1: 'शेर की तरह जियो, हिम्मत मत हारो', line2: 'तुम्हारी ताकत तुम्हारी पहचान है', badge: '✦ हिम्मत ✦' },
-        { icon: '🌙', line1: 'रात जितनी घनी होगी, सुबह उतनी खूबसूरत', line2: 'संघर्ष के बाद ही विजय मिलती है', badge: '✦ संघर्ष ✦' },
-        { icon: '☀️', line1: 'अपने अंदर का सूरज जगाओ', line2: 'रोशनी बनो और दुनिया को रौशन करो', badge: '✦ रोशनी ✦' },
-        { icon: '🌳', line1: 'पेड़ की तरह मजबूत बनो', line2: 'हर मौसम में खड़े रहो, हर हाल में मुस्कुराओ', badge: '✦ मजबूती ✦' },
-        { icon: '💫', line1: 'सितारों को छूने का सपना देखो', line2: 'क्योंकि तुम खुद एक सितारा हो', badge: '✦ सपना ✦' },
-        { icon: '🌊', line1: 'समुद्र की गहराई में छुपा है जादू', line2: 'अपने अंदर की गहराई को पहचानो', badge: '✦ गहराई ✦' }
-    ];
-
-    // Build final slides array: First 9 with images, rest from motivational with random images from first 9
-    let slides = [...imageSlides];
-    
-    // Add motivational slides with random images from imageSlides
-    let idx = 0;
-    while (slides.length < 30) {
-        const m = motivationalSlides[idx % motivationalSlides.length];
-        // Pick random image from imageSlides
-        const randomImg = imageSlides[Math.floor(Math.random() * imageSlides.length)].img;
-        slides.push({
-            img: randomImg,
-            icon: m.icon,
-            line1: m.line1,
-            line2: m.line2,
-            badge: m.badge
-        });
-        idx++;
-    }
-
-    return slides;
-}
-            const motivationalSlides = [
-                { icon: '🚀', line1: 'अपने सपनों को पंख लगाओ', line2: 'SupriX Global के साथ आज ही शुरू करें',
-                    badge: '✦ शुरुआत ✦' },
-                { icon: '💎', line1: 'हर कॉइन कीमती है', line2: 'SPX ID से सुरक्षित लेनदेन', badge: '✦ सुरक्षा ✦' },
-                { icon: '🦋', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है',
-                    badge: '✦ धैर्य ✦' },
-                { icon: '🌟', line1: 'जो आज तुम्हारा मज़ाक उड़ा रहे हैं', line2: 'कल वही तुम्हारी सफलता पर ताली बजाएँगे',
-                    badge: '✦ विश्वास ✦' },
-                { icon: '⚔️', line1: 'जब तक जीत नहीं मिलती', line2: 'तब तक लड़ना ही असली पहचान है',
-                    badge: '✦ संघर्ष ✦' },
-                { icon: '👑', line1: 'सिंहासन उन्हीं को मिलता है', line2: 'जो खुद को हर दिन बेहतर बनाते हैं',
-                    badge: '✦ बेहतरी ✦' },
-                { icon: '🎯', line1: 'अपने लक्ष्य पर नज़र रखो', line2: 'दुनिया की नज़रें तुम्हारी तरफ होंगी',
-                    badge: '✦ लक्ष्य ✦' },
-                { icon: '🔥', line1: 'आज पसीना बहाओ, कल दुनिया सलाम करेगी', line2: 'मेहनत की आग में तपकर ही सोना चमकता है',
-                    badge: '✦ तपस्या ✦' },
-                { icon: '🏆', line1: 'सम्मानित किया जाएगा कंपनी की ओर से', line2: 'आपकी मेहनत को मिलेगा पहचान',
-                    badge: '✦ सम्मान ✦' },
-                { icon: '🌅', line1: 'हर सुबह एक नई शुरुआत है', line2: 'अपने सपनों को पंख लगाओ और उड़ान भरो',
-                    badge: '✦ शुरुआत ✦' },
-                { icon: '🙏', line1: 'जिस दिन तुमने खुद पर विश्वास कर लिया', line2: 'उस दिन दुनिया की कोई ताकत तुम्हें रोक नहीं सकती',
-                    badge: '✦ विश्वास ✦' },
-                { icon: '📈', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है',
-                    badge: '✦ धैर्य ✦' },
-                { icon: '⭐', line1: 'मेहनत करो इतनी कि किस्मत भी झुक जाए', line2: 'सपने सच करने की ताकत रखो',
-                    badge: '✦ सपना ✦' },
-                { icon: '💪', line1: 'तूफानों से डरकर नाव पार नहीं होती', line2: 'हिम्मत करने वालों की कभी हार नहीं होती',
-                    badge: '✦ हिम्मत ✦' },
-                { icon: '🌊', line1: 'अपनी मेहनत इतनी ख़ामोशी से करो', line2: 'कि सफलता खुद शोर मचा दे',
-                    badge: '✦ मेहनत ✦' },
-                { icon: '🕊️', line1: 'सपने देखने वाले बहुत मिलेंगे', line2: 'उन्हें पूरा करने वाले बहुत कम होते हैं',
-                    badge: '✦ सपना ✦' },
-                { icon: '🌿', line1: 'प्रकृति से सीखो, हर पल बढ़ो', line2: 'जीवन एक उपहार है, इसे संजोओ',
-                    badge: '✦ प्रकृति ✦' },
-                { icon: '🌈', line1: 'हर बादल में एक सुनहरी रेखा होती है', line2: 'मुश्किलों के बाद ही सफलता मिलती है',
-                    badge: '✦ उम्मीद ✦' },
-                { icon: '🌺', line1: 'खिलो, महकाओ, और बढ़ो', line2: 'हर दिन नई ऊँचाइयों को छुओ', badge: '✦ विकास ✦' },
-                { icon: '🌄', line1: 'हर सुबह एक नया अवसर है', line2: 'आज का दिन आपका है, इसे जीतो',
-                    badge: '✦ नई शुरुआत ✦' },
-                { icon: '🦁', line1: 'शेर की तरह जियो, हिम्मत मत हारो', line2: 'तुम्हारी ताकत तुम्हारी पहचान है',
-                    badge: '✦ हिम्मत ✦' },
-                { icon: '🌙', line1: 'रात जितनी घनी होगी, सुबह उतनी खूबसूरत', line2: 'संघर्ष के बाद ही विजय मिलती है',
-                    badge: '✦ संघर्ष ✦' },
-                { icon: '☀️', line1: 'अपने अंदर का सूरज जगाओ', line2: 'रोशनी बनो और दुनिया को रौशन करो',
-                    badge: '✦ रोशनी ✦' },
-                { icon: '🌳', line1: 'पेड़ की तरह मजबूत बनो', line2: 'हर मौसम में खड़े रहो, हर हाल में मुस्कुराओ',
-                    badge: '✦ मजबूती ✦' },
-                { icon: '💫', line1: 'सितारों को छूने का सपना देखो', line2: 'क्योंकि तुम खुद एक सितारा हो',
-                    badge: '✦ सपना ✦' },
-                { icon: '🌊', line1: 'समुद्र की गहराई में छुपा है जादू', line2: 'अपने अंदर की गहराई को पहचानो',
-                    badge: '✦ गहराई ✦' },
-                { icon: '🔥', line1: 'जलो, तपो, और चमको', line2: 'हर मुश्किल को मौका बनाओ', badge: '✦ तपस्या ✦' },
-                { icon: '🦋', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है',
-                    badge: '✦ धैर्य ✦' },
-                { icon: '🌟', line1: 'जो आज तुम्हारा मज़ाक उड़ा रहे हैं', line2: 'कल वही तुम्हारी सफलता पर ताली बजाएँगे',
-                    badge: '✦ विश्वास ✦' },
-                { icon: '⚔️', line1: 'जब तक जीत नहीं मिलती', line2: 'तब तक लड़ना ही असली पहचान है',
-                    badge: '✦ संघर्ष ✦' },
-            ];
-
-            // Combine: first 3 gift slides, then motivational
-            let slides = [...giftSlides];
-            // Add enough motivational slides to reach 30
-            let idx = 0;
-            while (slides.length < 30) {
-                const m = motivationalSlides[idx % motivationalSlides.length];
-                slides.push(m);
-                idx++;
-            }
-
-            // Add random images
-            return slides.map((s, i) => ({
-                img: `https://picsum.photos/seed/gold${i+100}/600/400`,
-                icon: s.icon,
-                line1: s.line1,
-                line2: s.line2,
-                badge: s.badge
-            }));
-        }
-
         function renderSlider() {
             const track = document.getElementById('sliderTrack');
             const dots = document.getElementById('sliderDots');
             if (!track) return;
-            const slides = generateSliderData();
+
+            // List of images - user provided + additional Picsum images
+            const imageUrls = [
+                // User provided images
+                "https://i.postimg.cc/0jWfTn08/file-00000000988c82119a7866f30faba9c2.png",
+                "https://i.postimg.cc/N0BHxTRP/IMG-20260830-154634.png",
+                "https://i.postimg.cc/C1tshNQ9/1786547570648.png",
+                "https://i.postimg.cc/Fz339Qcz/file-000000004eb88208adec4dca08b66c57.png",
+                "https://i.postimg.cc/QMC7F71L/file-0000000090f08211bbcf36b0be85016d.png",
+                "https://i.postimg.cc/FHRzp4Rr/file-000000002878820b8b1bdec0b2578d5d.png",
+                "https://i.postimg.cc/FzpFbWXP/1786547008768.png",
+                "https://i.postimg.cc/vmnQ2Hd6/file-00000000020c820b91c52e506903a683.png",
+                "https://i.postimg.cc/7ZRxHJN9/1788087971847.png",
+                // Additional Picsum images (at least 15 total)
+                "https://picsum.photos/seed/gold1/800/400",
+                "https://picsum.photos/seed/gold2/800/400",
+                "https://picsum.photos/seed/gold3/800/400",
+                "https://picsum.photos/seed/gold4/800/400",
+                "https://picsum.photos/seed/gold5/800/400",
+                "https://picsum.photos/seed/gold6/800/400",
+                "https://picsum.photos/seed/gold7/800/400",
+                "https://picsum.photos/seed/gold8/800/400",
+                "https://picsum.photos/seed/gold9/800/400",
+                "https://picsum.photos/seed/gold10/800/400",
+                "https://picsum.photos/seed/gold11/800/400",
+                "https://picsum.photos/seed/gold12/800/400",
+                "https://picsum.photos/seed/gold13/800/400",
+                "https://picsum.photos/seed/gold14/800/400",
+                "https://picsum.photos/seed/gold15/800/400"
+            ];
+
             track.innerHTML = '';
-            slides.forEach((s, i) => {
+            imageUrls.forEach(url => {
                 const div = document.createElement('div');
                 div.className = 'slide-item';
-                div.innerHTML =
-                    `<img src="${s.img}" alt="Slide ${i+1}" loading="lazy"><div class="slide-text"><span class="quote-icon">${s.icon}</span><span class="quote-line">${s.line1}</span><span class="quote-line2">${s.line2}</span><span class="quote-badge">${s.badge}</span></div>`;
+                div.innerHTML = `<img src="${url}" alt="Slider" loading="lazy" />`;
                 track.appendChild(div);
             });
-            if (dots) { dots.innerHTML = '';
-                for (let i = 0; i < slides.length; i++) { const span = document.createElement('span'); if (i === 0) span
-                        .className = 'active';
-                    dots.appendChild(span); } }
+
+            // Dots
+            if (dots) {
+                dots.innerHTML = '';
+                for (let i = 0; i < imageUrls.length; i++) {
+                    const span = document.createElement('span');
+                    if (i === 0) span.className = 'active';
+                    span.dataset.index = i;
+                    span.addEventListener('click', () => goToSlide(i));
+                    dots.appendChild(span);
+                }
+            }
+
+            // Start slider
+            sliderIndex = 0;
+            startSlider();
+        }
+
+        function startSlider() {
+            if (sliderInterval) clearInterval(sliderInterval);
+            sliderInterval = setInterval(() => {
+                const track = document.getElementById('sliderTrack');
+                const dots = document.querySelectorAll('#sliderDots span');
+                if (!track) return;
+                const total = track.children.length;
+                sliderIndex = (sliderIndex + 1) % total;
+                track.style.transform = `translateX(-${sliderIndex * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === sliderIndex);
+                });
+            }, 5000); // 5 seconds per slide
+        }
+
+        function goToSlide(index) {
+            const track = document.getElementById('sliderTrack');
+            const dots = document.querySelectorAll('#sliderDots span');
+            if (!track) return;
+            sliderIndex = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            // Reset timer
+            startSlider();
         }
 
         // ============================================================
@@ -4286,7 +4026,7 @@ function generateSliderData() {
         }
 
         // ============================================================
-        // APP DOWNLOAD (PWA) AND APK FALLBACK
+        // APP DOWNLOAD (PWA)
         // ============================================================
         let deferredPrompt = null;
 
@@ -4302,6 +4042,11 @@ function generateSliderData() {
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         showToast('✅ ऐप इंस्टॉल हो रहा है!', 'success');
+                        const btn = document.getElementById('floatingApkBtn');
+                        const headerBtn = document.getElementById('headerApkBtn');
+                        if (btn) btn.classList.add('hidden-app');
+                        if (headerBtn) headerBtn.classList.add('hidden-app');
+                        isAppInstalled = true;
                     } else {
                         showToast('❌ इंस्टॉलेशन रद्द कर दिया गया।', 'info');
                     }
@@ -4312,23 +4057,20 @@ function generateSliderData() {
             }
         }
 
-        function downloadAPK() {
-            showToast('📲 APK लिंक जल्द उपलब्ध होगा। कृपया PWA इंस्टॉल करें।', 'info');
-        }
-
         // ============================================================
         // INIT
         // ============================================================
         window.onload = async function() {
             createButterflies();
             renderSlider();
+            checkAppInstallation();
+
             try {
                 const loaded = await loadCurrentUserData();
                 if (loaded && !currentUser.isBlocked) {
                     await autoUnlockMaturedStakes();
                     showPage('dashboardPage');
                     startCooldownTimer();
-                    // Welcome voice will be triggered in showPage (once)
                 } else {
                     showPage('loginPage');
                     const urlParams = new URLSearchParams(window.location.search);
@@ -4420,28 +4162,14 @@ function generateSliderData() {
         window.submitAdminLogin = submitAdminLogin;
         window.closeVoiceToast = closeVoiceToast;
         window.installApp = installApp;
-        window.downloadAPK = downloadAPK;
         window.toggleVoice = toggleVoice;
         window.speakHindi = speakHindi;
         window.showVoiceToast = showVoiceToast;
         window.launchConfetti = launchConfetti;
         window.playClappingSound = playClappingSound;
+        window.downloadApkDirect = downloadApkDirect;
     </script>
 <script>
-    // डाउनलोड बटन पर क्लिक इवेंट
-document.addEventListener('DOMContentLoaded', function() {
-    const downloadBtn = document.getElementById('downloadAppBtn');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
-            // यहाँ आप Google Analytics या कोई अन्य ट्रैकिंग कोड डाल सकते हैं
-            console.log('App Download started');
-            // वैकल्पिक: एक छोटा सा टोस्ट मैसेज दिखाएं
-            if (typeof showToast === 'function') {
-                showToast('📲 APK डाउनलोड शुरू हो रहा है...', 'info');
-            }
-        });
-    }
-});
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
