@@ -14,6 +14,10 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
     </script>
     <style>
+        /* सुनिश्चित करें कि बटन मोबाइल पर भी सही दिखे */
+#downloadAppBtn {
+    white-space: nowrap;
+}
         /* ── RESET & BASE ── */
         * {
             margin: 0;
@@ -1414,6 +1418,16 @@
                 <button onclick="toggleAdminSearch()" class="text-amber-600/50 hover:text-amber-700 transition-all text-sm">
                     <i class="fa-solid fa-search"></i>
                 </button>
+                <!-- डाउनलोड बटन -->
+<a id="downloadAppBtn" href="https://drive.google.com/uc?export=download&id=1SoHGsDNb83Yo0-wv8ocKEqZvERrYYfkZ" 
+   download="SupriX_Global.apk" 
+   class="flex items-center gap-1.5 bg-amber-500/15 hover:bg-amber-500/25 text-amber-600 border border-amber-500/30 rounded-full px-3 py-1.5 transition-all duration-200 text-xs font-semibold shadow-sm hover:shadow-md" 
+   title="Download APK">
+    <img src="https://i.postimg.cc/SsQ8rqLL/file-0000000048f881fa99b571e2f3c2ecdd.png" 
+         alt="Download App" 
+         class="w-5 h-5 object-contain" />
+    <span>Download</span>
+</a>
                 <span id="headerBadge" class="text-[9px] bg-amber-500/15 text-amber-700 border border-amber-500/30 px-3 py-0.5 rounded-full font-bold">User</span>
             </div>
         </header>
@@ -4014,7 +4028,120 @@
                 { icon: '📱', line1: '1050 USDT + 10 Active Referral', line2: 'पर मिलेगा ₹10000 का Android फोन 🎁', badge: '🎁 गिफ्ट 🎁' },
                 { icon: '📟', line1: '2100 USDT + 5 Active Referral', line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁', badge: '🎁 गिफ्ट 🎁' },
             ];
+function generateSliderData() {
+    // Fixed images from your provided links
+    const imageSlides = [
+        { 
+            img: "https://i.postimg.cc/0jWfTn08/file-00000000988c82119a7866f30faba9c2.png",
+            icon: '🌟',
+            line1: 'SupriX Global के साथ शुरू करें',
+            line2: 'आज ही अपनी माइनिंग यात्रा शुरू करें',
+            badge: '✦ शुरुआत ✦'
+        },
+        { 
+            img: "https://i.postimg.cc/N0BHxTRP/IMG-20260830-154634.png",
+            icon: '💎',
+            line1: 'सुरक्षित USDT स्टेकिंग',
+            line2: 'अपने सपनों को सच करें',
+            badge: '✦ स्टेकिंग ✦'
+        },
+        { 
+            img: "https://i.postimg.cc/C1tshNQ9/1786547570648.png",
+            icon: '🚀',
+            line1: 'दैनिक 0.5% रिवॉर्ड',
+            line2: 'हर दिन कमाएं, हर दिन बढ़ें',
+            badge: '✦ रिवॉर्ड ✦'
+        },
+        { 
+            img: "https://i.postimg.cc/Fz339Qcz/file-000000004eb88208adec4dca08b66c57.png",
+            icon: '🎁',
+            line1: '500 USDT + 3 Active Referral',
+            line2: 'पर मिलेगा स्लिम कीपैड फोन 🎁',
+            badge: '🎁 गिफ्ट 🎁'
+        },
+        { 
+            img: "https://i.postimg.cc/QMC7F71L/file-0000000090f08211bbcf36b0be85016d.png",
+            icon: '📱',
+            line1: '1050 USDT + 10 Active Referral',
+            line2: 'पर मिलेगा ₹10000 का Android फोन 🎁',
+            badge: '🎁 गिफ्ट 🎁'
+        },
+        { 
+            img: "https://i.postimg.cc/FHRzp4Rr/file-000000002878820b8b1bdec0b2578d5d.png",
+            icon: '📟',
+            line1: '2100 USDT + 5 Active Referral',
+            line2: 'पर मिलेगा बड़ा Tablet ₹18000 का 🎁',
+            badge: '🎁 गिफ्ट 🎁'
+        },
+        { 
+            img: "https://i.postimg.cc/FzpFbWXP/1786547008768.png",
+            icon: '👑',
+            line1: 'सिंहासन उन्हीं को मिलता है',
+            line2: 'जो खुद को हर दिन बेहतर बनाते हैं',
+            badge: '✦ बेहतरी ✦'
+        },
+        { 
+            img: "https://i.postimg.cc/vmnQ2Hd6/file-00000000020c820b91c52e506903a683.png",
+            icon: '🔥',
+            line1: 'आज पसीना बहाओ, कल दुनिया सलाम करेगी',
+            line2: 'मेहनत की आग में तपकर ही सोना चमकता है',
+            badge: '✦ तपस्या ✦'
+        },
+        { 
+            img: "https://i.postimg.cc/7ZRxHJN9/1788087971847.png",
+            icon: '🏆',
+            line1: 'सम्मानित किया जाएगा कंपनी की ओर से',
+            line2: 'आपकी मेहनत को मिलेगा पहचान',
+            badge: '✦ सम्मान ✦'
+        }
+    ];
 
+    // Motivational quotes (without images - will use same images in loop)
+    const motivationalSlides = [
+        { icon: '🦋', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है', badge: '✦ धैर्य ✦' },
+        { icon: '🌟', line1: 'जो आज तुम्हारा मज़ाक उड़ा रहे हैं', line2: 'कल वही तुम्हारी सफलता पर ताली बजाएँगे', badge: '✦ विश्वास ✦' },
+        { icon: '⚔️', line1: 'जब तक जीत नहीं मिलती', line2: 'तब तक लड़ना ही असली पहचान है', badge: '✦ संघर्ष ✦' },
+        { icon: '🎯', line1: 'अपने लक्ष्य पर नज़र रखो', line2: 'दुनिया की नज़रें तुम्हारी तरफ होंगी', badge: '✦ लक्ष्य ✦' },
+        { icon: '🌅', line1: 'हर सुबह एक नई शुरुआत है', line2: 'अपने सपनों को पंख लगाओ और उड़ान भरो', badge: '✦ शुरुआत ✦' },
+        { icon: '🙏', line1: 'जिस दिन तुमने खुद पर विश्वास कर लिया', line2: 'उस दिन दुनिया की कोई ताकत तुम्हें रोक नहीं सकती', badge: '✦ विश्वास ✦' },
+        { icon: '📈', line1: 'जीवन में उतार-चढ़ाव आते हैं', line2: 'पर हार न मानो, मंजिल पास है', badge: '✦ धैर्य ✦' },
+        { icon: '⭐', line1: 'मेहनत करो इतनी कि किस्मत भी झुक जाए', line2: 'सपने सच करने की ताकत रखो', badge: '✦ सपना ✦' },
+        { icon: '💪', line1: 'तूफानों से डरकर नाव पार नहीं होती', line2: 'हिम्मत करने वालों की कभी हार नहीं होती', badge: '✦ हिम्मत ✦' },
+        { icon: '🌊', line1: 'अपनी मेहनत इतनी ख़ामोशी से करो', line2: 'कि सफलता खुद शोर मचा दे', badge: '✦ मेहनत ✦' },
+        { icon: '🕊️', line1: 'सपने देखने वाले बहुत मिलेंगे', line2: 'उन्हें पूरा करने वाले बहुत कम होते हैं', badge: '✦ सपना ✦' },
+        { icon: '🌿', line1: 'प्रकृति से सीखो, हर पल बढ़ो', line2: 'जीवन एक उपहार है, इसे संजोओ', badge: '✦ प्रकृति ✦' },
+        { icon: '🌈', line1: 'हर बादल में एक सुनहरी रेखा होती है', line2: 'मुश्किलों के बाद ही सफलता मिलती है', badge: '✦ उम्मीद ✦' },
+        { icon: '🌺', line1: 'खिलो, महकाओ, और बढ़ो', line2: 'हर दिन नई ऊँचाइयों को छुओ', badge: '✦ विकास ✦' },
+        { icon: '🌄', line1: 'हर सुबह एक नया अवसर है', line2: 'आज का दिन आपका है, इसे जीतो', badge: '✦ नई शुरुआत ✦' },
+        { icon: '🦁', line1: 'शेर की तरह जियो, हिम्मत मत हारो', line2: 'तुम्हारी ताकत तुम्हारी पहचान है', badge: '✦ हिम्मत ✦' },
+        { icon: '🌙', line1: 'रात जितनी घनी होगी, सुबह उतनी खूबसूरत', line2: 'संघर्ष के बाद ही विजय मिलती है', badge: '✦ संघर्ष ✦' },
+        { icon: '☀️', line1: 'अपने अंदर का सूरज जगाओ', line2: 'रोशनी बनो और दुनिया को रौशन करो', badge: '✦ रोशनी ✦' },
+        { icon: '🌳', line1: 'पेड़ की तरह मजबूत बनो', line2: 'हर मौसम में खड़े रहो, हर हाल में मुस्कुराओ', badge: '✦ मजबूती ✦' },
+        { icon: '💫', line1: 'सितारों को छूने का सपना देखो', line2: 'क्योंकि तुम खुद एक सितारा हो', badge: '✦ सपना ✦' },
+        { icon: '🌊', line1: 'समुद्र की गहराई में छुपा है जादू', line2: 'अपने अंदर की गहराई को पहचानो', badge: '✦ गहराई ✦' }
+    ];
+
+    // Build final slides array: First 9 with images, rest from motivational with random images from first 9
+    let slides = [...imageSlides];
+    
+    // Add motivational slides with random images from imageSlides
+    let idx = 0;
+    while (slides.length < 30) {
+        const m = motivationalSlides[idx % motivationalSlides.length];
+        // Pick random image from imageSlides
+        const randomImg = imageSlides[Math.floor(Math.random() * imageSlides.length)].img;
+        slides.push({
+            img: randomImg,
+            icon: m.icon,
+            line1: m.line1,
+            line2: m.line2,
+            badge: m.badge
+        });
+        idx++;
+    }
+
+    return slides;
+}
             const motivationalSlides = [
                 { icon: '🚀', line1: 'अपने सपनों को पंख लगाओ', line2: 'SupriX Global के साथ आज ही शुरू करें',
                     badge: '✦ शुरुआत ✦' },
@@ -4301,6 +4428,20 @@
         window.playClappingSound = playClappingSound;
     </script>
 <script>
+    // डाउनलोड बटन पर क्लिक इवेंट
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('downloadAppBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            // यहाँ आप Google Analytics या कोई अन्य ट्रैकिंग कोड डाल सकते हैं
+            console.log('App Download started');
+            // वैकल्पिक: एक छोटा सा टोस्ट मैसेज दिखाएं
+            if (typeof showToast === 'function') {
+                showToast('📲 APK डाउनलोड शुरू हो रहा है...', 'info');
+            }
+        });
+    }
+});
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
